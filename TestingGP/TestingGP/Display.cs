@@ -1,0 +1,63 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.Configuration;
+
+namespace TestingGP
+{
+    public partial class Display : Form
+    {
+        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-3IBKO3G\SQLEXPRESS;Initial Catalog=Genealogy;Integrated Security=True");
+        SqlDataAdapter daGiaPha = null;
+        DataTable dtGiaPha = null;
+
+        public void KetNoi()
+        {
+            if (conn.State == ConnectionState.Open)
+            {
+                conn.Close();
+            }
+            conn.Open();
+        }
+
+        public void LoadData()
+        {
+            KetNoi();
+            try
+            {
+                daGiaPha = new SqlDataAdapter("select * from CAYGP", conn);
+                dtGiaPha = new DataTable();
+                daGiaPha.Fill(dtGiaPha);
+                dgvGiaPha.DataSource = dtGiaPha;
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Không thể kết nối CSDL", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public Display()
+        {
+            InitializeComponent();
+        }
+
+        private void btThem_Click(object sender, EventArgs e)
+        {
+            Add add = new Add();
+           
+            add.layDuLieu(dgvGiaPha);
+            add.ShowDialog();
+        }
+        private void Display_Load(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+    }
+}

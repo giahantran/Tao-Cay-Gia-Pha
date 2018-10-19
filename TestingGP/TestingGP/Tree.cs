@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gia_Pha
+namespace TestingGP
 {
     public class Tree
     {
         private TreeMember _top;
-        
+
         public TreeMember GetTop()
         {
             return _top;
@@ -38,7 +38,7 @@ namespace Gia_Pha
 
         private void AddElementRecursively(ref TreeMember current, int value)
         {
-            if (current==null)
+            if (current == null)
             {
                 current = new TreeMember { Value = value };
                 return;
@@ -47,7 +47,7 @@ namespace Gia_Pha
             var leftH = minHeight(current.Left);
             var rigthH = minHeight(current.Right);
 
-            if (leftH<=rigthH)
+            if (leftH <= rigthH)
             {
                 AddElementRecursively(ref current.Left, value);
             }

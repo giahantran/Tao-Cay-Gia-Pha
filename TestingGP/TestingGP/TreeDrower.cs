@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Gia_Pha
+namespace TestingGP
 {
     class TreeDrower
     {
         private const int Radius = 20;
         private const int VerticalMarging = 100;
-        private const int HorizontalMarging= 50;
+        private const int HorizontalMarging = 50;
         private readonly Font _font = SystemFonts.DefaultFont;
 
         public Size GetSize(Tree tree)
@@ -33,7 +33,7 @@ namespace Gia_Pha
         private Point DrowWithoutBorders(Graphics g, TreeMember knot, Rectangle rect)
         {
             var center = new Point(rect.Left + rect.Width / 2, rect.Top);
-            if (knot==null)
+            if (knot == null)
             {
                 DrawKnot(g, null, center.X, center.Y);
                 return center;

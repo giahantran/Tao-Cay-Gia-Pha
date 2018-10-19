@@ -8,18 +8,39 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Gia_Pha
+namespace TestingGP
 {
-    public partial class Form1 : Form
+    public partial class Create : Form
     {
         private Tree _tree;
         private readonly TreeDrower _drower;
-
-        public Form1()
+        public Create()
         {
             _tree = new Tree();
             _drower = new TreeDrower();
             InitializeComponent();
+        }
+
+        List<string> listItem;
+        private void combMenu_Click(object sender, EventArgs e)
+        {
+            listItem = new List<string>() { "Nhập cây gia phả", "Xem toàn bộ cây gia phả", "Tìm kiếm người", "Xem những người cùng thế hệ", "Thêm người vào gia phả" };
+            combMenu.DataSource = listItem;
+        }
+
+        
+        private Rectangle ResizePanel()
+        {
+            var size = _drower.GetSize(_tree);
+            drawingPanel.Width = size.Width + 2;
+            drawingPanel.Height = size.Height + 2;
+            return new Rectangle(new Point(0, 0), size);
+        }
+        
+        private void button2_Click(object sender, EventArgs e)
+        {
+            _tree = new Tree();
+            drawingPanel.Refresh();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -37,31 +58,12 @@ namespace Gia_Pha
             drawingPanel.Refresh();
         }
 
-        private Rectangle ResizePanel()
-        {
-            var size = _drower.GetSize(_tree);
-            drawingPanel.Width = size.Width + 2;
-            drawingPanel.Height = size.Height + 2;
-            return new Rectangle(new Point(0, 0), size);
-        }
-
         private void drawingPanel_Paint(object sender, PaintEventArgs e)
         {
             var graphics = drawingPanel.CreateGraphics();
             var rectangle = ResizePanel();
 
             _drower.Draw(graphics, _tree.GetTop(), rectangle);
-        }
-
-        private void resetButton_Click(object sender, EventArgs e)
-        {
-            _tree = new Tree();
-            drawingPanel.Refresh();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
