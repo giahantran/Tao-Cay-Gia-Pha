@@ -14,7 +14,9 @@ namespace TestingGP
 {
     public partial class Display : Form
     {
-        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-RRRHOP4;Initial Catalog=Genealogy;Integrated Security=True");
+        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-C99VFUB\GIAHAN;Initial Catalog=DL_GIAPHA;Integrated Security=True"); //Hân
+       
+        //SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-RRRHOP4;Initial Catalog=Genealogy;Integrated Security=True"); //na
         SqlDataAdapter daGiaPha = null;
         DataTable dtGiaPha = null;
 
@@ -32,7 +34,7 @@ namespace TestingGP
             KetNoi();
             try
             {
-                daGiaPha = new SqlDataAdapter("select * from CayGP", conn);
+                daGiaPha = new SqlDataAdapter("select * from TAO_CAY", conn);
                 dtGiaPha = new DataTable();
                 daGiaPha.Fill(dtGiaPha);
                 dgvGiaPha.DataSource = dtGiaPha;

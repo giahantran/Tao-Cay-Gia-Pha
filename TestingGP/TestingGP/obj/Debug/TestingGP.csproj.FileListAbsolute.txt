@@ -37,3 +37,16 @@ E:\Project Gia Pha\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.cspro
 E:\Project Gia Pha\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.exe
 E:\Project Gia Pha\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.pdb
 E:\Project Gia Pha\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.csprojResolveAssemblyReference.cache
+D:\Studying\CTDL-GT\Tao-Cay-Gia-Pha\TestingGP\TestingGP\bin\Debug\TestingGP.exe.config
+D:\Studying\CTDL-GT\Tao-Cay-Gia-Pha\TestingGP\TestingGP\bin\Debug\TestingGP.exe
+D:\Studying\CTDL-GT\Tao-Cay-Gia-Pha\TestingGP\TestingGP\bin\Debug\TestingGP.pdb
+D:\Studying\CTDL-GT\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.csprojAssemblyReference.cache
+D:\Studying\CTDL-GT\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.Add.resources
+D:\Studying\CTDL-GT\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.Create.resources
+D:\Studying\CTDL-GT\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.Display.resources
+D:\Studying\CTDL-GT\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.Form1.resources
+D:\Studying\CTDL-GT\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.Properties.Resources.resources
+D:\Studying\CTDL-GT\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.csproj.GenerateResource.cache
+D:\Studying\CTDL-GT\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.csproj.CoreCompileInputs.cache
+D:\Studying\CTDL-GT\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.exe
+D:\Studying\CTDL-GT\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.pdb
