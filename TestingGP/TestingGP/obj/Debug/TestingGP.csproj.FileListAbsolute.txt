@@ -1,0 +1,39 @@
+E:\Data-structures-and-algorithms\TestingGP\TestingGP\bin\Debug\TestingGP.exe.config
+E:\Data-structures-and-algorithms\TestingGP\TestingGP\bin\Debug\TestingGP.exe
+E:\Data-structures-and-algorithms\TestingGP\TestingGP\bin\Debug\TestingGP.pdb
+E:\Data-structures-and-algorithms\TestingGP\TestingGP\obj\Debug\TestingGP.csprojResolveAssemblyReference.cache
+E:\Data-structures-and-algorithms\TestingGP\TestingGP\obj\Debug\TestingGP.Form1.resources
+E:\Data-structures-and-algorithms\TestingGP\TestingGP\obj\Debug\TestingGP.Properties.Resources.resources
+E:\Data-structures-and-algorithms\TestingGP\TestingGP\obj\Debug\TestingGP.csproj.GenerateResource.Cache
+E:\Data-structures-and-algorithms\TestingGP\TestingGP\obj\Debug\TestingGP.exe
+E:\Data-structures-and-algorithms\TestingGP\TestingGP\obj\Debug\TestingGP.pdb
+E:\Data-structures-and-algorithms\TestingGP\TestingGP\obj\Debug\TestingGP.Add.resources
+E:\Data-structures-and-algorithms\TestingGP\TestingGP\obj\Debug\TestingGP.Create.resources
+E:\Data-structures-and-algorithms\TestingGP\TestingGP\obj\Debug\TestingGP.Display.resources
+E:\Project-GiaPha\Data-structures-and-algorithms\TestingGP\TestingGP\bin\Debug\TestingGP.exe.config
+E:\Project-GiaPha\Data-structures-and-algorithms\TestingGP\TestingGP\obj\Debug\TestingGP.exe
+E:\Project-GiaPha\Data-structures-and-algorithms\TestingGP\TestingGP\obj\Debug\TestingGP.pdb
+E:\Project-GiaPha\TestingGP\TestingGP\bin\Debug\TestingGP.exe.config
+E:\Project-GiaPha\TestingGP\TestingGP\obj\Debug\TestingGP.exe
+E:\Project-GiaPha\TestingGP\TestingGP\obj\Debug\TestingGP.pdb
+E:\Project-GiaPha\TestingGP\TestingGP\obj\Debug\TestingGP.csprojResolveAssemblyReference.cache
+E:\Project-GiaPha\TestingGP\TestingGP\obj\Debug\TestingGP.Add.resources
+E:\Project-GiaPha\TestingGP\TestingGP\obj\Debug\TestingGP.Create.resources
+E:\Project-GiaPha\TestingGP\TestingGP\obj\Debug\TestingGP.Display.resources
+E:\Project-GiaPha\TestingGP\TestingGP\obj\Debug\TestingGP.Form1.resources
+E:\Project-GiaPha\TestingGP\TestingGP\obj\Debug\TestingGP.Properties.Resources.resources
+E:\Project-GiaPha\TestingGP\TestingGP\obj\Debug\TestingGP.csproj.GenerateResource.Cache
+E:\Project-GiaPha\TestingGP\TestingGP\bin\Debug\TestingGP.exe
+E:\Project-GiaPha\TestingGP\TestingGP\bin\Debug\TestingGP.pdb
+E:\Project Gia Pha\Tao-Cay-Gia-Pha\TestingGP\TestingGP\bin\Debug\TestingGP.exe.config
+E:\Project Gia Pha\Tao-Cay-Gia-Pha\TestingGP\TestingGP\bin\Debug\TestingGP.exe
+E:\Project Gia Pha\Tao-Cay-Gia-Pha\TestingGP\TestingGP\bin\Debug\TestingGP.pdb
+E:\Project Gia Pha\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.Add.resources
+E:\Project Gia Pha\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.Create.resources
+E:\Project Gia Pha\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.Display.resources
+E:\Project Gia Pha\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.Form1.resources
+E:\Project Gia Pha\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.Properties.Resources.resources
+E:\Project Gia Pha\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.csproj.GenerateResource.cache
+E:\Project Gia Pha\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.exe
+E:\Project Gia Pha\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.pdb
+E:\Project Gia Pha\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.csprojResolveAssemblyReference.cache

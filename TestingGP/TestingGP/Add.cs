@@ -37,28 +37,31 @@ namespace TestingGP
 
         private void ShowTreeView()
         {
-
-            for (int i = 0; i < dt.Rows.Count - 1; i++)
+           
+            //treeViewShow.Nodes.Add(dt.Rows[1].Cells[4].Value.ToString());
+            for (int i = 2; i < dt.Rows.Count - 1; i++)
             {
-                treeViewShow.Nodes.Add(dt.Rows[i].Cells[3].Value.ToString());
-                if (i % 2 == 0)
-                {
-                    addChildNode(i);
-                }
-                //if (dt.Rows[i + 1].Cells[0].Value = )
+                treeViewShow.Nodes.Add(dt.Rows[i].Cells[4].Value.ToString());
+                //treeViewShow.Nodes.Add(dt.Rows[i].Cells[4].Value.ToString());
+                //int num = int.Parse(dt.Rows[i].Cells[4].Value.ToString());
+                // Console.WriteLine(num);
+                //if (i%2==0)
+                //{
+                //    addChildNode(i);
+                //}
             }
-            addChildNodeMMore();
-            treeViewShow.Nodes.Add(dt.Rows[0].Cells[3].Value.ToString());
-            treeViewShow.Nodes.Add(dt.Rows[1].Cells[3].Value.ToString());
+          //  addChildNodeMMore();
+            //treeViewShow.Nodes.Add(dt.Rows[0].Cells[3].Value.ToString());
+            //treeViewShow.Nodes.Add(dt.Rows[1].Cells[3].Value.ToString());
 
-            TreeNode parentNode = treeViewShow.SelectedNode ?? treeViewShow.Nodes[0];
-            List<TreeNode> Nodes = new List<TreeNode>();
-            AddChild(Nodes, parentNode);
+            //TreeNode parentNode = treeViewShow.SelectedNode ?? treeViewShow.Nodes[0];
+            //List<TreeNode> Nodes = new List<TreeNode>();
+            //AddChild(Nodes, parentNode);
 
         }
-        private void AddChild (List<TreeNode> Nodes, TreeNode Node)
+        private void AddChild(List<TreeNode> Nodes, TreeNode Node)
         {
-            foreach(TreeNode thisNode in Node.Nodes)
+            foreach (TreeNode thisNode in Node.Nodes)
             {
                 Nodes.Add(thisNode);
                 AddChild(Nodes, thisNode);
@@ -111,12 +114,109 @@ namespace TestingGP
         //        }
         //    }
         //}
+        
+        //void fill_Tree2()
 
+        //{
+
+
+
+        //    DataSet PrSet = PDataset("Select * from ParentTable");
+
+        //    treeViewShow.Nodes.Clear();
+
+        //    foreach (DataRow dr in PrSet.Tables[0].Rows)
+
+        //    {
+
+        //        TreeNode tnParent = new TreeNode();
+
+        //        tnParent.Text = dr["ParentName"].ToString();
+
+        //        tnParent.Value = dr["ParentID"].ToString();
+
+        //        tnParent.PopulateOnDemand = true;
+
+        //        tnParent.ToolTipText = "Click to get Child";
+
+        //        tnParent.SelectAction = TreeNodeSelectAction.SelectExpand;
+
+        //        tnParent.Expand();
+
+        //        tnParent.SelectedImageKey = true;
+
+        //        treeViewShow.Nodes.Add(tnParent);
+
+        //        FillChild(tnParent, tnParent.Value);
+
+        //    }
+
+
+
+        //}
+
+        //public void FillChild(TreeNode parent, string ParentId)
+
+        //{
+
+        //    DataSet ds = PDataset("Select * from ChildTable where ParentId =" + ParentId);
+
+        //    parent.ChildNodes.Clear();
+
+        //    foreach (DataRow dr in ds.Tables[0].Rows)
+
+        //    {
+
+        //        TreeNode child = new TreeNode();
+
+        //        child.Text = dr["ChildName"].ToString().Trim();
+
+        //        child.Value = dr["ChildId"].ToString().Trim();
+
+        //        if (child.ChildNodes.Count == 0)
+
+        //        {
+
+        //            child.PopulateOnDemand = true;
+
+        //        }
+
+        //        child.ToolTip = "Click to get Child";
+
+        //        child.SelectAction = TreeNodeSelectAction.SelectExpand;
+
+        //        child.CollapseAll();
+
+        //        parent.ChildNodes.Add(child);
+
+        //    }
+
+        //}
+
+
+
+        //protected DataSet PDataset(string Select_Statement)
+
+        //{
+
+        //    SqlConnection SqlCon = new SqlConnection("Data Source=;Integrated Security=True");
+
+        //    SqlDataAdapter ad = new SqlDataAdapter(Select_Statement, SqlCon);
+
+        //    DataSet ds = new DataSet();
+
+        //    ad.Fill(ds);
+
+        //    return ds;
+
+
+
+        //}
         private void Add_Load(object sender, EventArgs e)
         {
             ShowTreeView();
-           //TreeNode node = null;
-           //AddChildNode(node, 0);
+            //TreeNode node = null;
+            //AddChildNode(node, 0);
         }
 
     }

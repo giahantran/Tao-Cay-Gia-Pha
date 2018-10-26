@@ -55,10 +55,10 @@
             // 
             // lbGiaPha
             // 
-            this.lbGiaPha.Font = new System.Drawing.Font("Victorian", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbGiaPha.Location = new System.Drawing.Point(141, 82);
+            this.lbGiaPha.Font = new System.Drawing.Font("Times New Roman", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbGiaPha.Location = new System.Drawing.Point(88, 82);
             this.lbGiaPha.Name = "lbGiaPha";
-            this.lbGiaPha.Size = new System.Drawing.Size(262, 134);
+            this.lbGiaPha.Size = new System.Drawing.Size(338, 134);
             this.lbGiaPha.TabIndex = 2;
             this.lbGiaPha.Text = "Gia Phả";
             this.lbGiaPha.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
