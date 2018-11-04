@@ -79,4 +79,11 @@ namespace TestingGP
             set { ngheNghiep = value; }
         }
     }
+    public class Node
+    {
+        StructTree info;
+        Node pLeft;
+        Node pRight;
+    }
+
 }

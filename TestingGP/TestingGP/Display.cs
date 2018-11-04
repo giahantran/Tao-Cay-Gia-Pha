@@ -27,11 +27,6 @@ namespace TestingGP
                 conn.Close();
             }
             conn.Open();
-        }
-
-        public void LoadData()
-        {
-            KetNoi();
             try
             {
                 daGiaPha = new SqlDataAdapter("select * from CayGP", conn);
@@ -43,6 +38,11 @@ namespace TestingGP
             {
                 MessageBox.Show("Không thể kết nối CSDL", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        public void LoadData()
+        {
+            KetNoi();
         }
 
         public Display()
@@ -61,5 +61,28 @@ namespace TestingGP
         {
             LoadData();
         }
+        
+        private void txtbNgaySinh_Click(object sender, EventArgs e)
+        {
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.Controls.Add(this.monthCalendar1);
+
+            this.monthCalendar1.Name = "monthCalendar1";
+            Point p = new Point(75, 135);
+            this.monthCalendar1.Visible = true;
+            this.monthCalendar1.Location = p;
+            monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(monthCalendar1_DateChanged);
+        }
+
+        private void btOk_Click(object sender, EventArgs e)
+        {
+            this.monthCalendar1.Visible = false;
+        }
+
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            txtbNgaySinh.Text = e.End.ToString("MM/dd/yyyy");
+        }
+
     }
 }

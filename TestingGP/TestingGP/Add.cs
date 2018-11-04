@@ -35,22 +35,29 @@ namespace TestingGP
             dt = data;
         }
 
+
+
         private void ShowTreeView()
         {
            
             //treeViewShow.Nodes.Add(dt.Rows[1].Cells[4].Value.ToString());
-            for (int i = 2; i < dt.Rows.Count - 1; i++)
+            for (int i = 0; i < dt.Rows.Count - 1; i++)
             {
-                treeViewShow.Nodes.Add(dt.Rows[i].Cells[4].Value.ToString());
                 //treeViewShow.Nodes.Add(dt.Rows[i].Cells[4].Value.ToString());
-                //int num = int.Parse(dt.Rows[i].Cells[4].Value.ToString());
-                // Console.WriteLine(num);
-                //if (i%2==0)
-                //{
-                //    addChildNode(i);
-                //}
+                treeViewShow.Nodes.Add(dt.Rows[i].Cells[4].Value.ToString());
+               // int num = int.Parse(dt.Rows[i].Cells[4].Value.ToString());
+               // Console.WriteLine(num);
+                if (i % 2 == 0)
+                {
+                   //addChildNode(i);
+                }
             }
-          //  addChildNodeMMore();
+            treeViewShow.Nodes.Add(dt.Rows[1].Cells[4].Value.ToString());
+            addChildNode(1, dt.Rows[2].Cells[4].Value.ToString());
+            addChildNode(1, dt.Rows[3].Cells[4].Value.ToString());
+
+
+            //  addChildNodeMMore();
             //treeViewShow.Nodes.Add(dt.Rows[0].Cells[3].Value.ToString());
             //treeViewShow.Nodes.Add(dt.Rows[1].Cells[3].Value.ToString());
 
@@ -58,6 +65,13 @@ namespace TestingGP
             //List<TreeNode> Nodes = new List<TreeNode>();
             //AddChild(Nodes, parentNode);
 
+        }
+        private void dequy(int i,int j)
+        {
+            for(int i1=i;i1<=j;i1++)
+            {
+
+            }
         }
         private void AddChild(List<TreeNode> Nodes, TreeNode Node)
         {
@@ -67,9 +81,9 @@ namespace TestingGP
                 AddChild(Nodes, thisNode);
             }
         }
-        private void addChildNode(int index)
+        private void addChildNode(int index,string str)
         {
-            var childNode = "NA";
+            var childNode = str;
             if (!string.IsNullOrEmpty(childNode))
             {
                 TreeNode parentNode = treeViewShow.SelectedNode ?? treeViewShow.Nodes[index];

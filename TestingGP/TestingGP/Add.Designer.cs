@@ -90,9 +90,9 @@
             // 
             // treeViewShow
             // 
-            this.treeViewShow.Location = new System.Drawing.Point(628, 12);
+            this.treeViewShow.Location = new System.Drawing.Point(346, 12);
             this.treeViewShow.Name = "treeViewShow";
-            this.treeViewShow.Size = new System.Drawing.Size(292, 486);
+            this.treeViewShow.Size = new System.Drawing.Size(574, 486);
             this.treeViewShow.TabIndex = 6;
             // 
             // Add
