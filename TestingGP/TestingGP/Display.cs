@@ -69,29 +69,39 @@ namespace TestingGP
         }
         private void Display_Load(object sender, EventArgs e)
         {
+            for (int i = 2020; i >= 1700; i--)
+            {
+                combNamMat.Items.Add(i);
+            }
+            for (int i = 1; i <= 1000; i++)
+            {
+                combMaTV.Items.Add(i);
+                combTheHe.Items.Add(i);
+            }
             LoadData();
         }
 
         private void txtbNgaySinh_Click(object sender, EventArgs e)
         {
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            this.Controls.Add(this.monthCalendar1);
+            //this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            //this.Controls.Add(this.monthCalendar1);
 
-            this.monthCalendar1.Name = "monthCalendar1";
-            Point p = new Point(75, 135);
-            this.monthCalendar1.Visible = true;
-            this.monthCalendar1.Location = p;
-            monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(monthCalendar1_DateChanged);
+            //this.monthCalendar1.Name = "monthCalendar1";
+            //Point p = new Point(75, 135);
+            //this.monthCalendar1.Visible = true;
+            //this.monthCalendar1.Location = p;
+            //monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(monthCalendar1_DateChanged);
         }
 
         private void btOk_Click(object sender, EventArgs e)
         {
-            this.monthCalendar1.Visible = false;
+          //  this.monthCalendar1.Visible = false;
         }
+
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
-            txtbNgaySinh.Text = e.End.ToString("MM/dd/yyyy");
+           // txtbNgaySinh.Text = e.End.ToString("MM/dd/yyyy");
         }
 
         private void btXoa_Click(object sender, EventArgs e)
@@ -107,6 +117,6 @@ namespace TestingGP
             cmd.ExecuteNonQuery();
             KetNoi();
         }
-        
+
     }
 }
