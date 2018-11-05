@@ -52,16 +52,26 @@ namespace TestingGP
 
         private void btThem_Click(object sender, EventArgs e)
         {
-            Add add = new Add();
-           
-            add.layDuLieu(dgvGiaPha);
-            add.ShowDialog();
+            //Add add = new Add();
+            //add.layDuLieu(dgvGiaPha);
+            //add.ShowDialog();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandType = CommandType.Text;
+
+            cmd.CommandText = "insert into CayGP values ('" +
+                this.combMaTV.Text + "', '" +
+                this.combTheHe.Text + "', null, '" +
+                //this.checkBThuocGP.Text + "', '" +
+                this.txtbHoTen.Text + "',null,null,null,null,null,null,null,null,null)";
+            cmd.ExecuteNonQuery();
+            KetNoi();
         }
         private void Display_Load(object sender, EventArgs e)
         {
             LoadData();
         }
-        
+
         private void txtbNgaySinh_Click(object sender, EventArgs e)
         {
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
@@ -84,5 +94,19 @@ namespace TestingGP
             txtbNgaySinh.Text = e.End.ToString("MM/dd/yyyy");
         }
 
+        private void btXoa_Click(object sender, EventArgs e)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandType = CommandType.Text;
+
+            int r = dgvGiaPha.CurrentCell.RowIndex;
+            string sID = dgvGiaPha.Rows[r].Cells[0].Value.ToString();
+            string sTH = dgvGiaPha.Rows[r].Cells[1].Value.ToString();
+            cmd.CommandText = "delete from CayGP where ID = " + sID + " and ThếHệ = " + sTH + "";
+            cmd.ExecuteNonQuery();
+            KetNoi();
+        }
+        
     }
 }
