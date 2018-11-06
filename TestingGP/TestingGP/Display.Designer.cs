@@ -63,6 +63,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.txtBHoTenVC = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.btTaoMoi = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGiaPha)).BeginInit();
             this.SuspendLayout();
             // 
@@ -113,7 +114,7 @@
             // 
             // btXoa
             // 
-            this.btXoa.Location = new System.Drawing.Point(129, 598);
+            this.btXoa.Location = new System.Drawing.Point(144, 598);
             this.btXoa.Name = "btXoa";
             this.btXoa.Size = new System.Drawing.Size(82, 34);
             this.btXoa.TabIndex = 5;
@@ -270,7 +271,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(26, 387);
+            this.label8.Location = new System.Drawing.Point(24, 387);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(99, 17);
             this.label8.TabIndex = 23;
@@ -336,7 +337,7 @@
             this.txtBHoTenCon.Location = new System.Drawing.Point(29, 450);
             this.txtBHoTenCon.Multiline = true;
             this.txtBHoTenCon.Name = "txtBHoTenCon";
-            this.txtBHoTenCon.Size = new System.Drawing.Size(182, 139);
+            this.txtBHoTenCon.Size = new System.Drawing.Size(197, 139);
             this.txtBHoTenCon.TabIndex = 31;
             // 
             // txtBGhiChu
@@ -366,18 +367,29 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Windsor", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(81, 23);
+            this.label13.Font = new System.Drawing.Font("UVN Nhan Nang", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(24, 24);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(313, 47);
+            this.label13.Size = new System.Drawing.Size(217, 28);
             this.label13.TabIndex = 35;
-            this.label13.Text = "Thông tin chi tiết  ";
+            this.label13.Text = "Nhập thông tin chi tiết";
+            // 
+            // btTaoMoi
+            // 
+            this.btTaoMoi.Location = new System.Drawing.Point(29, 598);
+            this.btTaoMoi.Name = "btTaoMoi";
+            this.btTaoMoi.Size = new System.Drawing.Size(82, 34);
+            this.btTaoMoi.TabIndex = 36;
+            this.btTaoMoi.Text = "Tạo mới";
+            this.btTaoMoi.UseVisualStyleBackColor = true;
+            this.btTaoMoi.Click += new System.EventHandler(this.btTaoMoi_Click);
             // 
             // Display
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1190, 653);
+            this.Controls.Add(this.btTaoMoi);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.txtBGhiChu);
@@ -459,5 +471,6 @@
         private System.Windows.Forms.TextBox txtBHoTenVC;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox combTheHe;
+        private System.Windows.Forms.Button btTaoMoi;
     }
 }

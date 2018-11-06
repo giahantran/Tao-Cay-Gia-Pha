@@ -40,11 +40,6 @@ namespace TestingGP
             }
         }
 
-        public void LoadData()
-        {
-            KetNoi();
-        }
-
         public Display()
         {
             InitializeComponent();
@@ -63,45 +58,56 @@ namespace TestingGP
                 this.combMaTV.Text + "', '" +
                 this.combTheHe.Text + "', null, '" +
                 //this.checkBThuocGP.Text + "', '" +
-                this.txtbHoTen.Text + "',null,null,null,null,null,null,null,null,null)";
+                this.txtbHoTen.Text + "',null,'" +
+                this.txtbNgaySinh.Text + "','" +
+                this.combNamMat.Text + "','" +
+                this.txtBQueQuan.Text + "','" +
+                this.txtBNgheNghiep.Text + "','" +
+                this.txtBHotenCha.Text + "','" +
+                this.txtBHoTenMe.Text + "','" +
+                this.txtBHoTenVC.Text + "','" +
+                this.txtBHoTenCon.Text + "','" +
+                this.txtBGhiChu.Text + "')";
             cmd.ExecuteNonQuery();
+            MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.None);
             KetNoi();
         }
+
         private void Display_Load(object sender, EventArgs e)
         {
             for (int i = 2020; i >= 1700; i--)
             {
-                combNamMat.Items.Add(i);
+                combNamMat.Items.Add(i).ToString();
             }
             for (int i = 1; i <= 1000; i++)
             {
-                combMaTV.Items.Add(i);
-                combTheHe.Items.Add(i);
+                combMaTV.Items.Add(i).ToString();
+                combTheHe.Items.Add(i).ToString();
             }
-            LoadData();
+            KetNoi();
         }
 
         private void txtbNgaySinh_Click(object sender, EventArgs e)
         {
-            //this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            //this.Controls.Add(this.monthCalendar1);
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.Controls.Add(this.monthCalendar1);
 
-            //this.monthCalendar1.Name = "monthCalendar1";
-            //Point p = new Point(75, 135);
-            //this.monthCalendar1.Visible = true;
-            //this.monthCalendar1.Location = p;
-            //monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(monthCalendar1_DateChanged);
+            this.monthCalendar1.Name = "monthCalendar1";
+            Point p = new Point(75, 135);
+            this.monthCalendar1.Visible = true;
+            this.monthCalendar1.Location = p;
+            monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(monthCalendar1_DateChanged);
         }
 
         private void btOk_Click(object sender, EventArgs e)
         {
-          //  this.monthCalendar1.Visible = false;
+            this.monthCalendar1.Visible = false;
         }
 
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
-           // txtbNgaySinh.Text = e.End.ToString("MM/dd/yyyy");
+            txtbNgaySinh.Text = e.End.ToString("MM/dd/yyyy");
         }
 
         private void btXoa_Click(object sender, EventArgs e)
@@ -118,5 +124,23 @@ namespace TestingGP
             KetNoi();
         }
 
+        private void btTaoMoi_Click(object sender, EventArgs e)
+        {
+            this.combMaTV.Items.Clear();
+            this.combTheHe.Items.Clear();
+            this.checkBThuocGP.Checked = false;
+            this.txtbHoTen.Text = "";
+            this.checkBGioiTinh.Checked = false;
+            this.txtbNgaySinh.Text = "";
+            this.combNamMat.Items.Clear();
+            this.txtBQueQuan.Text = "";
+            this.txtBNgheNghiep.Text = "";
+            this.txtBHotenCha.Text = "";
+            this.txtBHoTenMe.Text = "";
+            this.txtBHoTenVC.Text = "";
+            this.txtBHoTenCon.Text = "";
+            this.txtBGhiChu.Text = "";
+            Display_Load(sender, e);
+        }
     }
 }
