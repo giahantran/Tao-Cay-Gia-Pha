@@ -33,6 +33,7 @@ namespace TestingGP
                 dtGiaPha = new DataTable();
                 daGiaPha.Fill(dtGiaPha);
                 dgvGiaPha.DataSource = dtGiaPha;
+                dgvGiaPha.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             }
             catch (SqlException)
             {
@@ -44,7 +45,7 @@ namespace TestingGP
         {
             InitializeComponent();
         }
-
+        
         private void btThem_Click(object sender, EventArgs e)
         {
             //Add add = new Add();
@@ -59,8 +60,8 @@ namespace TestingGP
                 this.combTheHe.Text + "', null, '" +
                 //this.checkBThuocGP.Text + "', '" +
                 this.txtbHoTen.Text + "',null,'" +
-                this.txtbNgaySinh.Text + "','" +
-                this.combNamMat.Text + "','" +
+                this.dateTimePicker1.Text + "','" +
+                this.dateTimePicker2.Text + "','" +
                 this.txtBQueQuan.Text + "','" +
                 this.txtBNgheNghiep.Text + "','" +
                 this.txtBHotenCha.Text + "','" +
@@ -75,10 +76,6 @@ namespace TestingGP
 
         private void Display_Load(object sender, EventArgs e)
         {
-            for (int i = 2020; i >= 1700; i--)
-            {
-                combNamMat.Items.Add(i).ToString();
-            }
             for (int i = 1; i <= 1000; i++)
             {
                 combMaTV.Items.Add(i).ToString();
@@ -86,30 +83,7 @@ namespace TestingGP
             }
             KetNoi();
         }
-
-        private void txtbNgaySinh_Click(object sender, EventArgs e)
-        {
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            this.Controls.Add(this.monthCalendar1);
-
-            this.monthCalendar1.Name = "monthCalendar1";
-            Point p = new Point(75, 135);
-            this.monthCalendar1.Visible = true;
-            this.monthCalendar1.Location = p;
-            monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(monthCalendar1_DateChanged);
-        }
-
-        private void btOk_Click(object sender, EventArgs e)
-        {
-            this.monthCalendar1.Visible = false;
-        }
-
-
-        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
-        {
-            txtbNgaySinh.Text = e.End.ToString("MM/dd/yyyy");
-        }
-
+        
         private void btXoa_Click(object sender, EventArgs e)
         {
             SqlCommand cmd = new SqlCommand();
@@ -119,7 +93,7 @@ namespace TestingGP
             int r = dgvGiaPha.CurrentCell.RowIndex;
             string sID = dgvGiaPha.Rows[r].Cells[0].Value.ToString();
             string sTH = dgvGiaPha.Rows[r].Cells[1].Value.ToString();
-            cmd.CommandText = "delete from CayGP where ID = " + sID + " and ThếHệ = " + sTH + "";
+            cmd.CommandText = "delete from CayGP where ID = " + sID + " and [Thế Hệ] = " + sTH + "";
             cmd.ExecuteNonQuery();
             KetNoi();
         }
@@ -131,8 +105,8 @@ namespace TestingGP
             this.checkBThuocGP.Checked = false;
             this.txtbHoTen.Text = "";
             this.checkBGioiTinh.Checked = false;
-            this.txtbNgaySinh.Text = "";
-            this.combNamMat.Items.Clear();
+            this.dateTimePicker1.Text = "";
+            this.dateTimePicker2.Text = "";
             this.txtBQueQuan.Text = "";
             this.txtBNgheNghiep.Text = "";
             this.txtBHotenCha.Text = "";
