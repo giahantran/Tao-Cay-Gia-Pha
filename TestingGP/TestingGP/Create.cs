@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace TestingGP
 {
-    public partial class Create : Form
+    public partial class FormCreate : Form
     {
         private Tree _tree;
         private readonly TreeDrower _drower;
-        public Create()
+        public FormCreate()
         {
             _tree = new Tree();
             _drower = new TreeDrower();

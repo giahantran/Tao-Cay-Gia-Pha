@@ -12,7 +12,7 @@ using System.Configuration;
 
 namespace TestingGP
 {
-    public partial class Display : Form
+    public partial class FormDisplay : Form
     {
         //SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-C99VFUB\GIAHAN;Initial Catalog=DL_GIAPHA;Integrated Security=True"); //Hân
         //SqlConnection conn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=GIAPHA;Integrated Security=True"); //Văn
@@ -34,6 +34,8 @@ namespace TestingGP
                 daGiaPha.Fill(dtGiaPha);
                 dgvGiaPha.DataSource = dtGiaPha;
                 dgvGiaPha.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                dgvGiaPha.AllowUserToAddRows = false; //không cho thêm trực tiếp
+                dgvGiaPha.EditMode = DataGridViewEditMode.EditProgrammatically; //không chỉnh sửa trực tiếp
             }
             catch (SqlException)
             {
@@ -41,25 +43,30 @@ namespace TestingGP
             }
         }
 
-        public Display()
+        public FormDisplay()
         {
             InitializeComponent();
         }
-        
+
         private void btThem_Click(object sender, EventArgs e)
         {
-            //Add add = new Add();
-            //add.layDuLieu(dgvGiaPha);
-            //add.ShowDialog();
+            FormAdd add = new FormAdd();
+            add.layDuLieu(dgvGiaPha);
+            add.ShowDialog();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conn;
             cmd.CommandType = CommandType.Text;
-
+            string gt, tgp;
+            if (checkBGioiTinh.Checked == false) gt = "Nữ";
+            else gt = "Nam";
+            if (checkBThuocGP.Checked == false) tgp = "Không";
+            else tgp = "Có";
             cmd.CommandText = "insert into CayGP values ('" +
                 this.combMaTV.Text + "', '" +
-                this.combTheHe.Text + "', null, '" +
-                //this.checkBThuocGP.Text + "', '" +
-                this.txtbHoTen.Text + "',null,'" +
+                this.combTheHe.Text + "', '" +
+                tgp + "', '" +
+                this.txtbHoTen.Text + "', '" +
+                gt + "','" +
                 this.dateTimePicker1.Text + "','" +
                 this.dateTimePicker2.Text + "','" +
                 this.txtBQueQuan.Text + "','" +
@@ -83,7 +90,7 @@ namespace TestingGP
             }
             KetNoi();
         }
-        
+
         private void btXoa_Click(object sender, EventArgs e)
         {
             SqlCommand cmd = new SqlCommand();

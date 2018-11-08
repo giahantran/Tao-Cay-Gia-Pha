@@ -1,6 +1,6 @@
 ﻿namespace TestingGP
 {
-    partial class Create
+    partial class FormCreate
     {
         /// <summary>
         /// Required designer variable.
@@ -97,6 +97,7 @@
             // 
             // button1
             // 
+            this.button1.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(856, 34);
             this.button1.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.button1.Name = "button1";
@@ -114,7 +115,7 @@
             this.textBox1.Size = new System.Drawing.Size(333, 22);
             this.textBox1.TabIndex = 0;
             // 
-            // Create
+            // FormCreate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -125,7 +126,7 @@
             this.Controls.Add(this.combMenu);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Create";
+            this.Name = "FormCreate";
             this.Text = "Create";
             this.Click += new System.EventHandler(this.combMenu_Click);
             this.panel.ResumeLayout(false);

@@ -12,14 +12,97 @@ using System.Configuration;
 
 namespace TestingGP
 {
-    public partial class Add : Form
+    public partial class FormAdd : Form
     {
-        public Add()
+        public FormAdd()
         {
             InitializeComponent();
 
         }
-
+        public List<List> ClassGiaPha { get; set; }
+        public class GIAPHA
+        {
+            public int keyID, theHe, parent;
+            public string hoTen, cha, me, tenVoChong, tenCon;
+            public bool gioiTinh = true, thuocGP = true; //true = nam, true = có trong gia phả
+            public string namSinh, namMat;
+            public string noiSinh, ngheNghiep, ghiChu;
+        }
+        public class List : FormAdd
+        {
+            public class Node
+            {
+                public GIAPHA info;
+                public Node pNext;
+            }
+            Node pHead;
+            Node pTail;
+            public List()
+            {
+                pHead = pTail = null;
+            }
+            Node CreateNode(GIAPHA gp)
+            {
+                Node p = new Node();
+                if (p != null)
+                {
+                    p.info = gp;
+                    p.pNext = null;
+                }
+                else
+                {
+                    MessageBox.Show("Không đủ bộ nhớ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                return p;
+            }
+            public void AddTail(List l, Node p)
+            {
+                if (l.pHead == null)
+                {
+                    l.pHead = l.pTail = p;
+                }
+                else
+                {
+                    l.pTail.pNext = p;
+                    p.pNext = null;
+                    l.pTail = p;
+                }
+            }
+            public void AddNodeTail(List l, GIAPHA gp)
+            {
+                Node p = CreateNode(gp);
+                if (p != null) AddTail(l, p);
+                else MessageBox.Show("Không đủ bộ nhớ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            public void CreateGiaPha(List l, GIAPHA gp)
+            {
+                treeViewShow.Visible = false;
+                dgvGiaPha.Visible = true;
+                gp.keyID = Convert.ToInt32(combMaTV.Text);
+                gp.theHe = Convert.ToInt32(combTheHe.Text);
+                gp.parent = Convert.ToInt32(txtParent.Text);
+                gp.hoTen = txtbHoTen.Text.ToString();
+                gp.cha = txtBHotenCha.Text.ToString();
+                gp.me = txtBHoTenMe.Text.ToString();
+                gp.tenVoChong = txtBHoTenVC.Text.ToString();
+                gp.tenCon = txtBHoTenCon.Text.ToString();
+                if (checkBGioiTinh.Checked == true) gp.gioiTinh = true;
+                else gp.gioiTinh = false;
+                if (checkBThuocGP.Checked == true) gp.thuocGP = true;
+                else gp.thuocGP = false;
+                gp.namSinh = dateNgaySinh.Text.ToString();
+                gp.namMat = dateNgayMat.Text.ToString();
+                gp.noiSinh = txtBQueQuan.Text.ToString();
+                gp.ngheNghiep = txtBNgheNghiep.Text.ToString();
+                gp.ghiChu = txtBGhiChu.Text.ToString();
+                AddNodeTail(l, gp);
+            }
+        }
+        /// <summary>
+        /// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void btHuy_Click(object sender, EventArgs e)
         {
@@ -39,17 +122,13 @@ namespace TestingGP
 
         private void ShowTreeView()
         {
-           
-            //treeViewShow.Nodes.Add(dt.Rows[1].Cells[4].Value.ToString());
             for (int i = 0; i < dt.Rows.Count - 1; i++)
             {
-                //treeViewShow.Nodes.Add(dt.Rows[i].Cells[4].Value.ToString());
-                treeViewShow.Nodes.Add(dt.Rows[i].Cells[4].Value.ToString());
-               // int num = int.Parse(dt.Rows[i].Cells[4].Value.ToString());
-               // Console.WriteLine(num);
+                treeViewShow.Nodes.Add(dt.Rows[i].Cells[3].Value.ToString());
                 if (i % 2 == 0)
                 {
-                   //addChildNode(i);
+
+                    //addChildNode(1, dt.Rows[i].Cells[3].Value.ToString());
                 }
             }
             treeViewShow.Nodes.Add(dt.Rows[1].Cells[4].Value.ToString());
@@ -66,9 +145,9 @@ namespace TestingGP
             //AddChild(Nodes, parentNode);
 
         }
-        private void dequy(int i,int j)
+        private void dequy(int i, int j)
         {
-            for(int i1=i;i1<=j;i1++)
+            for (int i1 = i; i1 <= j; i1++)
             {
 
             }
@@ -81,7 +160,7 @@ namespace TestingGP
                 AddChild(Nodes, thisNode);
             }
         }
-        private void addChildNode(int index,string str)
+        private void addChildNode(int index, string str)
         {
             var childNode = str;
             if (!string.IsNullOrEmpty(childNode))
@@ -128,7 +207,7 @@ namespace TestingGP
         //        }
         //    }
         //}
-        
+
         //void fill_Tree2()
 
         //{
