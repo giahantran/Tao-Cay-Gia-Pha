@@ -29,7 +29,7 @@ namespace TestingGP
             conn.Open();
             try
             {
-                daGiaPha = new SqlDataAdapter("select * from thongtingiapha", conn);
+                daGiaPha = new SqlDataAdapter("select * from CayGP", conn);
                 dtGiaPha = new DataTable();
                 daGiaPha.Fill(dtGiaPha);
                 dgvGiaPha.DataSource = dtGiaPha;

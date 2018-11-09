@@ -21,12 +21,12 @@ namespace TestingGP
         private void Ketnoicsdl()
         {
             cnn.Open();
-            string sql1 = "select * from thongtingiapha where [Thế hệ]=1";
-            string sql2 = "select * from thongtingiapha where [Thế hệ]=2";
-            string sql3 = "select * from thongtingiapha where [Thế hệ]=3";
-            string sql4 = "select * from thongtingiapha where [Thế hệ]=4";
-            string sql5 = "select * from thongtingiapha where [Thế hệ]=5";
-            string sql6 = "select * from thongtingiapha where [Thế hệ]=6";
+            string sql1 = "select * from CayGP where [Thế hệ]=1";
+            string sql2 = "select * from CayGP where [Thế hệ]=2";
+            string sql3 = "select * from CayGP where [Thế hệ]=3";
+            string sql4 = "select * from CayGP where [Thế hệ]=4";
+            string sql5 = "select * from CayGP where [Thế hệ]=5";
+            string sql6 = "select * from CayGP where [Thế hệ]=6";
             string sql = "";
             if (comboBox1.Text == "1")
                 sql = sql1;
