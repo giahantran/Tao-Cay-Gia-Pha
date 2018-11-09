@@ -45,7 +45,11 @@ namespace TestingGP
         }
         public void AddTail(List l, Node p)
         {
+<<<<<<< HEAD
             if (pHead == null)
+=======
+            /*if (l.pHead == null)
+>>>>>>> cebad16c1e8390a6c4c1ac783329d487de9a3afd
             {
                 pHead = pTail = p;
             }
@@ -53,8 +57,13 @@ namespace TestingGP
             {
                 pTail.pNext = p;
                 p.pNext = null;
+<<<<<<< HEAD
                 pTail = p;
             }
+=======
+                l.pTail = p;
+            }*/
+>>>>>>> cebad16c1e8390a6c4c1ac783329d487de9a3afd
         }
         public void AddNodeTail(List l, GIAPHA gp)
         {

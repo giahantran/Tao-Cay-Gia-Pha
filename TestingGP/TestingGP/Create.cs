@@ -66,5 +66,14 @@ namespace TestingGP
             _drower.Draw(graphics, _tree.GetTop(), rectangle);
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (combMenu.Text == "Xem những người cùng thế hệ")
+            {
+                Form2 f = new Form2();
+                f.Show();
+
+            }
+        }
     }
 }
