@@ -75,5 +75,11 @@ namespace TestingGP
 
             }
         }
+
+        private void mnuTaoGPCreate_Click(object sender, EventArgs e)
+        {
+            FormAdd creGiaPha = new FormAdd();
+            creGiaPha.Show();
+        }
     }
 }

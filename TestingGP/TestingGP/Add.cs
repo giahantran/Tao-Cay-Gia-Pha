@@ -17,93 +17,7 @@ namespace TestingGP
         public FormAdd()
         {
             InitializeComponent();
-
         }
-        public List<List> ClassGiaPha { get; set; }
-        public class GIAPHA
-        {
-            public int keyID, theHe, parent;
-            public string hoTen, cha, me, tenVoChong, tenCon;
-            public bool gioiTinh = true, thuocGP = true; //true = nam, true = có trong gia phả
-            public string namSinh, namMat;
-            public string noiSinh, ngheNghiep, ghiChu;
-        }
-        public class List : FormAdd
-        {
-            public class Node
-            {
-                public GIAPHA info;
-                public Node pNext;
-            }
-            Node pHead;
-            Node pTail;
-            public List()
-            {
-                pHead = pTail = null;
-            }
-            Node CreateNode(GIAPHA gp)
-            {
-                Node p = new Node();
-                if (p != null)
-                {
-                    p.info = gp;
-                    p.pNext = null;
-                }
-                else
-                {
-                    MessageBox.Show("Không đủ bộ nhớ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                return p;
-            }
-            public void AddTail(List l, Node p)
-            {
-                if (l.pHead == null)
-                {
-                    l.pHead = l.pTail = p;
-                }
-                else
-                {
-                    l.pTail.pNext = p;
-                    p.pNext = null;
-                    l.pTail = p;
-                }
-            }
-            public void AddNodeTail(List l, GIAPHA gp)
-            {
-                Node p = CreateNode(gp);
-                if (p != null) AddTail(l, p);
-                else MessageBox.Show("Không đủ bộ nhớ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            public void CreateGiaPha(List l, GIAPHA gp)
-            {
-                treeViewShow.Visible = false;
-                dgvGiaPha.Visible = true;
-                gp.keyID = Convert.ToInt32(combMaTV.Text);
-                gp.theHe = Convert.ToInt32(combTheHe.Text);
-                gp.parent = Convert.ToInt32(txtParent.Text);
-                gp.hoTen = txtbHoTen.Text.ToString();
-                gp.cha = txtBHotenCha.Text.ToString();
-                gp.me = txtBHoTenMe.Text.ToString();
-                gp.tenVoChong = txtBHoTenVC.Text.ToString();
-                gp.tenCon = txtBHoTenCon.Text.ToString();
-                if (checkBGioiTinh.Checked == true) gp.gioiTinh = true;
-                else gp.gioiTinh = false;
-                if (checkBThuocGP.Checked == true) gp.thuocGP = true;
-                else gp.thuocGP = false;
-                gp.namSinh = dateNgaySinh.Text.ToString();
-                gp.namMat = dateNgayMat.Text.ToString();
-                gp.noiSinh = txtBQueQuan.Text.ToString();
-                gp.ngheNghiep = txtBNgheNghiep.Text.ToString();
-                gp.ghiChu = txtBGhiChu.Text.ToString();
-                AddNodeTail(l, gp);
-            }
-        }
-        /// <summary>
-        /// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-
         private void btHuy_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -117,21 +31,114 @@ namespace TestingGP
         {
             dt = data;
         }
+        //
+        public class GIAPHA
+        {
+            public int keyNode;
+            public int iD, theHe;
+            public string hoTen, cha, me, tenVoChong, tenCon;
+            public string gioiTinh, thuocGP; //true = nam, true = có trong gia phả
+            public string namSinh, namMat;
+            public string noiSinh, ngheNghiep, ghiChu;
+        }
+        public class BinaryTree
+        {
+            private GIAPHA info;
+            private BinaryTree pLeft;
+            private BinaryTree pRight;
+            public BinaryTree(int key, GIAPHA gp)
+            {
+                info = gp;
+                info.keyNode = key;
+                pLeft = pRight = null;
+            }
+            public BinaryTree pleft
+            {
+                get { return pLeft; }
+                set { pLeft = value; }
+            }
+            public BinaryTree pright
+            {
+                get { return pRight; }
+                set { pRight = value; }
+            }
+            public GIAPHA inFO
+            {
+                get { return info; }
+                set { info = value; }
+            }
+            public void AddNode(int key, GIAPHA gp)
+            {
+                if (key == info.keyNode)
+                {
+                    MessageBox.Show("Thông tin đã có trong gia phả", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else if (key < info.keyNode)
+                {
+                    if (pLeft == null) pLeft = new BinaryTree(key, gp);
+                    else pLeft.AddNode(key, gp);
+                }
+                else
+                {
+                    if (pRight == null) pRight = new BinaryTree(key, gp);
+                    else pRight.AddNode(key, gp);
+                }
+            }
+        }
+        public class BTree : FormAdd
+        {
+            public BinaryTree root;
+            public BTree()
+            {
+                root = null;
+            }
+            public void InsertNode(int key, GIAPHA gp)
+            {
+                if (root == null)
+                    root = new BinaryTree(key, gp);
+                else root.AddNode(key, gp);
+            }
+            public void CreateGP(GIAPHA gp)
+            {
+                gp.iD = Convert.ToInt32(combMaTV.Text);
+                gp.theHe = Convert.ToInt32(combTheHe.Text);
+                gp.hoTen = txtbHoTen.Text;
+                gp.cha = txtBHotenCha.Text;
+                gp.me = txtBHoTenMe.Text;
+                gp.tenVoChong = txtBHoTenVC.Text;
+                gp.tenCon = txtBHoTenCon.Text;
+                if (checkBGioiTinh.Checked == true) gp.gioiTinh = "Nam";
+                else gp.gioiTinh = "Nữ";
+                if (checkBThuocGP.Checked == true) gp.thuocGP = "Có";
+                else gp.thuocGP = "Không";
+                gp.namSinh = DateTime.Parse(dateNgaySinh.Text).ToString();
+                gp.namMat = DateTime.Parse(dateNgayMat.Text).ToString();
+                gp.ngheNghiep = txtBNgheNghiep.Text;
+                gp.noiSinh = txtBQueQuan.Text;
+                gp.ghiChu = txtBGhiChu.Text;
+            }
+        }
+
+        private void FormAdd_Load(object sender, EventArgs e)
+        {
+            
+        }
 
 
 
+        /*
         private void ShowTreeView()
         {
             for (int i = 0; i < dt.Rows.Count - 1; i++)
             {
-                treeViewShow.Nodes.Add(dt.Rows[i].Cells[3].Value.ToString());
+                treeViewShowAdd.Nodes.Add(dt.Rows[i].Cells[3].Value.ToString());
                 if (i % 2 == 0)
                 {
-
                     //addChildNode(1, dt.Rows[i].Cells[3].Value.ToString());
                 }
             }
-            treeViewShow.Nodes.Add(dt.Rows[1].Cells[4].Value.ToString());
+            treeViewShowAdd.Nodes.Add(dt.Rows[1].Cells[4].Value.ToString());
             addChildNode(1, dt.Rows[2].Cells[4].Value.ToString());
             addChildNode(1, dt.Rows[3].Cells[4].Value.ToString());
 
@@ -165,152 +172,31 @@ namespace TestingGP
             var childNode = str;
             if (!string.IsNullOrEmpty(childNode))
             {
-                TreeNode parentNode = treeViewShow.SelectedNode ?? treeViewShow.Nodes[index];
+                TreeNode parentNode = treeViewShowAdd.SelectedNode ?? treeViewShowAdd.Nodes[index];
                 if (parentNode != null)
                 {
                     parentNode.Nodes.Add(childNode);
-                    treeViewShow.ExpandAll();
+                    treeViewShowAdd.ExpandAll();
                 }
             }
         }
-
         private void addChildNodeMMore()
         {
             var childNode = "NA xam";
             if (!string.IsNullOrEmpty(childNode))
             {
-                TreeNode parentNode = treeViewShow.SelectedNode ?? treeViewShow.Nodes[0].Nodes[0];
+                TreeNode parentNode = treeViewShowAdd.SelectedNode ?? treeViewShowAdd.Nodes[0].Nodes[0];
                 if (parentNode != null)
                 {
                     parentNode.Nodes.Add(childNode);
-                    treeViewShow.ExpandAll();
+                    treeViewShowAdd.ExpandAll();
                 }
             }
         }
-
-        //private void AddChildNode(TreeNode parentNode, int parent)
-        //{
-        //    foreach (DataRow dr in dt.Rows)
-        //    {
-        //        TreeNode node = new TreeNode();
-        //        node.Text = dr["HOTEN"].ToString();
-        //        int childNode = Convert.ToInt32(dr["ID"]);
-        //        if(parentNode==null || parent==0)
-        //        {
-        //            AddChildNode(node, childNode);
-        //            treeViewShow.Nodes.Add(node);
-        //        }
-        //        else
-        //        {
-        //            AddChildNode(node, childNode);
-        //         //   parentNode..Add(node);
-        //        }
-        //    }
-        //}
-
-        //void fill_Tree2()
-
-        //{
-
-
-
-        //    DataSet PrSet = PDataset("Select * from ParentTable");
-
-        //    treeViewShow.Nodes.Clear();
-
-        //    foreach (DataRow dr in PrSet.Tables[0].Rows)
-
-        //    {
-
-        //        TreeNode tnParent = new TreeNode();
-
-        //        tnParent.Text = dr["ParentName"].ToString();
-
-        //        tnParent.Value = dr["ParentID"].ToString();
-
-        //        tnParent.PopulateOnDemand = true;
-
-        //        tnParent.ToolTipText = "Click to get Child";
-
-        //        tnParent.SelectAction = TreeNodeSelectAction.SelectExpand;
-
-        //        tnParent.Expand();
-
-        //        tnParent.SelectedImageKey = true;
-
-        //        treeViewShow.Nodes.Add(tnParent);
-
-        //        FillChild(tnParent, tnParent.Value);
-
-        //    }
-
-
-
-        //}
-
-        //public void FillChild(TreeNode parent, string ParentId)
-
-        //{
-
-        //    DataSet ds = PDataset("Select * from ChildTable where ParentId =" + ParentId);
-
-        //    parent.ChildNodes.Clear();
-
-        //    foreach (DataRow dr in ds.Tables[0].Rows)
-
-        //    {
-
-        //        TreeNode child = new TreeNode();
-
-        //        child.Text = dr["ChildName"].ToString().Trim();
-
-        //        child.Value = dr["ChildId"].ToString().Trim();
-
-        //        if (child.ChildNodes.Count == 0)
-
-        //        {
-
-        //            child.PopulateOnDemand = true;
-
-        //        }
-
-        //        child.ToolTip = "Click to get Child";
-
-        //        child.SelectAction = TreeNodeSelectAction.SelectExpand;
-
-        //        child.CollapseAll();
-
-        //        parent.ChildNodes.Add(child);
-
-        //    }
-
-        //}
-
-
-
-        //protected DataSet PDataset(string Select_Statement)
-
-        //{
-
-        //    SqlConnection SqlCon = new SqlConnection("Data Source=;Integrated Security=True");
-
-        //    SqlDataAdapter ad = new SqlDataAdapter(Select_Statement, SqlCon);
-
-        //    DataSet ds = new DataSet();
-
-        //    ad.Fill(ds);
-
-        //    return ds;
-
-
-
-        //}
         private void Add_Load(object sender, EventArgs e)
         {
             ShowTreeView();
-            //TreeNode node = null;
-            //AddChildNode(node, 0);
         }
-
+        */
     }
 }

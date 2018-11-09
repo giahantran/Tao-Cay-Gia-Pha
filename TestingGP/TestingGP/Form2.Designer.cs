@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Thehe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Parent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Thuocgiapha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Hoten = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,7 +56,6 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Thehe,
-            this.Parent,
             this.ID,
             this.Thuocgiapha,
             this.Hoten,
@@ -69,9 +68,9 @@
             this.Me,
             this.Vochong,
             this.Con});
-            this.dataGridView1.Location = new System.Drawing.Point(-19, 56);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 55);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(837, 229);
+            this.dataGridView1.Size = new System.Drawing.Size(837, 409);
             this.dataGridView1.TabIndex = 1;
             // 
             // Thehe
@@ -80,13 +79,6 @@
             this.Thehe.HeaderText = "Thế hệ";
             this.Thehe.Name = "Thehe";
             this.Thehe.Width = 66;
-            // 
-            // Parent
-            // 
-            this.Parent.DataPropertyName = "Parent";
-            this.Parent.HeaderText = "Parent";
-            this.Parent.Name = "Parent";
-            this.Parent.Width = 63;
             // 
             // ID
             // 
@@ -176,6 +168,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(28, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(66, 13);
@@ -199,7 +192,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(267, 10);
+            this.button1.Location = new System.Drawing.Point(249, 14);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 6;
@@ -211,7 +204,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(833, 454);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(861, 476);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
@@ -229,7 +223,6 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Thehe;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Parent;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Thuocgiapha;
         private System.Windows.Forms.DataGridViewTextBoxColumn Hoten;
