@@ -45,15 +45,15 @@ namespace TestingGP
         }
         public void AddTail(List l, Node p)
         {
-            if (l.pHead == null)
+            if (pHead == null)
             {
-                l.pHead = l.pTail = p;
+                pHead = pTail = p;
             }
             else
             {
-                l.pTail.pNext = p;
+                pTail.pNext = p;
                 p.pNext = null;
-                l.pTail = p;
+                pTail = p;
             }
         }
         public void AddNodeTail(List l, GIAPHA gp)

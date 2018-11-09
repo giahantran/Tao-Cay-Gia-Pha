@@ -79,6 +79,10 @@ namespace TestingGP
             cmd.ExecuteNonQuery();
             MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.None);
             KetNoi();
+            conn.Close();
+            conn.Dispose();
+            conn = null;
+            Dispose();
         }
 
         private void Display_Load(object sender, EventArgs e)
