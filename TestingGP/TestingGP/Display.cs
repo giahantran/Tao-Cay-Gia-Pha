@@ -15,8 +15,8 @@ namespace TestingGP
     public partial class FormDisplay : Form
     {
         //SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-C99VFUB\GIAHAN;Initial Catalog=DL_GIAPHA;Integrated Security=True"); //Hân
-        //SqlConnection conn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=GIAPHA;Integrated Security=True"); //Văn
-        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-RRRHOP4;Initial Catalog=Genealogy;Integrated Security=True"); //Na
+        SqlConnection conn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=GIAPHA;Integrated Security=True"); //Văn
+        //SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-RRRHOP4;Initial Catalog=Genealogy;Integrated Security=True"); //Na
         SqlDataAdapter daGiaPha = null;
         DataTable dtGiaPha = null;
 
@@ -29,7 +29,7 @@ namespace TestingGP
             conn.Open();
             try
             {
-                daGiaPha = new SqlDataAdapter("select * from CayGP", conn);
+                daGiaPha = new SqlDataAdapter("select * from thongtingiapha", conn);
                 dtGiaPha = new DataTable();
                 daGiaPha.Fill(dtGiaPha);
                 dgvGiaPha.DataSource = dtGiaPha;

@@ -53,10 +53,6 @@ F:\github\hannavan\Tao-Cay-Gia-Pha\TestingGP\TestingGP\bin\Debug\TestingGP.exe.c
 F:\github\hannavan\Tao-Cay-Gia-Pha\TestingGP\TestingGP\bin\Debug\TestingGP.exe
 F:\github\hannavan\Tao-Cay-Gia-Pha\TestingGP\TestingGP\bin\Debug\TestingGP.pdb
 F:\github\hannavan\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.csprojAssemblyReference.cache
-F:\github\hannavan\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.Add.resources
-F:\github\hannavan\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.Create.resources
-F:\github\hannavan\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.Display.resources
-F:\github\hannavan\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.Form1.resources
 F:\github\hannavan\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.Properties.Resources.resources
 F:\github\hannavan\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.csproj.GenerateResource.cache
 F:\github\hannavan\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.csproj.CoreCompileInputs.cache
@@ -64,3 +60,8 @@ F:\github\hannavan\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.exe
 F:\github\hannavan\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.pdb
 E:\Project Gia Pha\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.csprojAssemblyReference.cache
 E:\Project Gia Pha\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.csproj.CoreCompileInputs.cache
+F:\github\hannavan\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.FormAdd.resources
+F:\github\hannavan\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.FormCreate.resources
+F:\github\hannavan\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.FormDisplay.resources
+F:\github\hannavan\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.FormHome.resources
+F:\github\hannavan\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.Form2.resources
