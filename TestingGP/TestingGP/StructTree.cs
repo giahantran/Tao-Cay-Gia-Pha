@@ -43,6 +43,7 @@ namespace TestingGP
             }
             return p;
         }
+<<<<<<< HEAD
         /*
         public void AddTail(List l, Node p)
         {
@@ -73,6 +74,8 @@ namespace TestingGP
         //{
         //   // gp.keyID=
         //}
+=======
+>>>>>>> 7f0a151f4eb39b5ddc5a6f88851c67f6b775483b
     }
 
     /*
