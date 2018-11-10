@@ -77,7 +77,7 @@
             // 
             this.textBox1.Font = new System.Drawing.Font("UVN Bach Tuyet", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(357, 35);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(196, 29);
@@ -87,7 +87,7 @@
             // 
             this.btTimKiem.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btTimKiem.Location = new System.Drawing.Point(556, 35);
-            this.btTimKiem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btTimKiem.Margin = new System.Windows.Forms.Padding(2);
             this.btTimKiem.Name = "btTimKiem";
             this.btTimKiem.Size = new System.Drawing.Size(73, 28);
             this.btTimKiem.TabIndex = 1;
@@ -98,7 +98,7 @@
             // 
             this.btThem.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btThem.Location = new System.Drawing.Point(280, 531);
-            this.btThem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btThem.Margin = new System.Windows.Forms.Padding(2);
             this.btThem.Name = "btThem";
             this.btThem.Size = new System.Drawing.Size(62, 28);
             this.btThem.TabIndex = 2;
@@ -111,6 +111,7 @@
             this.dgvGiaPha.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvGiaPha.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("UVN Bach Tuyet", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -129,7 +130,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvGiaPha.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvGiaPha.Location = new System.Drawing.Point(357, 68);
-            this.dgvGiaPha.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvGiaPha.Margin = new System.Windows.Forms.Padding(2);
             this.dgvGiaPha.Name = "dgvGiaPha";
             this.dgvGiaPha.RowTemplate.Height = 24;
             this.dgvGiaPha.Size = new System.Drawing.Size(517, 491);
@@ -139,7 +140,7 @@
             // 
             this.btSua.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btSua.Location = new System.Drawing.Point(179, 531);
-            this.btSua.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btSua.Margin = new System.Windows.Forms.Padding(2);
             this.btSua.Name = "btSua";
             this.btSua.Size = new System.Drawing.Size(62, 28);
             this.btSua.TabIndex = 4;
@@ -150,7 +151,7 @@
             // 
             this.btXoa.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btXoa.Location = new System.Drawing.Point(104, 531);
-            this.btXoa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btXoa.Margin = new System.Windows.Forms.Padding(2);
             this.btXoa.Name = "btXoa";
             this.btXoa.Size = new System.Drawing.Size(62, 28);
             this.btXoa.TabIndex = 5;
@@ -174,7 +175,7 @@
             // 
             this.txtbHoTen.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtbHoTen.Location = new System.Drawing.Point(18, 121);
-            this.txtbHoTen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtbHoTen.Margin = new System.Windows.Forms.Padding(2);
             this.txtbHoTen.Name = "txtbHoTen";
             this.txtbHoTen.Size = new System.Drawing.Size(172, 23);
             this.txtbHoTen.TabIndex = 7;
@@ -199,7 +200,7 @@
             this.combTheHe.FormattingEnabled = true;
             this.combTheHe.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.combTheHe.Location = new System.Drawing.Point(137, 68);
-            this.combTheHe.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.combTheHe.Margin = new System.Windows.Forms.Padding(2);
             this.combTheHe.Name = "combTheHe";
             this.combTheHe.Size = new System.Drawing.Size(53, 24);
             this.combTheHe.TabIndex = 9;
@@ -223,7 +224,7 @@
             this.combMaTV.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.combMaTV.FormattingEnabled = true;
             this.combMaTV.Location = new System.Drawing.Point(18, 68);
-            this.combMaTV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.combMaTV.Margin = new System.Windows.Forms.Padding(2);
             this.combMaTV.Name = "combMaTV";
             this.combMaTV.Size = new System.Drawing.Size(60, 24);
             this.combMaTV.TabIndex = 11;
@@ -235,7 +236,7 @@
             this.checkBGioiTinh.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.checkBGioiTinh.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBGioiTinh.Location = new System.Drawing.Point(137, 103);
-            this.checkBGioiTinh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBGioiTinh.Margin = new System.Windows.Forms.Padding(2);
             this.checkBGioiTinh.Name = "checkBGioiTinh";
             this.checkBGioiTinh.Size = new System.Drawing.Size(54, 20);
             this.checkBGioiTinh.TabIndex = 12;
@@ -273,7 +274,7 @@
             this.checkBThuocGP.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.checkBThuocGP.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBThuocGP.Location = new System.Drawing.Point(194, 228);
-            this.checkBThuocGP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBThuocGP.Margin = new System.Windows.Forms.Padding(2);
             this.checkBThuocGP.Name = "checkBThuocGP";
             this.checkBThuocGP.Size = new System.Drawing.Size(146, 20);
             this.checkBThuocGP.TabIndex = 20;
@@ -356,7 +357,7 @@
             // 
             this.txtBQueQuan.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBQueQuan.Location = new System.Drawing.Point(19, 224);
-            this.txtBQueQuan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtBQueQuan.Margin = new System.Windows.Forms.Padding(2);
             this.txtBQueQuan.Name = "txtBQueQuan";
             this.txtBQueQuan.Size = new System.Drawing.Size(171, 23);
             this.txtBQueQuan.TabIndex = 27;
@@ -365,7 +366,7 @@
             // 
             this.txtBNgheNghiep.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBNgheNghiep.Location = new System.Drawing.Point(19, 274);
-            this.txtBNgheNghiep.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtBNgheNghiep.Margin = new System.Windows.Forms.Padding(2);
             this.txtBNgheNghiep.Name = "txtBNgheNghiep";
             this.txtBNgheNghiep.Size = new System.Drawing.Size(323, 23);
             this.txtBNgheNghiep.TabIndex = 28;
@@ -374,7 +375,7 @@
             // 
             this.txtBHotenCha.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBHotenCha.Location = new System.Drawing.Point(178, 324);
-            this.txtBHotenCha.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtBHotenCha.Margin = new System.Windows.Forms.Padding(2);
             this.txtBHotenCha.Name = "txtBHotenCha";
             this.txtBHotenCha.Size = new System.Drawing.Size(163, 23);
             this.txtBHotenCha.TabIndex = 29;
@@ -383,7 +384,7 @@
             // 
             this.txtBHoTenMe.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBHoTenMe.Location = new System.Drawing.Point(19, 324);
-            this.txtBHoTenMe.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtBHoTenMe.Margin = new System.Windows.Forms.Padding(2);
             this.txtBHoTenMe.Name = "txtBHoTenMe";
             this.txtBHoTenMe.Size = new System.Drawing.Size(148, 23);
             this.txtBHoTenMe.TabIndex = 30;
@@ -392,7 +393,7 @@
             // 
             this.txtBHoTenCon.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBHoTenCon.Location = new System.Drawing.Point(18, 431);
-            this.txtBHoTenCon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtBHoTenCon.Margin = new System.Windows.Forms.Padding(2);
             this.txtBHoTenCon.Multiline = true;
             this.txtBHoTenCon.Name = "txtBHoTenCon";
             this.txtBHoTenCon.Size = new System.Drawing.Size(149, 95);
@@ -402,7 +403,7 @@
             // 
             this.txtBGhiChu.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBGhiChu.Location = new System.Drawing.Point(178, 431);
-            this.txtBGhiChu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtBGhiChu.Margin = new System.Windows.Forms.Padding(2);
             this.txtBGhiChu.Multiline = true;
             this.txtBGhiChu.Name = "txtBGhiChu";
             this.txtBGhiChu.Size = new System.Drawing.Size(164, 95);
@@ -424,7 +425,7 @@
             // 
             this.txtBHoTenVC.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBHoTenVC.Location = new System.Drawing.Point(19, 379);
-            this.txtBHoTenVC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtBHoTenVC.Margin = new System.Windows.Forms.Padding(2);
             this.txtBHoTenVC.Name = "txtBHoTenVC";
             this.txtBHoTenVC.Size = new System.Drawing.Size(324, 23);
             this.txtBHoTenVC.TabIndex = 34;
@@ -445,7 +446,7 @@
             // 
             this.btTaoMoi.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btTaoMoi.Location = new System.Drawing.Point(19, 531);
-            this.btTaoMoi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btTaoMoi.Margin = new System.Windows.Forms.Padding(2);
             this.btTaoMoi.Name = "btTaoMoi";
             this.btTaoMoi.Size = new System.Drawing.Size(68, 28);
             this.btTaoMoi.TabIndex = 36;
@@ -459,7 +460,7 @@
             this.dateTimePicker1.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker1.Location = new System.Drawing.Point(19, 171);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(84, 23);
             this.dateTimePicker1.TabIndex = 37;
@@ -470,7 +471,7 @@
             this.dateTimePicker2.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker2.Location = new System.Drawing.Point(106, 171);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(84, 23);
             this.dateTimePicker2.TabIndex = 38;
@@ -485,7 +486,7 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(208, 68);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(133, 146);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -494,6 +495,7 @@
             // 
             // treeViewShowDisplay
             // 
+            this.treeViewShowDisplay.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.treeViewShowDisplay.Location = new System.Drawing.Point(357, 68);
             this.treeViewShowDisplay.Margin = new System.Windows.Forms.Padding(2);
             this.treeViewShowDisplay.Name = "treeViewShowDisplay";
@@ -542,7 +544,7 @@
             this.Controls.Add(this.txtBHotenCha);
             this.Controls.Add(this.txtBHoTenMe);
             this.Controls.Add(this.txtBQueQuan);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormDisplay";
             this.Text = "Display";
             this.Load += new System.EventHandler(this.Display_Load);

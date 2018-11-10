@@ -14,6 +14,50 @@ namespace TestingGP
 {
     public partial class FormAdd : Form
     {
+        //SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-C99VFUB\GIAHAN;Initial Catalog=DL_GIAPHA;Integrated Security=True"); //Hân
+        //SqlConnection conn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=GIAPHA;Integrated Security=True"); //Văn
+        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-RRRHOP4;Initial Catalog=Genealogy;Integrated Security=True"); //Na
+        SqlDataAdapter daGiaPha = null;
+        DataTable dtGiaPha = null;
+
+        public void KetNoi()
+        {
+            if (conn.State == ConnectionState.Open)
+            {
+                conn.Close();
+            }
+            conn.Open();
+            try
+            {
+                daGiaPha = new SqlDataAdapter("select * from UserGP", conn);
+                dtGiaPha = new DataTable();
+                daGiaPha.Fill(dtGiaPha);
+                dgvGiaPha.DataSource = dtGiaPha;
+                dgvGiaPha.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                dgvGiaPha.AllowUserToAddRows = false; //không cho thêm trực tiếp
+                dgvGiaPha.EditMode = DataGridViewEditMode.EditProgrammatically; //không chỉnh sửa trực tiếp
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Không thể kết nối CSDL", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void Disconnect()
+        {
+            conn.Close(); //Đóng kết nối
+            conn.Dispose(); //Giải phóng tài nguyên
+            conn = null; //Hủy đối tượng
+        }
+        private void GetData()
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "Select * From UserGP";
+            daGiaPha.SelectCommand = cmd;
+            daGiaPha.Fill(dtGiaPha);
+            dgvGiaPha.DataSource = dtGiaPha;
+        }
         public FormAdd()
         {
             InitializeComponent();
@@ -22,15 +66,7 @@ namespace TestingGP
         {
             this.Close();
         }
-
-        public DataGridView dt;
-
-        public static string connectionString { get; private set; }
-
-        public void layDuLieu(DataGridView data)
-        {
-            dt = data;
-        }
+        
         //
         public class GIAPHA
         {
@@ -122,7 +158,9 @@ namespace TestingGP
 
         private void FormAdd_Load(object sender, EventArgs e)
         {
-            
+            dgvGiaPha.Visible = true;
+            treeViewShowAdd.Visible = false;
+            KetNoi();
         }
 
 
