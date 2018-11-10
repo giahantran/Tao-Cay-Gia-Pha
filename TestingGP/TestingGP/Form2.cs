@@ -18,7 +18,7 @@ namespace TestingGP
             InitializeComponent();
         }
         SqlConnection cnn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=GIAPHA;Integrated Security=True");
-        private void Ketnoicsdl()
+        private void Ketnoicsdl1()
         {
             cnn.Open();
             string sql1 = "select * from CayGP where [Thế hệ]=1";
@@ -53,12 +53,50 @@ namespace TestingGP
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Ketnoicsdl();
+            Ketnoicsdl1();
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
             
+        }
+        private void Ketnoicsdl2()
+        {
+            cnn.Open();
+            string sql= "select * from CayGP where [Họ và tên] like N'%"+texttimtheoten.Text+"%' ";
+            SqlCommand com = new SqlCommand(sql, cnn); //bat dau truy van
+            com.CommandType = CommandType.Text;
+            SqlDataAdapter da = new SqlDataAdapter(com); //chuyen du lieu ve
+            DataTable dt = new DataTable(); //tạo một kho ảo để lưu trữ dữ liệu
+            da.Fill(dt);  // đổ dữ liệu vào kho
+            cnn.Close();  // đóng kết nối
+            dataGridView1.DataSource = dt; //đổ dữ liệu vào datagridview
+        }
+        private void loaddata()
+        {
+            cnn.Open();
+            string sql = "select * from CayGP";
+            SqlCommand com = new SqlCommand(sql, cnn); //bat dau truy van
+            com.CommandType = CommandType.Text;
+            SqlDataAdapter da = new SqlDataAdapter(com); //chuyen du lieu ve
+            DataTable dt = new DataTable(); //tạo một kho ảo để lưu trữ dữ liệu
+            da.Fill(dt);  // đổ dữ liệu vào kho
+            cnn.Close();  // đóng kết nối
+            dataGridView1.DataSource = dt; //đổ dữ liệu vào datagridview
+        }
+
+        private void btXem_Click(object sender, EventArgs e)
+        {
+            Ketnoicsdl2();
+        }
+        private void btShowAll_Click(object sender, EventArgs e)
+        {
+            loaddata();
+        }
+
+        private void texttimtheoten_TextChanged(object sender, EventArgs e)
+        {
+            Ketnoicsdl2();
         }
     }
 }

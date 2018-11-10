@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TheHe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Thuocgiapha = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,7 +43,18 @@
             this.TenVoChong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HotenCon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ghichu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.texttimtheoten = new System.Windows.Forms.TextBox();
+            this.btXem = new System.Windows.Forms.Button();
+            this.pnxemnguoicungthehe = new System.Windows.Forms.Panel();
+            this.pntimnguoitheoten = new System.Windows.Forms.Panel();
+            this.btShowAll = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.pnxemnguoicungthehe.SuspendLayout();
+            this.pntimnguoitheoten.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -71,44 +79,10 @@
             this.TenVoChong,
             this.HotenCon,
             this.Ghichu});
-            this.dataGridView1.Location = new System.Drawing.Point(-19, 56);
+            this.dataGridView1.Location = new System.Drawing.Point(-16, 89);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(702, 229);
             this.dataGridView1.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(28, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Nhập thế hệ";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6"});
-            this.comboBox1.Location = new System.Drawing.Point(110, 14);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 4;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(267, 10);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "OK";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // ID
             // 
@@ -130,100 +104,194 @@
             this.Thuocgiapha.DataPropertyName = "Thuộc Gia Phả";
             this.Thuocgiapha.HeaderText = "Thuộc Gia Phả";
             this.Thuocgiapha.Name = "Thuocgiapha";
-            this.Thuocgiapha.Width = 78;
+            this.Thuocgiapha.Width = 104;
             // 
             // Hovaten
             // 
             this.Hovaten.DataPropertyName = "Họ và tên";
             this.Hovaten.HeaderText = "Họ và tên";
             this.Hovaten.Name = "Hovaten";
-            this.Hovaten.Width = 73;
+            this.Hovaten.Width = 79;
             // 
             // Gioitinh
             // 
             this.Gioitinh.DataPropertyName = "Giới tính";
             this.Gioitinh.HeaderText = "Giới tính";
             this.Gioitinh.Name = "Gioitinh";
-            this.Gioitinh.Width = 67;
+            this.Gioitinh.Width = 72;
             // 
             // Ngaysinh
             // 
             this.Ngaysinh.DataPropertyName = "Ngày sinh";
             this.Ngaysinh.HeaderText = "Ngày sinh";
             this.Ngaysinh.Name = "Ngaysinh";
-            this.Ngaysinh.Width = 73;
+            this.Ngaysinh.Width = 79;
             // 
             // Ngaymat
             // 
             this.Ngaymat.DataPropertyName = "Ngày mất";
             this.Ngaymat.HeaderText = "Ngày mất";
             this.Ngaymat.Name = "Ngaymat";
-            this.Ngaymat.Width = 71;
+            this.Ngaymat.Width = 77;
             // 
             // Noisinh
             // 
             this.Noisinh.DataPropertyName = "Nơi sinh";
             this.Noisinh.HeaderText = "Nơi sinh";
             this.Noisinh.Name = "Noisinh";
-            this.Noisinh.Width = 65;
+            this.Noisinh.Width = 70;
             // 
             // Nghenghiep
             // 
             this.Nghenghiep.DataPropertyName = "Nghề nghiệp";
             this.Nghenghiep.HeaderText = "Nghề nghiệp";
             this.Nghenghiep.Name = "Nghenghiep";
-            this.Nghenghiep.Width = 86;
+            this.Nghenghiep.Width = 93;
             // 
             // HotenCha
             // 
             this.HotenCha.DataPropertyName = "Họ tên Cha";
             this.HotenCha.HeaderText = "Họ tên Cha";
             this.HotenCha.Name = "HotenCha";
-            this.HotenCha.Width = 79;
+            this.HotenCha.Width = 86;
             // 
             // HotenMe
             // 
             this.HotenMe.DataPropertyName = "Họ tên Mẹ";
             this.HotenMe.HeaderText = "Họ tên Mẹ";
             this.HotenMe.Name = "HotenMe";
-            this.HotenMe.Width = 76;
+            this.HotenMe.Width = 82;
             // 
             // TenVoChong
             // 
             this.TenVoChong.DataPropertyName = "Tên Vợ (Chồng)";
             this.TenVoChong.HeaderText = "Tên Vợ (Chồng)";
             this.TenVoChong.Name = "TenVoChong";
-            this.TenVoChong.Width = 98;
+            this.TenVoChong.Width = 107;
             // 
             // HotenCon
             // 
             this.HotenCon.DataPropertyName = "Họ tên Con";
             this.HotenCon.HeaderText = "Họ tên Con";
             this.HotenCon.Name = "HotenCon";
-            this.HotenCon.Width = 79;
+            this.HotenCon.Width = 86;
             // 
             // Ghichu
             // 
             this.Ghichu.DataPropertyName = "Ghi chú";
             this.Ghichu.HeaderText = "Ghi chú";
             this.Ghichu.Name = "Ghichu";
-            this.Ghichu.Width = 64;
+            this.Ghichu.Width = 69;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(-3, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Nhập thế hệ";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"});
+            this.comboBox1.Location = new System.Drawing.Point(69, 5);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 4;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(201, 5);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "OK";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 6);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Nhập vào tên";
+            // 
+            // texttimtheoten
+            // 
+            this.texttimtheoten.Location = new System.Drawing.Point(85, 3);
+            this.texttimtheoten.Name = "texttimtheoten";
+            this.texttimtheoten.Size = new System.Drawing.Size(137, 20);
+            this.texttimtheoten.TabIndex = 8;
+            this.texttimtheoten.TextChanged += new System.EventHandler(this.texttimtheoten_TextChanged);
+            // 
+            // btXem
+            // 
+            this.btXem.Location = new System.Drawing.Point(228, 3);
+            this.btXem.Name = "btXem";
+            this.btXem.Size = new System.Drawing.Size(75, 23);
+            this.btXem.TabIndex = 9;
+            this.btXem.Text = "Xem";
+            this.btXem.UseVisualStyleBackColor = true;
+            this.btXem.Click += new System.EventHandler(this.btXem_Click);
+            // 
+            // pnxemnguoicungthehe
+            // 
+            this.pnxemnguoicungthehe.Controls.Add(this.comboBox1);
+            this.pnxemnguoicungthehe.Controls.Add(this.label1);
+            this.pnxemnguoicungthehe.Controls.Add(this.button1);
+            this.pnxemnguoicungthehe.Location = new System.Drawing.Point(13, 4);
+            this.pnxemnguoicungthehe.Name = "pnxemnguoicungthehe";
+            this.pnxemnguoicungthehe.Size = new System.Drawing.Size(279, 31);
+            this.pnxemnguoicungthehe.TabIndex = 10;
+            // 
+            // pntimnguoitheoten
+            // 
+            this.pntimnguoitheoten.Controls.Add(this.btShowAll);
+            this.pntimnguoitheoten.Controls.Add(this.label2);
+            this.pntimnguoitheoten.Controls.Add(this.texttimtheoten);
+            this.pntimnguoitheoten.Controls.Add(this.btXem);
+            this.pntimnguoitheoten.Location = new System.Drawing.Point(3, 36);
+            this.pntimnguoitheoten.Name = "pntimnguoitheoten";
+            this.pntimnguoitheoten.Size = new System.Drawing.Size(308, 47);
+            this.pntimnguoitheoten.TabIndex = 11;
+            // 
+            // btShowAll
+            // 
+            this.btShowAll.Location = new System.Drawing.Point(10, 23);
+            this.btShowAll.Name = "btShowAll";
+            this.btShowAll.Size = new System.Drawing.Size(116, 24);
+            this.btShowAll.TabIndex = 10;
+            this.btShowAll.Text = "Hiển thị tất cả";
+            this.btShowAll.UseVisualStyleBackColor = true;
+            this.btShowAll.Click += new System.EventHandler(this.btShowAll_Click);
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 424);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.pntimnguoitheoten);
+            this.Controls.Add(this.pnxemnguoicungthehe);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Form2";
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.pnxemnguoicungthehe.ResumeLayout(false);
+            this.pnxemnguoicungthehe.PerformLayout();
+            this.pntimnguoitheoten.ResumeLayout(false);
+            this.pntimnguoitheoten.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -247,5 +315,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TenVoChong;
         private System.Windows.Forms.DataGridViewTextBoxColumn HotenCon;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ghichu;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox texttimtheoten;
+        private System.Windows.Forms.Button btXem;
+        public System.Windows.Forms.Panel pnxemnguoicungthehe;
+        public System.Windows.Forms.Panel pntimnguoitheoten;
+        private System.Windows.Forms.Button btShowAll;
     }
 }
