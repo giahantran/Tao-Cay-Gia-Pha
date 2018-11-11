@@ -64,6 +64,7 @@ namespace TestingGP
             dataGridView1.DataSource = dt; //đổ dữ liệu vào datagridview
         }
 
+
         private void btShowAll_Click(object sender, EventArgs e)
         {
             loaddata();
