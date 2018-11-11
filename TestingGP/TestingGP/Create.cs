@@ -23,7 +23,7 @@ namespace TestingGP
         List<string> listItem;
         private void combMenu_Click(object sender, EventArgs e)
         {
-            listItem = new List<string>() { "Nhập cây gia phả", "Xem toàn bộ cây gia phả", "Tìm kiếm người", "Xem những người cùng thế hệ", "Thêm người vào gia phả" };
+            listItem = new List<string>() {"Xuất thế hệ con cháu của một người", "Xem những người cùng thế hệ", "Xem thông tin của một người" };
             combMenu.DataSource = listItem;
         }
         private Rectangle ResizePanel()
@@ -65,6 +65,13 @@ namespace TestingGP
             {
                 Form2 f = new Form2();
                 f.Show();
+                f.pntimnguoitheoten.Hide(); //ẩn đi những panel khác
+            }
+            if (combMenu.Text == "Xem thông tin của một người")
+            {
+                Form2 f = new Form2();
+                f.Show();
+                f.pnxemnguoicungthehe.Hide();   //ẩn đi những panel khác
 
             }
         }
