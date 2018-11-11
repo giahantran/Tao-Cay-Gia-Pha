@@ -20,15 +20,12 @@ namespace TestingGP
             _drower = new TreeDrower();
             InitializeComponent();
         }
-
         List<string> listItem;
         private void combMenu_Click(object sender, EventArgs e)
         {
             listItem = new List<string>() { "Nhập cây gia phả", "Xem toàn bộ cây gia phả", "Tìm kiếm người", "Xem những người cùng thế hệ", "Thêm người vào gia phả" };
             combMenu.DataSource = listItem;
         }
-
-        
         private Rectangle ResizePanel()
         {
             var size = _drower.GetSize(_tree);
@@ -36,13 +33,11 @@ namespace TestingGP
             drawingPanel.Height = size.Height + 2;
             return new Rectangle(new Point(0, 0), size);
         }
-        
         private void button2_Click(object sender, EventArgs e)
         {
             _tree = new Tree();
             drawingPanel.Refresh();
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             if (textBox1.Text == "") return;
@@ -57,7 +52,6 @@ namespace TestingGP
             }
             drawingPanel.Refresh();
         }
-
         private void drawingPanel_Paint(object sender, PaintEventArgs e)
         {
             var graphics = drawingPanel.CreateGraphics();
@@ -65,7 +59,6 @@ namespace TestingGP
 
             _drower.Draw(graphics, _tree.GetTop(), rectangle);
         }
-
         private void button3_Click(object sender, EventArgs e)
         {
             if (combMenu.Text == "Xem những người cùng thế hệ")
@@ -75,7 +68,6 @@ namespace TestingGP
 
             }
         }
-
         private void mnuTaoGPCreate_Click(object sender, EventArgs e)
         {
             FormAdd creGiaPha = new FormAdd();

@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.Configuration;
 
 namespace TestingGP
 {
@@ -19,7 +18,6 @@ namespace TestingGP
         SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-RRRHOP4;Initial Catalog=Genealogy;Integrated Security=True"); //Na
         SqlDataAdapter daGiaPha = null;
         DataTable dtGiaPha = null;
-
         public void KetNoi()
         {
             if (conn.State == ConnectionState.Open)
@@ -62,179 +60,150 @@ namespace TestingGP
         {
             InitializeComponent();
         }
-        private void btHuy_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-        
-        //
-        public class GIAPHA
-        {
-            public int keyNode;
-            public int iD, theHe;
-            public string hoTen, cha, me, tenVoChong, tenCon;
-            public string gioiTinh, thuocGP; //true = nam, true = có trong gia phả
-            public string namSinh, namMat;
-            public string noiSinh, ngheNghiep, ghiChu;
-        }
-        public class BinaryTree
-        {
-            private GIAPHA info;
-            private BinaryTree pLeft;
-            private BinaryTree pRight;
-            public BinaryTree(int key, GIAPHA gp)
-            {
-                info = gp;
-                info.keyNode = key;
-                pLeft = pRight = null;
-            }
-            public BinaryTree pleft
-            {
-                get { return pLeft; }
-                set { pLeft = value; }
-            }
-            public BinaryTree pright
-            {
-                get { return pRight; }
-                set { pRight = value; }
-            }
-            public GIAPHA inFO
-            {
-                get { return info; }
-                set { info = value; }
-            }
-            public void AddNode(int key, GIAPHA gp)
-            {
-                if (key == info.keyNode)
-                {
-                    MessageBox.Show("Thông tin đã có trong gia phả", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                else if (key < info.keyNode)
-                {
-                    if (pLeft == null) pLeft = new BinaryTree(key, gp);
-                    else pLeft.AddNode(key, gp);
-                }
-                else
-                {
-                    if (pRight == null) pRight = new BinaryTree(key, gp);
-                    else pRight.AddNode(key, gp);
-                }
-            }
-        }
-        public class BTree : FormAdd
-        {
-            public BinaryTree root;
-            public BTree()
-            {
-                root = null;
-            }
-            public void InsertNode(int key, GIAPHA gp)
-            {
-                if (root == null)
-                    root = new BinaryTree(key, gp);
-                else root.AddNode(key, gp);
-            }
-            public void CreateGP(GIAPHA gp)
-            {
-                gp.iD = Convert.ToInt32(combMaTV.Text);
-                gp.theHe = Convert.ToInt32(combTheHe.Text);
-                gp.hoTen = txtbHoTen.Text;
-                gp.cha = txtBHotenCha.Text;
-                gp.me = txtBHoTenMe.Text;
-                gp.tenVoChong = txtBHoTenVC.Text;
-                gp.tenCon = txtBHoTenCon.Text;
-                if (checkBGioiTinh.Checked == true) gp.gioiTinh = "Nam";
-                else gp.gioiTinh = "Nữ";
-                if (checkBThuocGP.Checked == true) gp.thuocGP = "Có";
-                else gp.thuocGP = "Không";
-                gp.namSinh = DateTime.Parse(dateNgaySinh.Text).ToString();
-                gp.namMat = DateTime.Parse(dateNgayMat.Text).ToString();
-                gp.ngheNghiep = txtBNgheNghiep.Text;
-                gp.noiSinh = txtBQueQuan.Text;
-                gp.ghiChu = txtBGhiChu.Text;
-            }
-        }
-
         private void FormAdd_Load(object sender, EventArgs e)
         {
+            this.dgvGiaPha.Location = new Point(360, 71);
+            this.treeViewShowAdd.Location = new Point(360, 71);
             dgvGiaPha.Visible = true;
             treeViewShowAdd.Visible = false;
+            for (int i = 1; i <= 1000; i++)
+            {
+                combMaTV.Items.Add(i).ToString();
+                combTheHe.Items.Add(i).ToString();
+            }
             KetNoi();
         }
-
-
-
-        /*
-        private void ShowTreeView()
+        public void CreateGP(GIAPHA gp)
         {
-            for (int i = 0; i < dt.Rows.Count - 1; i++)
+            gp.iD = Convert.ToInt32(combMaTV.Text);
+            gp.theHe = Convert.ToInt32(combTheHe.Text);
+            gp.hoTen = txtbHoTen.Text;
+            gp.cha = txtBHotenCha.Text;
+            gp.me = txtBHoTenMe.Text;
+            gp.tenVoChong = txtBHoTenVC.Text;
+            gp.tenCon = txtBHoTenCon.Text;
+            if (checkBGioiTinh.Checked == true) gp.gioiTinh = "Nam";
+            else gp.gioiTinh = "Nữ";
+            if (checkBThuocGP.Checked == true) gp.thuocGP = "Có";
+            else gp.thuocGP = "Không";
+            gp.namSinh = DateTime.Parse(dateNgaySinh.Text).ToString();
+            gp.namMat = DateTime.Parse(dateNgayMat.Text).ToString();
+            gp.ngheNghiep = txtBNgheNghiep.Text;
+            gp.noiSinh = txtBQueQuan.Text;
+            gp.ghiChu = txtBGhiChu.Text;
+        }
+        public void AddToSQL(GIAPHA gp)
+        {
+            DataRow row = dtGiaPha.NewRow();
+            row["KeyNode"] = gp.keyNode;
+            row["ID"] = gp.iD;
+            row["Thếhệ"] = gp.theHe;
+            row["ThuộcGiaPhả"] = gp.thuocGP;
+            row["Họtên"] = gp.hoTen;
+            dtGiaPha.Rows.Add(row);
+            SqlCommand cmdAdd = new SqlCommand();
+            cmdAdd.Connection = conn;
+            cmdAdd.CommandType = CommandType.Text;
+            cmdAdd.CommandText = @"Insert into UserGP (KeyNode, ID, Thếhệ, ThuộcGiaPhả, Họtên) Values (@KeyNode, @ID, @Thếhệ, @ThuộcGiaPhả, @Họtên)";
+            cmdAdd.Parameters.Add("@KeyNode", SqlDbType.Int, 5, "KeyNode");
+            cmdAdd.Parameters.Add("@ID", SqlDbType.Int, 5, "ID");
+            cmdAdd.Parameters.Add("@Thếhệ", SqlDbType.Int, 5, "Thếhệ");
+            cmdAdd.Parameters.Add("@ThuộcGiaPhả", SqlDbType.NVarChar, 10, "ThuộcGiaPhả");
+            cmdAdd.Parameters.Add("@Họtên", SqlDbType.NVarChar, 50, "Họtên");
+            daGiaPha.InsertCommand = cmdAdd;
+            daGiaPha.Update(dtGiaPha);
+            MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        private void btThem_Click(object sender, EventArgs e)
+        {
+            BTree tree = new BTree();
+            int key;
+            Random random = new Random();
+            key = random.Next(100);
+            GIAPHA gp = new GIAPHA();
+            CreateGP(gp);
+            tree.InsertNode(key, gp);
+            AddToSQL(gp);
+        }
+        private void btXoa_Click(object sender, EventArgs e)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandType = CommandType.Text;
+
+            int r = dgvGiaPha.CurrentCell.RowIndex;
+            string sID = dgvGiaPha.Rows[r].Cells[1].Value.ToString();
+            cmd.CommandText = "delete from UserGP where ID = " + sID + "";
+            cmd.ExecuteNonQuery();
+            KetNoi();
+        }
+    }
+    public class GIAPHA
+    {
+        public int keyNode;
+        public int iD, theHe;
+        public string hoTen, cha, me, tenVoChong, tenCon;
+        public string gioiTinh, thuocGP; //true = nam, true = có trong gia phả
+        public string namSinh, namMat;
+        public string noiSinh, ngheNghiep, ghiChu;
+    }
+    public class Node
+    {
+        private GIAPHA info;
+        private Node pLeft;
+        private Node pRight;
+        public Node(int key, GIAPHA gp)
+        {
+            info = gp;
+            info.keyNode = key;
+            pLeft = pRight = null;
+        }
+        public Node pleft
+        {
+            get { return pLeft; }
+            set { pLeft = value; }
+        }
+        public Node pright
+        {
+            get { return pRight; }
+            set { pRight = value; }
+        }
+        public GIAPHA inFO
+        {
+            get { return info; }
+            set { info = value; }
+        }
+        public void AddNode(int key, GIAPHA gp)
+        {
+            if (key == info.keyNode)
             {
-                treeViewShowAdd.Nodes.Add(dt.Rows[i].Cells[3].Value.ToString());
-                if (i % 2 == 0)
-                {
-                    //addChildNode(1, dt.Rows[i].Cells[3].Value.ToString());
-                }
+                MessageBox.Show("Thông tin đã có trong gia phả", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            treeViewShowAdd.Nodes.Add(dt.Rows[1].Cells[4].Value.ToString());
-            addChildNode(1, dt.Rows[2].Cells[4].Value.ToString());
-            addChildNode(1, dt.Rows[3].Cells[4].Value.ToString());
-
-
-            //  addChildNodeMMore();
-            //treeViewShow.Nodes.Add(dt.Rows[0].Cells[3].Value.ToString());
-            //treeViewShow.Nodes.Add(dt.Rows[1].Cells[3].Value.ToString());
-
-            //TreeNode parentNode = treeViewShow.SelectedNode ?? treeViewShow.Nodes[0];
-            //List<TreeNode> Nodes = new List<TreeNode>();
-            //AddChild(Nodes, parentNode);
-
-        }
-        private void dequy(int i, int j)
-        {
-            for (int i1 = i; i1 <= j; i1++)
+            else if (key < info.keyNode)
             {
-
+                if (pLeft == null) pLeft = new Node(key, gp);
+                else pLeft.AddNode(key, gp);
             }
-        }
-        private void AddChild(List<TreeNode> Nodes, TreeNode Node)
-        {
-            foreach (TreeNode thisNode in Node.Nodes)
+            else
             {
-                Nodes.Add(thisNode);
-                AddChild(Nodes, thisNode);
+                if (pRight == null) pRight = new Node(key, gp);
+                else pRight.AddNode(key, gp);
             }
         }
-        private void addChildNode(int index, string str)
+    }
+    public class BTree
+    {
+        public Node root;
+        public BTree()
         {
-            var childNode = str;
-            if (!string.IsNullOrEmpty(childNode))
-            {
-                TreeNode parentNode = treeViewShowAdd.SelectedNode ?? treeViewShowAdd.Nodes[index];
-                if (parentNode != null)
-                {
-                    parentNode.Nodes.Add(childNode);
-                    treeViewShowAdd.ExpandAll();
-                }
-            }
+            root = null;
         }
-        private void addChildNodeMMore()
+        public void InsertNode(int key, GIAPHA gp)
         {
-            var childNode = "NA xam";
-            if (!string.IsNullOrEmpty(childNode))
-            {
-                TreeNode parentNode = treeViewShowAdd.SelectedNode ?? treeViewShowAdd.Nodes[0].Nodes[0];
-                if (parentNode != null)
-                {
-                    parentNode.Nodes.Add(childNode);
-                    treeViewShowAdd.ExpandAll();
-                }
-            }
+            if (root == null)
+                root = new Node(key, gp);
+            else root.AddNode(key, gp);
         }
-        private void Add_Load(object sender, EventArgs e)
-        {
-            ShowTreeView();
-        }
-        */
     }
 }
