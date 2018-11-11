@@ -17,31 +17,14 @@ namespace TestingGP
         {
             InitializeComponent();
         }
+        //Xem thông tin những người cùng thế hệ
         SqlConnection cnn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=GIAPHA;Integrated Security=True");
-        private void Ketnoicsdl1()
+        private void ketnoicsdl1()
         {
+   
+            
             cnn.Open();
-            string sql1 = "select * from CayGP where [Thế hệ]=1";
-            string sql2 = "select * from CayGP where [Thế hệ]=2";
-            string sql3 = "select * from CayGP where [Thế hệ]=3";
-            string sql4 = "select * from CayGP where [Thế hệ]=4";
-            string sql5 = "select * from CayGP where [Thế hệ]=5";
-            string sql6 = "select * from CayGP where [Thế hệ]=6";
-            string sql = "";
-            if (comboBox1.Text == "1")
-                sql = sql1;
-            if (comboBox1.Text == "2")
-                sql = sql2;
-            if (comboBox1.Text == "3")
-                sql = sql3;
-            if (comboBox1.Text == "4")
-                sql = sql4;
-            if (comboBox1.Text == "5")
-                sql = sql5;
-            if (comboBox1.Text == "6")
-                sql = sql6;
-
-
+            string sql = "select * from CayGP where [Thế Hệ]="+textBox1.Text;  
             SqlCommand com = new SqlCommand(sql, cnn); //bat dau truy van
             com.CommandType = CommandType.Text;
             SqlDataAdapter da = new SqlDataAdapter(com); //chuyen du lieu ve
@@ -53,17 +36,13 @@ namespace TestingGP
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Ketnoicsdl1();
+            ketnoicsdl1();
         }
-
-        private void Form2_Load(object sender, EventArgs e)
-        {
-            
-        }
+        //Xem thông tin một người
         private void Ketnoicsdl2()
         {
             cnn.Open();
-            string sql= "select * from CayGP where [Họ và tên] like N'%"+texttimtheoten.Text+"%' ";
+            string sql = "select * from CayGP where [Họ và tên] like N'%" + textBox2.Text + "%' ";
             SqlCommand com = new SqlCommand(sql, cnn); //bat dau truy van
             com.CommandType = CommandType.Text;
             SqlDataAdapter da = new SqlDataAdapter(com); //chuyen du lieu ve
@@ -85,18 +64,51 @@ namespace TestingGP
             dataGridView1.DataSource = dt; //đổ dữ liệu vào datagridview
         }
 
-        private void btXem_Click(object sender, EventArgs e)
-        {
-            Ketnoicsdl2();
-        }
         private void btShowAll_Click(object sender, EventArgs e)
         {
             loaddata();
         }
 
-        private void texttimtheoten_TextChanged(object sender, EventArgs e)
+        private void textBox2_TextChanged(object sender, EventArgs e)
         {
             Ketnoicsdl2();
+        }
+        //Xem thế hệ ông bà con cháu
+            //Ông bà
+        private void Ketnoicsdl3()
+        {
+            cnn.Open();
+            string sql = "select CayGP.* from CayGP,(select *from CayGP where CayGP.[Họ và tên]=N'" + textBox3.Text + "') as A where CayGP.[Thế Hệ]>A.[Thế Hệ]";
+            SqlCommand com = new SqlCommand(sql, cnn); //bat dau truy van
+            com.CommandType = CommandType.Text;
+            SqlDataAdapter da = new SqlDataAdapter(com); //chuyen du lieu ve
+            DataTable dt = new DataTable(); //tạo một kho ảo để lưu trữ dữ liệu
+            da.Fill(dt);  // đổ dữ liệu vào kho
+            cnn.Close();  // đóng kết nối
+            dataGridView1.DataSource = dt; //đổ dữ liệu vào datagridview
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Ketnoicsdl3();
+        }
+        //Con cháu
+        private void Ketnoicsdl4()
+        {
+            cnn.Open();
+            string sql = "select CayGP.* from CayGP,(select *from CayGP where CayGP.[Họ và tên]=N'" + textBox3.Text + "') as A where CayGP.[Thế Hệ]<A.[Thế Hệ]";
+            SqlCommand com = new SqlCommand(sql, cnn); //bat dau truy van
+            com.CommandType = CommandType.Text;
+            SqlDataAdapter da = new SqlDataAdapter(com); //chuyen du lieu ve
+            DataTable dt = new DataTable(); //tạo một kho ảo để lưu trữ dữ liệu
+            da.Fill(dt);  // đổ dữ liệu vào kho
+            cnn.Close();  // đóng kết nối
+            dataGridView1.DataSource = dt; //đổ dữ liệu vào datagridview
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Ketnoicsdl4();
         }
     }
 }

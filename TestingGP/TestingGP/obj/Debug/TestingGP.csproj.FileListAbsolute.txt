@@ -14,10 +14,6 @@ E:\Project Gia Pha\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.cspro
 E:\Project Gia Pha\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.FormAdd.resources
 <<<<<<< HEAD
 =======
-E:\Project Gia Pha\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.FormCreate.resources
-E:\Project Gia Pha\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.FormDisplay.resources
-E:\Project Gia Pha\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.FormHome.resources
-=======
 F:\github\hannavan\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.FormAdd.resources
 F:\github\hannavan\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.FormCreate.resources
 F:\github\hannavan\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.FormDisplay.resources
@@ -39,3 +35,12 @@ E:\Tao-Cay-Gia-Pha\TestingGP\TestingGP\bin\Debug\TestingGP.exe.config
 E:\Tao-Cay-Gia-Pha\TestingGP\TestingGP\bin\Debug\TestingGP.exe
 E:\Tao-Cay-Gia-Pha\TestingGP\TestingGP\bin\Debug\TestingGP.pdb
 >>>>>>> 42c1e589a7a835d03fd309cf230cb77463ba13c9
+F:\github\hannavan\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.csprojAssemblyReference.cache
+F:\github\hannavan\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.Properties.Resources.resources
+F:\github\hannavan\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.csproj.GenerateResource.cache
+F:\github\hannavan\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.exe
+F:\github\hannavan\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.pdb
+F:\github\hannavan\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.csproj.CoreCompileInputs.cache
+F:\github\hannavan\Tao-Cay-Gia-Pha\TestingGP\TestingGP\bin\Debug\TestingGP.exe.config
+F:\github\hannavan\Tao-Cay-Gia-Pha\TestingGP\TestingGP\bin\Debug\TestingGP.exe
+F:\github\hannavan\Tao-Cay-Gia-Pha\TestingGP\TestingGP\bin\Debug\TestingGP.pdb
