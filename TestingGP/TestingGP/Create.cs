@@ -20,12 +20,6 @@ namespace TestingGP
             _drower = new TreeDrower();
             InitializeComponent();
         }
-        List<string> listItem;
-        private void combMenu_Click(object sender, EventArgs e)
-        {
-            listItem = new List<string>() {"Xuất thế hệ con cháu của một người", "Xem những người cùng thế hệ", "Xem thông tin của một người" };
-            combMenu.DataSource = listItem;
-        }
         private Rectangle ResizePanel()
         {
             var size = _drower.GetSize(_tree);
@@ -59,26 +53,33 @@ namespace TestingGP
 
             _drower.Draw(graphics, _tree.GetTop(), rectangle);
         }
-        private void button3_Click(object sender, EventArgs e)
-        {
-            if (combMenu.Text == "Xem những người cùng thế hệ")
-            {
-                Form2 f = new Form2();
-                f.Show();
-                f.pntimnguoitheoten.Hide(); //ẩn đi những panel khác
-            }
-            if (combMenu.Text == "Xem thông tin của một người")
-            {
-                Form2 f = new Form2();
-                f.Show();
-                f.pnxemnguoicungthehe.Hide();   //ẩn đi những panel khác
-
-            }
-        }
         private void mnuTaoGPCreate_Click(object sender, EventArgs e)
         {
             FormAdd creGiaPha = new FormAdd();
             creGiaPha.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form2 f = new Form2();
+            if(combMenu.Text=="Xem những người cùng thế hệ")
+            {
+                f.Show();
+                f.panel2.Hide();
+                f.panel3.Hide();
+            }
+            if(combMenu.Text== "Tìm thông tin một người")
+            {
+                f.Show();
+                f.panel1.Hide();
+                f.panel3.Hide();
+            }
+            if(combMenu.Text== "Xem thông tin ông bà, con cháu")
+            {
+                f.Show();
+                f.panel1.Hide();
+                f.panel2.Hide();
+            }
         }
         
     }
