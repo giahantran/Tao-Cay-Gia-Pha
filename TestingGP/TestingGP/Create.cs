@@ -80,5 +80,6 @@ namespace TestingGP
             FormAdd creGiaPha = new FormAdd();
             creGiaPha.Show();
         }
+        
     }
 }
