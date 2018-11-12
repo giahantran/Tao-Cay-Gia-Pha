@@ -15,8 +15,8 @@ namespace TestingGP
     public partial class FormDisplay : Form
     {
         //SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-C99VFUB\GIAHAN;Initial Catalog=DL_GIAPHA;Integrated Security=True"); //Hân
-        SqlConnection conn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=GIAPHA;Integrated Security=True"); //Văn
-        //SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-RRRHOP4;Initial Catalog=Genealogy;Integrated Security=True"); //Na
+        //SqlConnection conn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=GIAPHA;Integrated Security=True"); //Văn
+        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-RRRHOP4;Initial Catalog=Genealogy;Integrated Security=True"); //Na
         SqlDataAdapter daGiaPha = null;
         DataTable dtGiaPha = null;
 
@@ -50,9 +50,6 @@ namespace TestingGP
 
         private void btThem_Click(object sender, EventArgs e)
         {
-            FormAdd add = new FormAdd();
-            add.layDuLieu(dgvGiaPha);
-            add.ShowDialog();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conn;
             cmd.CommandType = CommandType.Text;
@@ -79,14 +76,17 @@ namespace TestingGP
             cmd.ExecuteNonQuery();
             MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.None);
             KetNoi();
-            conn.Close();
-            conn.Dispose();
-            conn = null;
-            Dispose();
+
+            //conn.Close();
+            //conn.Dispose();
+            //conn = null;
+            //Dispose();
         }
 
         private void Display_Load(object sender, EventArgs e)
         {
+            dgvGiaPha.Visible = true;
+            treeViewShowDisplay.Visible = false;
             for (int i = 1; i <= 1000; i++)
             {
                 combMaTV.Items.Add(i).ToString();

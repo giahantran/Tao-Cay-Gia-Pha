@@ -17,19 +17,16 @@ namespace TestingGP
         {
             InitializeComponent();
         }
-
         private void btCreateGiaPha_Click(object sender, EventArgs e)
         {
             FormCreate creGiaPha = new FormCreate();
             creGiaPha.Show();
         }
-
         private void btMauGiaPha_Click(object sender, EventArgs e)
         {
             FormDisplay dispGiaPha = new FormDisplay();
             dispGiaPha.Show();
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             this.label1.Location = new Point(170, 80);
@@ -39,9 +36,7 @@ namespace TestingGP
             this.label1.Parent = this.pictureBox1;
             this.lbGiaPha.Parent = this.pictureBox1;
             this.pictureBox2.Parent = this.pictureBox1;
-            
         }
-
         private void mnuThoat_Click(object sender, EventArgs e)
         {
             this.Close();

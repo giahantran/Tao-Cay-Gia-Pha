@@ -83,7 +83,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StructTree.cs" />
     <Compile Include="Tree.cs" />
     <Compile Include="TreeDrower.cs" />
     <Compile Include="TreeMember.cs" />

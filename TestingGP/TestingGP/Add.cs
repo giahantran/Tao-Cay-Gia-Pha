@@ -8,309 +8,202 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.Configuration;
 
 namespace TestingGP
 {
     public partial class FormAdd : Form
     {
+        //SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-C99VFUB\GIAHAN;Initial Catalog=DL_GIAPHA;Integrated Security=True"); //Hân
+        //SqlConnection conn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=GIAPHA;Integrated Security=True"); //Văn
+        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-RRRHOP4;Initial Catalog=Genealogy;Integrated Security=True"); //Na
+        SqlDataAdapter daGiaPha = null;
+        DataTable dtGiaPha = null;
+        public void KetNoi()
+        {
+            if (conn.State == ConnectionState.Open)
+            {
+                conn.Close();
+            }
+            conn.Open();
+            try
+            {
+                daGiaPha = new SqlDataAdapter("select * from UserGP", conn);
+                dtGiaPha = new DataTable();
+                daGiaPha.Fill(dtGiaPha);
+                dgvGiaPha.DataSource = dtGiaPha;
+                dgvGiaPha.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                dgvGiaPha.AllowUserToAddRows = false; //không cho thêm trực tiếp
+                dgvGiaPha.EditMode = DataGridViewEditMode.EditProgrammatically; //không chỉnh sửa trực tiếp
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Không thể kết nối CSDL", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void Disconnect()
+        {
+            conn.Close(); //Đóng kết nối
+            conn.Dispose(); //Giải phóng tài nguyên
+            conn = null; //Hủy đối tượng
+        }
+        private void GetData()
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "Select * From UserGP";
+            daGiaPha.SelectCommand = cmd;
+            daGiaPha.Fill(dtGiaPha);
+            dgvGiaPha.DataSource = dtGiaPha;
+        }
         public FormAdd()
         {
             InitializeComponent();
-
         }
-        public List<List> ClassGiaPha { get; set; }
-        public class GIAPHA
+        private void FormAdd_Load(object sender, EventArgs e)
         {
-            public int keyID, theHe, parent;
-            public string hoTen, cha, me, tenVoChong, tenCon;
-            public bool gioiTinh = true, thuocGP = true; //true = nam, true = có trong gia phả
-            public string namSinh, namMat;
-            public string noiSinh, ngheNghiep, ghiChu;
+            this.dgvGiaPha.Location = new Point(360, 71);
+            this.treeViewShowAdd.Location = new Point(360, 71);
+            dgvGiaPha.Visible = true;
+            treeViewShowAdd.Visible = false;
+            for (int i = 1; i <= 1000; i++)
+            {
+                combMaTV.Items.Add(i).ToString();
+                combTheHe.Items.Add(i).ToString();
+            }
+            KetNoi();
         }
-        public class List : FormAdd
+        public void CreateGP(GIAPHA gp)
         {
-            public class Node
-            {
-                public GIAPHA info;
-                public Node pNext;
-            }
-            Node pHead;
-            Node pTail;
-            public List()
-            {
-                pHead = pTail = null;
-            }
-            Node CreateNode(GIAPHA gp)
-            {
-                Node p = new Node();
-                if (p != null)
-                {
-                    p.info = gp;
-                    p.pNext = null;
-                }
-                else
-                {
-                    MessageBox.Show("Không đủ bộ nhớ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                return p;
-            }
-            public void AddTail(List l, Node p)
-            {
-                if (l.pHead == null)
-                {
-                    l.pHead = l.pTail = p;
-                }
-                else
-                {
-                    l.pTail.pNext = p;
-                    p.pNext = null;
-                    l.pTail = p;
-                }
-            }
-            public void AddNodeTail(List l, GIAPHA gp)
-            {
-                Node p = CreateNode(gp);
-                if (p != null) AddTail(l, p);
-                else MessageBox.Show("Không đủ bộ nhớ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            public void CreateGiaPha(List l, GIAPHA gp)
-            {
-                treeViewShow.Visible = false;
-                dgvGiaPha.Visible = true;
-                gp.keyID = Convert.ToInt32(combMaTV.Text);
-                gp.theHe = Convert.ToInt32(combTheHe.Text);
-                gp.parent = Convert.ToInt32(txtParent.Text);
-                gp.hoTen = txtbHoTen.Text.ToString();
-                gp.cha = txtBHotenCha.Text.ToString();
-                gp.me = txtBHoTenMe.Text.ToString();
-                gp.tenVoChong = txtBHoTenVC.Text.ToString();
-                gp.tenCon = txtBHoTenCon.Text.ToString();
-                if (checkBGioiTinh.Checked == true) gp.gioiTinh = true;
-                else gp.gioiTinh = false;
-                if (checkBThuocGP.Checked == true) gp.thuocGP = true;
-                else gp.thuocGP = false;
-                gp.namSinh = dateNgaySinh.Text.ToString();
-                gp.namMat = dateNgayMat.Text.ToString();
-                gp.noiSinh = txtBQueQuan.Text.ToString();
-                gp.ngheNghiep = txtBNgheNghiep.Text.ToString();
-                gp.ghiChu = txtBGhiChu.Text.ToString();
-                AddNodeTail(l, gp);
-            }
+            gp.iD = Convert.ToInt32(combMaTV.Text);
+            gp.theHe = Convert.ToInt32(combTheHe.Text);
+            gp.hoTen = txtbHoTen.Text;
+            gp.cha = txtBHotenCha.Text;
+            gp.me = txtBHoTenMe.Text;
+            gp.tenVoChong = txtBHoTenVC.Text;
+            gp.tenCon = txtBHoTenCon.Text;
+            if (checkBGioiTinh.Checked == true) gp.gioiTinh = "Nam";
+            else gp.gioiTinh = "Nữ";
+            if (checkBThuocGP.Checked == true) gp.thuocGP = "Có";
+            else gp.thuocGP = "Không";
+            gp.namSinh = DateTime.Parse(dateNgaySinh.Text).ToString();
+            gp.namMat = DateTime.Parse(dateNgayMat.Text).ToString();
+            gp.ngheNghiep = txtBNgheNghiep.Text;
+            gp.noiSinh = txtBQueQuan.Text;
+            gp.ghiChu = txtBGhiChu.Text;
         }
-        /// <summary>
-        /// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-
-        private void btHuy_Click(object sender, EventArgs e)
+        public void AddToSQL(GIAPHA gp)
         {
-            this.Close();
+            DataRow row = dtGiaPha.NewRow();
+            row["KeyNode"] = gp.keyNode;
+            row["ID"] = gp.iD;
+            row["Thếhệ"] = gp.theHe;
+            row["ThuộcGiaPhả"] = gp.thuocGP;
+            row["Họtên"] = gp.hoTen;
+            dtGiaPha.Rows.Add(row);
+            SqlCommand cmdAdd = new SqlCommand();
+            cmdAdd.Connection = conn;
+            cmdAdd.CommandType = CommandType.Text;
+            cmdAdd.CommandText = @"Insert into UserGP (KeyNode, ID, Thếhệ, ThuộcGiaPhả, Họtên) Values (@KeyNode, @ID, @Thếhệ, @ThuộcGiaPhả, @Họtên)";
+            cmdAdd.Parameters.Add("@KeyNode", SqlDbType.Int, 5, "KeyNode");
+            cmdAdd.Parameters.Add("@ID", SqlDbType.Int, 5, "ID");
+            cmdAdd.Parameters.Add("@Thếhệ", SqlDbType.Int, 5, "Thếhệ");
+            cmdAdd.Parameters.Add("@ThuộcGiaPhả", SqlDbType.NVarChar, 10, "ThuộcGiaPhả");
+            cmdAdd.Parameters.Add("@Họtên", SqlDbType.NVarChar, 50, "Họtên");
+            daGiaPha.InsertCommand = cmdAdd;
+            daGiaPha.Update(dtGiaPha);
+            MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-
-        public DataGridView dt;
-
-        public static string connectionString { get; private set; }
-
-        public void layDuLieu(DataGridView data)
+        private void btThem_Click(object sender, EventArgs e)
         {
-            dt = data;
+            BTree tree = new BTree();
+            int key;
+            Random random = new Random();
+            key = random.Next(100);
+            GIAPHA gp = new GIAPHA();
+            CreateGP(gp);
+            tree.InsertNode(key, gp);
+            AddToSQL(gp);
         }
-
-
-
-        private void ShowTreeView()
+        private void btXoa_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < dt.Rows.Count - 1; i++)
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandType = CommandType.Text;
+
+            int r = dgvGiaPha.CurrentCell.RowIndex;
+            string sID = dgvGiaPha.Rows[r].Cells[1].Value.ToString();
+            cmd.CommandText = "delete from UserGP where ID = " + sID + "";
+            cmd.ExecuteNonQuery();
+            KetNoi();
+        }
+    }
+    public class GIAPHA
+    {
+        public int keyNode;
+        public int iD, theHe;
+        public string hoTen, cha, me, tenVoChong, tenCon;
+        public string gioiTinh, thuocGP; //true = nam, true = có trong gia phả
+        public string namSinh, namMat;
+        public string noiSinh, ngheNghiep, ghiChu;
+    }
+    public class Node
+    {
+        private GIAPHA info;
+        private Node pLeft;
+        private Node pRight;
+        public Node(int key, GIAPHA gp)
+        {
+            info = gp;
+            info.keyNode = key;
+            pLeft = pRight = null;
+        }
+        public Node pleft
+        {
+            get { return pLeft; }
+            set { pLeft = value; }
+        }
+        public Node pright
+        {
+            get { return pRight; }
+            set { pRight = value; }
+        }
+        public GIAPHA inFO
+        {
+            get { return info; }
+            set { info = value; }
+        }
+        public void AddNode(int key, GIAPHA gp)
+        {
+            if (key == info.keyNode)
             {
-                treeViewShow.Nodes.Add(dt.Rows[i].Cells[3].Value.ToString());
-                if (i % 2 == 0)
-                {
-
-                    //addChildNode(1, dt.Rows[i].Cells[3].Value.ToString());
-                }
+                MessageBox.Show("Thông tin đã có trong gia phả", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            treeViewShow.Nodes.Add(dt.Rows[1].Cells[4].Value.ToString());
-            addChildNode(1, dt.Rows[2].Cells[4].Value.ToString());
-            addChildNode(1, dt.Rows[3].Cells[4].Value.ToString());
-
-
-            //  addChildNodeMMore();
-            //treeViewShow.Nodes.Add(dt.Rows[0].Cells[3].Value.ToString());
-            //treeViewShow.Nodes.Add(dt.Rows[1].Cells[3].Value.ToString());
-
-            //TreeNode parentNode = treeViewShow.SelectedNode ?? treeViewShow.Nodes[0];
-            //List<TreeNode> Nodes = new List<TreeNode>();
-            //AddChild(Nodes, parentNode);
-
-        }
-        private void dequy(int i, int j)
-        {
-            for (int i1 = i; i1 <= j; i1++)
+            else if (key < info.keyNode)
             {
-
+                if (pLeft == null) pLeft = new Node(key, gp);
+                else pLeft.AddNode(key, gp);
             }
-        }
-        private void AddChild(List<TreeNode> Nodes, TreeNode Node)
-        {
-            foreach (TreeNode thisNode in Node.Nodes)
+            else
             {
-                Nodes.Add(thisNode);
-                AddChild(Nodes, thisNode);
+                if (pRight == null) pRight = new Node(key, gp);
+                else pRight.AddNode(key, gp);
             }
         }
-        private void addChildNode(int index, string str)
+    }
+    public class BTree
+    {
+        public Node root;
+        public BTree()
         {
-            var childNode = str;
-            if (!string.IsNullOrEmpty(childNode))
-            {
-                TreeNode parentNode = treeViewShow.SelectedNode ?? treeViewShow.Nodes[index];
-                if (parentNode != null)
-                {
-                    parentNode.Nodes.Add(childNode);
-                    treeViewShow.ExpandAll();
-                }
-            }
+            root = null;
         }
-
-        private void addChildNodeMMore()
+        public void InsertNode(int key, GIAPHA gp)
         {
-            var childNode = "NA xam";
-            if (!string.IsNullOrEmpty(childNode))
-            {
-                TreeNode parentNode = treeViewShow.SelectedNode ?? treeViewShow.Nodes[0].Nodes[0];
-                if (parentNode != null)
-                {
-                    parentNode.Nodes.Add(childNode);
-                    treeViewShow.ExpandAll();
-                }
-            }
+            if (root == null)
+                root = new Node(key, gp);
+            else root.AddNode(key, gp);
         }
-
-        //private void AddChildNode(TreeNode parentNode, int parent)
-        //{
-        //    foreach (DataRow dr in dt.Rows)
-        //    {
-        //        TreeNode node = new TreeNode();
-        //        node.Text = dr["HOTEN"].ToString();
-        //        int childNode = Convert.ToInt32(dr["ID"]);
-        //        if(parentNode==null || parent==0)
-        //        {
-        //            AddChildNode(node, childNode);
-        //            treeViewShow.Nodes.Add(node);
-        //        }
-        //        else
-        //        {
-        //            AddChildNode(node, childNode);
-        //         //   parentNode..Add(node);
-        //        }
-        //    }
-        //}
-
-        //void fill_Tree2()
-
-        //{
-
-
-
-        //    DataSet PrSet = PDataset("Select * from ParentTable");
-
-        //    treeViewShow.Nodes.Clear();
-
-        //    foreach (DataRow dr in PrSet.Tables[0].Rows)
-
-        //    {
-
-        //        TreeNode tnParent = new TreeNode();
-
-        //        tnParent.Text = dr["ParentName"].ToString();
-
-        //        tnParent.Value = dr["ParentID"].ToString();
-
-        //        tnParent.PopulateOnDemand = true;
-
-        //        tnParent.ToolTipText = "Click to get Child";
-
-        //        tnParent.SelectAction = TreeNodeSelectAction.SelectExpand;
-
-        //        tnParent.Expand();
-
-        //        tnParent.SelectedImageKey = true;
-
-        //        treeViewShow.Nodes.Add(tnParent);
-
-        //        FillChild(tnParent, tnParent.Value);
-
-        //    }
-
-
-
-        //}
-
-        //public void FillChild(TreeNode parent, string ParentId)
-
-        //{
-
-        //    DataSet ds = PDataset("Select * from ChildTable where ParentId =" + ParentId);
-
-        //    parent.ChildNodes.Clear();
-
-        //    foreach (DataRow dr in ds.Tables[0].Rows)
-
-        //    {
-
-        //        TreeNode child = new TreeNode();
-
-        //        child.Text = dr["ChildName"].ToString().Trim();
-
-        //        child.Value = dr["ChildId"].ToString().Trim();
-
-        //        if (child.ChildNodes.Count == 0)
-
-        //        {
-
-        //            child.PopulateOnDemand = true;
-
-        //        }
-
-        //        child.ToolTip = "Click to get Child";
-
-        //        child.SelectAction = TreeNodeSelectAction.SelectExpand;
-
-        //        child.CollapseAll();
-
-        //        parent.ChildNodes.Add(child);
-
-        //    }
-
-        //}
-
-
-
-        //protected DataSet PDataset(string Select_Statement)
-
-        //{
-
-        //    SqlConnection SqlCon = new SqlConnection("Data Source=;Integrated Security=True");
-
-        //    SqlDataAdapter ad = new SqlDataAdapter(Select_Statement, SqlCon);
-
-        //    DataSet ds = new DataSet();
-
-        //    ad.Fill(ds);
-
-        //    return ds;
-
-
-
-        //}
-        private void Add_Load(object sender, EventArgs e)
-        {
-            ShowTreeView();
-            //TreeNode node = null;
-            //AddChildNode(node, 0);
-        }
-
     }
 }
