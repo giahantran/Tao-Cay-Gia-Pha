@@ -67,18 +67,28 @@ namespace TestingGP
                 f.Show();
                 f.panel2.Hide();
                 f.panel3.Hide();
+                f.panel4.Hide();
             }
             if(combMenu.Text== "Tìm thông tin một người")
             {
                 f.Show();
                 f.panel1.Hide();
                 f.panel3.Hide();
+                f.panel4.Hide();
             }
             if(combMenu.Text== "Xem thông tin ông bà, con cháu")
             {
                 f.Show();
                 f.panel1.Hide();
                 f.panel2.Hide();
+                f.panel4.Hide();
+            }
+            if(combMenu.Text== "Xem những người thuộc gia phả")
+            {
+                f.Show();
+                f.panel1.Hide();
+                f.panel2.Hide();
+                f.panel3.Hide();
             }
         }
         

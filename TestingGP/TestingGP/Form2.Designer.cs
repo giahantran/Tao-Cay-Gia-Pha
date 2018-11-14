@@ -29,20 +29,6 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TheHe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ThuocGiaPha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hovaten = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Gioitinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ngaysinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ngaymat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Noisinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nghenghiep = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HotenCha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HotenMe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenVoChong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HotenCon = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ghichu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -56,10 +42,14 @@
             this.button2 = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -70,123 +60,10 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
-            this.TheHe,
-            this.ThuocGiaPha,
-            this.Hovaten,
-            this.Gioitinh,
-            this.Ngaysinh,
-            this.Ngaymat,
-            this.Noisinh,
-            this.Nghenghiep,
-            this.HotenCha,
-            this.HotenMe,
-            this.TenVoChong,
-            this.HotenCon,
-            this.Ghichu});
             this.dataGridView1.Location = new System.Drawing.Point(5, 93);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(783, 345);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.Width = 43;
-            // 
-            // TheHe
-            // 
-            this.TheHe.DataPropertyName = "Thế Hệ";
-            this.TheHe.HeaderText = "Thế Hệ";
-            this.TheHe.Name = "TheHe";
-            this.TheHe.Width = 51;
-            // 
-            // ThuocGiaPha
-            // 
-            this.ThuocGiaPha.DataPropertyName = "Thuộc Gia Phả";
-            this.ThuocGiaPha.HeaderText = "Thuộc Gia Phả";
-            this.ThuocGiaPha.Name = "ThuocGiaPha";
-            this.ThuocGiaPha.Width = 78;
-            // 
-            // Hovaten
-            // 
-            this.Hovaten.DataPropertyName = "Họ và tên";
-            this.Hovaten.HeaderText = "Họ và tên";
-            this.Hovaten.Name = "Hovaten";
-            this.Hovaten.Width = 73;
-            // 
-            // Gioitinh
-            // 
-            this.Gioitinh.DataPropertyName = "Giới tính";
-            this.Gioitinh.HeaderText = "Giới tính";
-            this.Gioitinh.Name = "Gioitinh";
-            this.Gioitinh.Width = 67;
-            // 
-            // Ngaysinh
-            // 
-            this.Ngaysinh.DataPropertyName = "Ngày sinh";
-            this.Ngaysinh.HeaderText = "Ngày sinh";
-            this.Ngaysinh.Name = "Ngaysinh";
-            this.Ngaysinh.Width = 73;
-            // 
-            // Ngaymat
-            // 
-            this.Ngaymat.DataPropertyName = "Ngày mất";
-            this.Ngaymat.HeaderText = "Ngày mất";
-            this.Ngaymat.Name = "Ngaymat";
-            this.Ngaymat.Width = 71;
-            // 
-            // Noisinh
-            // 
-            this.Noisinh.DataPropertyName = "Nơi sinh";
-            this.Noisinh.HeaderText = "Nơi sinh";
-            this.Noisinh.Name = "Noisinh";
-            this.Noisinh.Width = 65;
-            // 
-            // Nghenghiep
-            // 
-            this.Nghenghiep.DataPropertyName = "Nghề nghiệp";
-            this.Nghenghiep.HeaderText = "Nghề nghiệp";
-            this.Nghenghiep.Name = "Nghenghiep";
-            this.Nghenghiep.Width = 86;
-            // 
-            // HotenCha
-            // 
-            this.HotenCha.DataPropertyName = "Họ tên Cha";
-            this.HotenCha.HeaderText = "Họ tên Cha";
-            this.HotenCha.Name = "HotenCha";
-            this.HotenCha.Width = 79;
-            // 
-            // HotenMe
-            // 
-            this.HotenMe.DataPropertyName = "Họ tên Mẹ";
-            this.HotenMe.HeaderText = "Họ tên Mẹ";
-            this.HotenMe.Name = "HotenMe";
-            this.HotenMe.Width = 76;
-            // 
-            // TenVoChong
-            // 
-            this.TenVoChong.DataPropertyName = "Tên Vợ (Chồng)";
-            this.TenVoChong.HeaderText = "Tên Vợ (Chồng)";
-            this.TenVoChong.Name = "TenVoChong";
-            this.TenVoChong.Width = 98;
-            // 
-            // HotenCon
-            // 
-            this.HotenCon.DataPropertyName = "Họ tên Con";
-            this.HotenCon.HeaderText = "Họ tên Con";
-            this.HotenCon.Name = "HotenCon";
-            this.HotenCon.Width = 79;
-            // 
-            // Ghichu
-            // 
-            this.Ghichu.DataPropertyName = "Ghi chú";
-            this.Ghichu.HeaderText = "Ghi chú";
-            this.Ghichu.Name = "Ghichu";
-            this.Ghichu.Width = 64;
             // 
             // panel1
             // 
@@ -308,11 +185,41 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Nhập tên một thành viên";
             // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.button5);
+            this.panel4.Controls.Add(this.button4);
+            this.panel4.Location = new System.Drawing.Point(183, 62);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(342, 25);
+            this.panel4.TabIndex = 4;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(152, 0);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(181, 23);
+            this.button5.TabIndex = 1;
+            this.button5.Text = "Những người không thuộc gia phả";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(0, 0);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(146, 23);
+            this.button4.TabIndex = 0;
+            this.button4.Text = "Những người thuộc gia phả";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -326,6 +233,7 @@
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -340,25 +248,14 @@
         public System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TheHe;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ThuocGiaPha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Hovaten;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Gioitinh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ngaysinh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ngaymat;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Noisinh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nghenghiep;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HotenCha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HotenMe;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenVoChong;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HotenCon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ghichu;
         private System.Windows.Forms.Button btShowAll;
         public System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button4;
     }
 }

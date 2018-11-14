@@ -152,11 +152,14 @@
             // 
             // combMenu
             // 
+            this.combMenu.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.combMenu.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.combMenu.FormattingEnabled = true;
             this.combMenu.Items.AddRange(new object[] {
             "Xem những người cùng thế hệ",
             "Xem thông tin ông bà, con cháu",
-            "Tìm thông tin một người"});
+            "Tìm thông tin một người",
+            "Xem những người thuộc gia phả"});
             this.combMenu.Location = new System.Drawing.Point(75, 55);
             this.combMenu.Name = "combMenu";
             this.combMenu.Size = new System.Drawing.Size(187, 23);

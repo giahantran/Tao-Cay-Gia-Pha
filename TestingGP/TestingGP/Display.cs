@@ -15,8 +15,8 @@ namespace TestingGP
     public partial class FormDisplay : Form
     {
         //SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-C99VFUB\GIAHAN;Initial Catalog=DL_GIAPHA;Integrated Security=True"); //Hân
-        //SqlConnection conn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=GIAPHA;Integrated Security=True"); //Văn
-        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-RRRHOP4;Initial Catalog=Genealogy;Integrated Security=True"); //Na
+        SqlConnection conn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=GIAPHA;Integrated Security=True"); //Văn
+        //SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-RRRHOP4;Initial Catalog=Genealogy;Integrated Security=True"); //Na
         SqlDataAdapter daGiaPha = null;
         DataTable dtGiaPha = null;
 
@@ -126,6 +126,202 @@ namespace TestingGP
             this.txtBHoTenCon.Text = "";
             this.txtBGhiChu.Text = "";
             Display_Load(sender, e);
+        }
+      
+
+        //Tìm kiếm người trong gia phả
+        private void Ketnoi()
+        {
+            if (conn.State == ConnectionState.Open)
+            {
+                conn.Close();
+            }
+            conn.Open();
+            try
+            {
+                daGiaPha = new SqlDataAdapter("select * from CayGP where Họvàtên like N'%" + textBox1.Text + "%' ", conn);
+                dtGiaPha = new DataTable();
+                daGiaPha.Fill(dtGiaPha);
+                dgvGiaPha.DataSource = dtGiaPha;
+                dgvGiaPha.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                dgvGiaPha.AllowUserToAddRows = false; //không cho thêm trực tiếp
+                dgvGiaPha.EditMode = DataGridViewEditMode.EditProgrammatically; //không chỉnh sửa trực tiếp
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Không thể kết nối CSDL", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            Ketnoi();
+        }
+
+        private void btTimKiem_Click(object sender, EventArgs e)
+        {
+            Ketnoi();
+        }
+        //Khi nhấn OK ở comboBox1
+        //Chọn công việc muốn làm
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (comboBox1.Text == "Xem những người cùng thế hệ")
+            {
+                panel2.Show();
+                panel1.Hide();
+                panel3.Hide();
+            }
+            if (comboBox1.Text == "Xem thế hệ con cháu ông bà")
+            {
+                panel1.Show();
+                panel2.Hide();
+                panel3.Hide();
+            }
+            if (comboBox1.Text == "Xem những người thuộc gia phả")
+            {
+                panel3.Show();
+                panel1.Hide();
+                panel2.Hide();
+            }
+        }
+        //Xem ông bà con cháu
+        //Xem ông bà
+        private void Ketnoiob()
+        {
+            if (conn.State == ConnectionState.Open)
+            {
+                conn.Close();
+            }
+            conn.Open();
+            try
+            {
+                daGiaPha = new SqlDataAdapter("select CayGP.* from CayGP,(select *from CayGP where CayGP.Họvàtên=N'" + textBox2.Text + "') as A where CayGP.ThếHệ<A.ThếHệ ", conn);
+                dtGiaPha = new DataTable();
+                daGiaPha.Fill(dtGiaPha);
+                dgvGiaPha.DataSource = dtGiaPha;
+                dgvGiaPha.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                dgvGiaPha.AllowUserToAddRows = false; //không cho thêm trực tiếp
+                dgvGiaPha.EditMode = DataGridViewEditMode.EditProgrammatically; //không chỉnh sửa trực tiếp
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Không thể kết nối CSDL", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Ketnoiob();
+        }
+        //Xem con cháu
+        private void Ketnoicc()
+        {
+            if (conn.State == ConnectionState.Open)
+            {
+                conn.Close();
+            }
+            conn.Open();
+            try
+            {
+                daGiaPha = new SqlDataAdapter("select CayGP.* from CayGP,(select *from CayGP where CayGP.Họvàtên=N'" + textBox2.Text + "') as A where CayGP.ThếHệ>A.ThếHệ ", conn);
+                dtGiaPha = new DataTable();
+                daGiaPha.Fill(dtGiaPha);
+                dgvGiaPha.DataSource = dtGiaPha;
+                dgvGiaPha.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                dgvGiaPha.AllowUserToAddRows = false; //không cho thêm trực tiếp
+                dgvGiaPha.EditMode = DataGridViewEditMode.EditProgrammatically; //không chỉnh sửa trực tiếp
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Không thể kết nối CSDL", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Ketnoicc();
+        }
+        //Xuất những người cùng thế hệ
+        private void ketnoitt()
+        {
+            if (conn.State == ConnectionState.Open)
+            {
+                conn.Close();
+            }
+            conn.Open();
+            try
+            {
+                daGiaPha = new SqlDataAdapter("select * from CayGP where ThếHệ=" + textBox3.Text, conn);
+                dtGiaPha = new DataTable();
+                daGiaPha.Fill(dtGiaPha);
+                dgvGiaPha.DataSource = dtGiaPha;
+                dgvGiaPha.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                dgvGiaPha.AllowUserToAddRows = false; //không cho thêm trực tiếp
+                dgvGiaPha.EditMode = DataGridViewEditMode.EditProgrammatically; //không chỉnh sửa trực tiếp
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Không thể kết nối CSDL", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ketnoitt();
+        }
+        //Xuất những người thuộc hay không thuộc gia phả
+        private void KetnoiCo()
+        {
+            if (conn.State == ConnectionState.Open)
+            {
+                conn.Close();
+            }
+            conn.Open();
+            try
+            {
+                daGiaPha = new SqlDataAdapter("select * from CayGP where ThuộcGiaPhả=N'Có' ", conn);
+                dtGiaPha = new DataTable();
+                daGiaPha.Fill(dtGiaPha);
+                dgvGiaPha.DataSource = dtGiaPha;
+                dgvGiaPha.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                dgvGiaPha.AllowUserToAddRows = false; //không cho thêm trực tiếp
+                dgvGiaPha.EditMode = DataGridViewEditMode.EditProgrammatically; //không chỉnh sửa trực tiếp
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Không thể kết nối CSDL", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            KetnoiCo();
+        }
+        private void KetnoiKhong()
+        {
+            if (conn.State == ConnectionState.Open)
+            {
+                conn.Close();
+            }
+            conn.Open();
+            try
+            {
+                daGiaPha = new SqlDataAdapter("select * from CayGP where ThuộcGiaPhả=N'Không' ", conn);
+                dtGiaPha = new DataTable();
+                daGiaPha.Fill(dtGiaPha);
+                dgvGiaPha.DataSource = dtGiaPha;
+                dgvGiaPha.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                dgvGiaPha.AllowUserToAddRows = false; //không cho thêm trực tiếp
+                dgvGiaPha.EditMode = DataGridViewEditMode.EditProgrammatically; //không chỉnh sửa trực tiếp
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Không thể kết nối CSDL", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            KetnoiKhong();
         }
     }
 }
