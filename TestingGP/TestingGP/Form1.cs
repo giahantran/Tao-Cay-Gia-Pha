@@ -26,6 +26,9 @@ namespace TestingGP
         {
             FormDisplay dispGiaPha = new FormDisplay();
             dispGiaPha.Show();
+            dispGiaPha.panel1.Hide();
+            dispGiaPha.panel2.Hide();
+            dispGiaPha.panel3.Hide();
         }
         private void Form1_Load(object sender, EventArgs e)
         {
