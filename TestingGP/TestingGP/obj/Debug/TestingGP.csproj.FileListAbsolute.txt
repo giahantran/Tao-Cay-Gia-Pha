@@ -11,3 +11,4 @@ E:\Project Gia Pha\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.cspro
 E:\Project Gia Pha\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.csproj.CoreCompileInputs.cache
 E:\Project Gia Pha\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.exe
 E:\Project Gia Pha\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.pdb
+E:\Project Gia Pha\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.csprojAssemblyReference.cache

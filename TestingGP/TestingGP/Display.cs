@@ -7,8 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Collections;
 using System.Data.SqlClient;
 using System.Configuration;
+//using System.Web.UI.WebControls;
 
 namespace TestingGP
 {
@@ -127,5 +129,110 @@ namespace TestingGP
             this.txtBGhiChu.Text = "";
             Display_Load(sender, e);
         }
+
+        private void btXemCay_Click(object sender, EventArgs e)
+        {
+            dgvGiaPha.Visible = false;
+            treeViewShowDisplay.Visible = true;
+        }
+        private DataTable LoadParentTable()
+        {
+            DataTable dataTable = new DataTable();
+            DataTable dataTableNew = new DataTable();
+            conn.Open();
+            string commandText = "SELECT * FROM CayGP";
+            SqlCommand command = new SqlCommand(commandText, conn);
+            SqlDataAdapter adp = new SqlDataAdapter(command);
+            adp.Fill(dataTable);
+            command.ExecuteNonQuery();
+            conn.Close();
+            dataTableNew = dataTable.Copy();
+
+            return dataTableNew;
+        }
+        private DataTable LoadChildTable()
+        {
+            DataTable dataTable = new DataTable();
+            DataTable dataTableNew = new DataTable();
+            conn.Open();
+            string commandText = "SELECT * FROM NodeChild";
+            SqlCommand command = new SqlCommand(commandText, conn);
+            SqlDataAdapter adp = new SqlDataAdapter(command);
+            adp.Fill(dataTable);
+            command.ExecuteNonQuery();
+            conn.Close();
+            dataTableNew = dataTable.Copy();
+
+            return dataTableNew;
+        }
+        private void btXemDS_Click(object sender, EventArgs e)
+        {
+            dgvGiaPha.Visible = true;
+            treeViewShowDisplay.Visible = false;
+        }
+        private void ShowTreeView()
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                DataTable tableParent = new DataTable();
+                DataTable tableChild = new DataTable();
+                tableParent = LoadParentTable();
+                tableParent.TableName = "TableParent";
+                tableChild = LoadChildTable();
+                tableChild.TableName = "TableChild";
+
+                ds.Tables.Add(tableParent);
+                ds.Tables.Add(tableChild);
+                ds.Relations.Add("MyRelation", tableParent.Columns["ID"], tableChild.Columns["IDParent"]);
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    treeViewShowDisplay.Nodes.Clear();
+
+                    /*foreach (DataRow masterRow in ds.Tables[0].Rows)
+                    {
+                        TreeNode parentNode = new TreeNode(masterRow["TenQuocGia"].ToString());
+                        treeViewShowDisplay.Nodes.Add(parentNode);
+                        treeViewShowDisplay.CollapseAll();
+                        foreach (DataRow childRow in masterRow.GetChildRows("MyRelation"))
+                        {
+                            TreeNode childNode = new TreeNode(childRow["TenNhanVien"].ToString(), childRow["MaNhanVien"].ToString());
+                            parentNode.ChildNodes.Add(childNode);
+                            childNode.Value = childRow["MaNhanVien"].ToString();
+                        }
+                    }*/
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Không kết nối được CSDL" + ex.Message);
+            }
+        }
+        
     }
+    /* private void ShowTreeView()
+     {
+         for (int i = 0; i < dt.Rows.Count - 1; i++)
+         {
+             treeViewShowAdd.Nodes.Add(dt.Rows[i].Cells[3].Value.ToString());
+             if (i % 2 == 0)
+             {
+                 //addChildNode(1, dt.Rows[i].Cells[3].Value.ToString());
+             }
+         }
+         treeViewShowAdd.Nodes.Add(dt.Rows[1].Cells[4].Value.ToString());
+         addChildNode(1, dt.Rows[2].Cells[4].Value.ToString());
+         addChildNode(1, dt.Rows[3].Cells[4].Value.ToString());
+
+
+         //  addChildNodeMMore();
+         //treeViewShow.Nodes.Add(dt.Rows[0].Cells[3].Value.ToString());
+         //treeViewShow.Nodes.Add(dt.Rows[1].Cells[3].Value.ToString());
+
+         //TreeNode parentNode = treeViewShow.SelectedNode ?? treeViewShow.Nodes[0];
+         //List<TreeNode> Nodes = new List<TreeNode>();
+         //AddChild(Nodes, parentNode);
+
+     }*/
 }
+//}

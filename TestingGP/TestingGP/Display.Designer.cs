@@ -69,6 +69,8 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.treeViewShowDisplay = new System.Windows.Forms.TreeView();
+            this.btXemCay = new System.Windows.Forms.Button();
+            this.btXemDS = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGiaPha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -85,25 +87,27 @@
             // 
             // btTimKiem
             // 
+            this.btTimKiem.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btTimKiem.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btTimKiem.Location = new System.Drawing.Point(556, 35);
             this.btTimKiem.Margin = new System.Windows.Forms.Padding(2);
             this.btTimKiem.Name = "btTimKiem";
-            this.btTimKiem.Size = new System.Drawing.Size(73, 28);
+            this.btTimKiem.Size = new System.Drawing.Size(79, 28);
             this.btTimKiem.TabIndex = 1;
             this.btTimKiem.Text = "Tìm kiếm";
-            this.btTimKiem.UseVisualStyleBackColor = true;
+            this.btTimKiem.UseVisualStyleBackColor = false;
             // 
             // btThem
             // 
+            this.btThem.BackColor = System.Drawing.Color.MediumPurple;
             this.btThem.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btThem.Location = new System.Drawing.Point(280, 531);
+            this.btThem.Location = new System.Drawing.Point(276, 531);
             this.btThem.Margin = new System.Windows.Forms.Padding(2);
             this.btThem.Name = "btThem";
-            this.btThem.Size = new System.Drawing.Size(62, 28);
+            this.btThem.Size = new System.Drawing.Size(66, 35);
             this.btThem.TabIndex = 2;
             this.btThem.Text = "Thêm";
-            this.btThem.UseVisualStyleBackColor = true;
+            this.btThem.UseVisualStyleBackColor = false;
             this.btThem.Click += new System.EventHandler(this.btThem_Click);
             // 
             // dgvGiaPha
@@ -133,30 +137,32 @@
             this.dgvGiaPha.Margin = new System.Windows.Forms.Padding(2);
             this.dgvGiaPha.Name = "dgvGiaPha";
             this.dgvGiaPha.RowTemplate.Height = 24;
-            this.dgvGiaPha.Size = new System.Drawing.Size(517, 491);
+            this.dgvGiaPha.Size = new System.Drawing.Size(517, 705);
             this.dgvGiaPha.TabIndex = 3;
             // 
             // btSua
             // 
+            this.btSua.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.btSua.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSua.Location = new System.Drawing.Point(179, 531);
+            this.btSua.Location = new System.Drawing.Point(194, 531);
             this.btSua.Margin = new System.Windows.Forms.Padding(2);
             this.btSua.Name = "btSua";
-            this.btSua.Size = new System.Drawing.Size(62, 28);
+            this.btSua.Size = new System.Drawing.Size(66, 35);
             this.btSua.TabIndex = 4;
             this.btSua.Text = "Sửa";
-            this.btSua.UseVisualStyleBackColor = true;
+            this.btSua.UseVisualStyleBackColor = false;
             // 
             // btXoa
             // 
+            this.btXoa.BackColor = System.Drawing.Color.RoyalBlue;
             this.btXoa.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btXoa.Location = new System.Drawing.Point(104, 531);
+            this.btXoa.Location = new System.Drawing.Point(18, 531);
             this.btXoa.Margin = new System.Windows.Forms.Padding(2);
             this.btXoa.Name = "btXoa";
-            this.btXoa.Size = new System.Drawing.Size(62, 28);
+            this.btXoa.Size = new System.Drawing.Size(77, 35);
             this.btXoa.TabIndex = 5;
             this.btXoa.Text = "Xóa";
-            this.btXoa.UseVisualStyleBackColor = true;
+            this.btXoa.UseVisualStyleBackColor = false;
             this.btXoa.Click += new System.EventHandler(this.btXoa_Click);
             // 
             // label1
@@ -444,14 +450,15 @@
             // 
             // btTaoMoi
             // 
+            this.btTaoMoi.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btTaoMoi.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btTaoMoi.Location = new System.Drawing.Point(19, 531);
+            this.btTaoMoi.Location = new System.Drawing.Point(105, 531);
             this.btTaoMoi.Margin = new System.Windows.Forms.Padding(2);
             this.btTaoMoi.Name = "btTaoMoi";
-            this.btTaoMoi.Size = new System.Drawing.Size(68, 28);
+            this.btTaoMoi.Size = new System.Drawing.Size(76, 35);
             this.btTaoMoi.TabIndex = 36;
             this.btTaoMoi.Text = "Tạo mới";
-            this.btTaoMoi.UseVisualStyleBackColor = true;
+            this.btTaoMoi.UseVisualStyleBackColor = false;
             this.btTaoMoi.Click += new System.EventHandler(this.btTaoMoi_Click);
             // 
             // dateTimePicker1
@@ -495,19 +502,50 @@
             // 
             // treeViewShowDisplay
             // 
+            this.treeViewShowDisplay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.treeViewShowDisplay.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.treeViewShowDisplay.Location = new System.Drawing.Point(357, 68);
             this.treeViewShowDisplay.Margin = new System.Windows.Forms.Padding(2);
             this.treeViewShowDisplay.Name = "treeViewShowDisplay";
-            this.treeViewShowDisplay.Size = new System.Drawing.Size(517, 491);
+            this.treeViewShowDisplay.Size = new System.Drawing.Size(517, 705);
             this.treeViewShowDisplay.TabIndex = 76;
+            // 
+            // btXemCay
+            // 
+            this.btXemCay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btXemCay.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.btXemCay.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btXemCay.Location = new System.Drawing.Point(799, 35);
+            this.btXemCay.Name = "btXemCay";
+            this.btXemCay.Size = new System.Drawing.Size(75, 28);
+            this.btXemCay.TabIndex = 77;
+            this.btXemCay.Text = "Xem cây";
+            this.btXemCay.UseVisualStyleBackColor = false;
+            this.btXemCay.Click += new System.EventHandler(this.btXemCay_Click);
+            // 
+            // btXemDS
+            // 
+            this.btXemDS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btXemDS.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.btXemDS.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btXemDS.Location = new System.Drawing.Point(675, 35);
+            this.btXemDS.Name = "btXemDS";
+            this.btXemDS.Size = new System.Drawing.Size(118, 29);
+            this.btXemDS.TabIndex = 78;
+            this.btXemDS.Text = "Xem danh sách";
+            this.btXemDS.UseVisualStyleBackColor = false;
+            this.btXemDS.Click += new System.EventHandler(this.btXemDS_Click);
             // 
             // FormDisplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(894, 576);
+            this.ClientSize = new System.Drawing.Size(894, 790);
+            this.Controls.Add(this.btXemDS);
+            this.Controls.Add(this.btXemCay);
             this.Controls.Add(this.treeViewShowDisplay);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtbHoTen);
@@ -594,5 +632,7 @@
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TreeView treeViewShowDisplay;
+        private System.Windows.Forms.Button btXemCay;
+        private System.Windows.Forms.Button btXemDS;
     }
 }

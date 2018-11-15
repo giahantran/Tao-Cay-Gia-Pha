@@ -18,13 +18,14 @@ namespace TestingGP
             InitializeComponent();
         }
         //Xem thông tin những người cùng thế hệ
-        SqlConnection cnn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=GIAPHA;Integrated Security=True");
+        SqlConnection cnn = new SqlConnection(@"Data Source=DESKTOP-RRRHOP4;Initial Catalog=Genealogy;Integrated Security=True");
+        //SqlConnection cnn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=GIAPHA;Integrated Security=True");
         private void ketnoicsdl1()
         {
    
             
             cnn.Open();
-            string sql = "select * from CayGP where [Thế Hệ]="+textBox1.Text;  
+            string sql = "select * from CayGP where [ThếHệ]="+textBox1.Text;  
             SqlCommand com = new SqlCommand(sql, cnn); //bat dau truy van
             com.CommandType = CommandType.Text;
             SqlDataAdapter da = new SqlDataAdapter(com); //chuyen du lieu ve
@@ -42,7 +43,7 @@ namespace TestingGP
         private void Ketnoicsdl2()
         {
             cnn.Open();
-            string sql = "select * from CayGP where [Họ và tên] like N'%" + textBox2.Text + "%' ";
+            string sql = "select * from CayGP where [Họvàtên] like N'%" + textBox2.Text + "%' ";
             SqlCommand com = new SqlCommand(sql, cnn); //bat dau truy van
             com.CommandType = CommandType.Text;
             SqlDataAdapter da = new SqlDataAdapter(com); //chuyen du lieu ve
@@ -79,7 +80,7 @@ namespace TestingGP
         private void Ketnoicsdl3()
         {
             cnn.Open();
-            string sql = "select CayGP.* from CayGP,(select *from CayGP where CayGP.[Họ và tên]=N'" + textBox3.Text + "') as A where CayGP.[Thế Hệ]>A.[Thế Hệ]";
+            string sql = "select CayGP.* from CayGP,(select *from CayGP where CayGP.[Họvàtên]=N'" + textBox3.Text + "') as A where CayGP.[ThếHệ]>A.[ThếHệ]";
             SqlCommand com = new SqlCommand(sql, cnn); //bat dau truy van
             com.CommandType = CommandType.Text;
             SqlDataAdapter da = new SqlDataAdapter(com); //chuyen du lieu ve
@@ -97,7 +98,7 @@ namespace TestingGP
         private void Ketnoicsdl4()
         {
             cnn.Open();
-            string sql = "select CayGP.* from CayGP,(select *from CayGP where CayGP.[Họ và tên]=N'" + textBox3.Text + "') as A where CayGP.[Thế Hệ]<A.[Thế Hệ]";
+            string sql = "select CayGP.* from CayGP,(select *from CayGP where CayGP.[Họvàtên]=N'" + textBox3.Text + "') as A where CayGP.[ThếHệ]<A.[ThếHệ]";
             SqlCommand com = new SqlCommand(sql, cnn); //bat dau truy van
             com.CommandType = CommandType.Text;
             SqlDataAdapter da = new SqlDataAdapter(com); //chuyen du lieu ve
