@@ -97,7 +97,8 @@ namespace TestingGP
                 combTheHe.Items.Add(i).ToString();
             }
             KetNoi();
-            ShowTreeView();
+            // ShowTreeView();
+            HienThiTreeView();
         }
 
         private void btXoa_Click(object sender, EventArgs e)
@@ -176,44 +177,70 @@ namespace TestingGP
             treeViewShowTaoCay.Visible = false;
             dgvTaoCay.Visible = false;
         }
-        private void ShowTreeView()
+        //private void ShowTreeView()
+        //{
+        //    try
+        //    {
+        //        DataSet ds = new DataSet();
+        //        DataTable tableParent = new DataTable();
+        //        DataTable tableChild = new DataTable();
+        //        tableParent = LoadParentTable();
+        //        tableParent.TableName = "TableParent";
+        //        tableChild = LoadChildTable();
+        //        tableChild.TableName = "TableChild";
+
+        //        ds.Tables.Add(tableParent);
+        //        ds.Tables.Add(tableChild);
+        //        ds.Relations.Add("MyRelation", tableParent.Columns["ID"], tableChild.Columns["IDParent"]);
+        //        if (ds.Tables[0].Rows.Count > 0)
+        //        {
+        //            treeViewShowDisplay.Nodes.Clear();
+
+        //            foreach (DataRow masterRow in ds.Tables[0].Rows)
+        //            {
+        //                TreeNode parentNode = new TreeNode(masterRow["HọvàTên"].ToString());
+        //                treeViewShowDisplay.Nodes.Add(parentNode);
+        //                treeViewShowDisplay.CollapseAll();
+        //                foreach (DataRow childRow in masterRow.GetChildRows("MyRelation"))
+        //                {
+        //                    TreeNode childNode = new TreeNode(childRow["TenNhanVien"].ToString(), childRow["MaNhanVien"].ToString());
+        //                    parentNode.ChildNodes.Add(childNode);
+        //                    childNode.Text = childRow["MaNhanVien"].ToString();
+        //                }
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new Exception("Không kết nối được CSDL" + ex.Message);
+        //    }
+        //}
+        private DataTable truyvan(string sql, SqlConnection con)
         {
-            try
-            {
-                DataSet ds = new DataSet();
-                DataTable tableParent = new DataTable();
-                DataTable tableChild = new DataTable();
-                tableParent = LoadParentTable();
-                tableParent.TableName = "TableParent";
-                tableChild = LoadChildTable();
-                tableChild.TableName = "TableChild";
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(sql, con);
+            da.Fill(dt);
+            return dt;
+        }
+        void HienThiTreeView()
+        {
+           // SqlConnection con = _ConnectData.getcon();
+            //con.Open();
+            dequy(conn, treeViewShowDisplay.Nodes);
+            //conn.Close();
+        }
 
-                ds.Tables.Add(tableParent);
-                ds.Tables.Add(tableChild);
-                ds.Relations.Add("MyRelation", tableParent.Columns["ID"], tableChild.Columns["IDParent"]);
-                if (ds.Tables[0].Rows.Count > 0)
-                {
-                    treeViewShowDisplay.Nodes.Clear();
-
-                    foreach (DataRow masterRow in ds.Tables[0].Rows)
-                    {
-                        TreeNode parentNode = new TreeNode(masterRow["TenQuocGia"].ToString());
-                        treeViewShowDisplay.Nodes.Add(parentNode);
-                        treeViewShowDisplay.CollapseAll();
-                        foreach (DataRow childRow in masterRow.GetChildRows("MyRelation"))
-                        {
-                            TreeNode childNode = new TreeNode(childRow["TenNhanVien"].ToString(), childRow["MaNhanVien"].ToString());
-                            parentNode.ChildNodes.Add(childNode);
-                            childNode.Text = childRow["MaNhanVien"].ToString();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
+        void dequy(SqlConnection con, TreeNodeCollection nc, String filter = "IDGP=1")
+        {
+            DataTable node = truyvan("SELECT HọvàTên FROM CayGP WHERE " + filter, con);
+            for (int i = 0; i < node.Rows.Count; i++)
             {
-                throw new Exception("Không kết nối được CSDL" + ex.Message);
+                TreeNode t = nc.Add(node.Rows[i][0].ToString());
+                t.Tag = (t.Level + 1).ToString();
+                dequy(con, t.Nodes, "HọtênCha=N'" + node.Rows[i][0].ToString() + "'");
             }
         }
+
         //Tìm kiếm người trong gia phả
         private void Ketnoi()
         {
