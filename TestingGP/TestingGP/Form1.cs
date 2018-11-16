@@ -19,7 +19,7 @@ namespace TestingGP
         }
         private void btCreateGiaPha_Click(object sender, EventArgs e)
         {
-            FormCreate creGiaPha = new FormCreate();
+            FormDisplay creGiaPha = new FormDisplay();
             creGiaPha.Show();
         }
         private void btMauGiaPha_Click(object sender, EventArgs e)

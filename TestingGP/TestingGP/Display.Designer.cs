@@ -29,9 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDisplay));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btTimKiem = new System.Windows.Forms.Button();
             this.btThem = new System.Windows.Forms.Button();
@@ -69,10 +71,8 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.treeViewShowDisplay = new System.Windows.Forms.TreeView();
-<<<<<<< HEAD
             this.btXemCay = new System.Windows.Forms.Button();
             this.btXemDS = new System.Windows.Forms.Button();
-=======
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.lbMenu = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -88,12 +88,14 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
->>>>>>> 12721e4b9c74c5a2af3c608cdc5875c41185d049
+            this.dgvTaoCay = new System.Windows.Forms.DataGridView();
+            this.treeViewShowTaoCay = new System.Windows.Forms.TreeView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGiaPha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTaoCay)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
@@ -117,22 +119,14 @@
             this.btTimKiem.Size = new System.Drawing.Size(79, 28);
             this.btTimKiem.TabIndex = 1;
             this.btTimKiem.Text = "Tìm kiếm";
-<<<<<<< HEAD
-            this.btTimKiem.UseVisualStyleBackColor = false;
-=======
             this.btTimKiem.UseVisualStyleBackColor = true;
             this.btTimKiem.Click += new System.EventHandler(this.btTimKiem_Click);
->>>>>>> 12721e4b9c74c5a2af3c608cdc5875c41185d049
             // 
             // btThem
             // 
             this.btThem.BackColor = System.Drawing.Color.MediumPurple;
             this.btThem.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
-            this.btThem.Location = new System.Drawing.Point(276, 531);
-=======
             this.btThem.Location = new System.Drawing.Point(280, 503);
->>>>>>> 12721e4b9c74c5a2af3c608cdc5875c41185d049
             this.btThem.Margin = new System.Windows.Forms.Padding(2);
             this.btThem.Name = "btThem";
             this.btThem.Size = new System.Drawing.Size(66, 35);
@@ -147,43 +141,35 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvGiaPha.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("UVN Bach Tuyet", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvGiaPha.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("UVN Bach Tuyet", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvGiaPha.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvGiaPha.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvGiaPha.DefaultCellStyle = dataGridViewCellStyle14;
-            this.dgvGiaPha.Location = new System.Drawing.Point(357, 68);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvGiaPha.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvGiaPha.Location = new System.Drawing.Point(357, 69);
             this.dgvGiaPha.Margin = new System.Windows.Forms.Padding(2);
             this.dgvGiaPha.Name = "dgvGiaPha";
             this.dgvGiaPha.RowTemplate.Height = 24;
-<<<<<<< HEAD
-            this.dgvGiaPha.Size = new System.Drawing.Size(517, 705);
-=======
-            this.dgvGiaPha.Size = new System.Drawing.Size(517, 695);
->>>>>>> 12721e4b9c74c5a2af3c608cdc5875c41185d049
+            this.dgvGiaPha.Size = new System.Drawing.Size(517, 659);
             this.dgvGiaPha.TabIndex = 3;
             // 
             // btSua
             // 
             this.btSua.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.btSua.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
-            this.btSua.Location = new System.Drawing.Point(194, 531);
-=======
             this.btSua.Location = new System.Drawing.Point(179, 503);
->>>>>>> 12721e4b9c74c5a2af3c608cdc5875c41185d049
             this.btSua.Margin = new System.Windows.Forms.Padding(2);
             this.btSua.Name = "btSua";
             this.btSua.Size = new System.Drawing.Size(66, 35);
@@ -195,11 +181,7 @@
             // 
             this.btXoa.BackColor = System.Drawing.Color.RoyalBlue;
             this.btXoa.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
-            this.btXoa.Location = new System.Drawing.Point(18, 531);
-=======
             this.btXoa.Location = new System.Drawing.Point(105, 503);
->>>>>>> 12721e4b9c74c5a2af3c608cdc5875c41185d049
             this.btXoa.Margin = new System.Windows.Forms.Padding(2);
             this.btXoa.Name = "btXoa";
             this.btXoa.Size = new System.Drawing.Size(77, 35);
@@ -495,11 +477,7 @@
             // 
             this.btTaoMoi.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btTaoMoi.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
-            this.btTaoMoi.Location = new System.Drawing.Point(105, 531);
-=======
             this.btTaoMoi.Location = new System.Drawing.Point(19, 503);
->>>>>>> 12721e4b9c74c5a2af3c608cdc5875c41185d049
             this.btTaoMoi.Margin = new System.Windows.Forms.Padding(2);
             this.btTaoMoi.Name = "btTaoMoi";
             this.btTaoMoi.Size = new System.Drawing.Size(76, 35);
@@ -553,11 +531,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.treeViewShowDisplay.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.treeViewShowDisplay.Location = new System.Drawing.Point(357, 68);
+            this.treeViewShowDisplay.Location = new System.Drawing.Point(357, 69);
             this.treeViewShowDisplay.Margin = new System.Windows.Forms.Padding(2);
             this.treeViewShowDisplay.Name = "treeViewShowDisplay";
-<<<<<<< HEAD
-            this.treeViewShowDisplay.Size = new System.Drawing.Size(517, 705);
+            this.treeViewShowDisplay.Size = new System.Drawing.Size(517, 659);
             this.treeViewShowDisplay.TabIndex = 76;
             // 
             // btXemCay
@@ -585,9 +562,6 @@
             this.btXemDS.Text = "Xem danh sách";
             this.btXemDS.UseVisualStyleBackColor = false;
             this.btXemDS.Click += new System.EventHandler(this.btXemDS_Click);
-=======
-            this.treeViewShowDisplay.Size = new System.Drawing.Size(517, 718);
-            this.treeViewShowDisplay.TabIndex = 76;
             // 
             // comboBox1
             // 
@@ -604,6 +578,7 @@
             // lbMenu
             // 
             this.lbMenu.AutoSize = true;
+            this.lbMenu.BackColor = System.Drawing.Color.Transparent;
             this.lbMenu.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMenu.Location = new System.Drawing.Point(20, 549);
             this.lbMenu.Name = "lbMenu";
@@ -613,6 +588,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.textBox2);
@@ -661,6 +637,7 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.Controls.Add(this.button3);
             this.panel2.Controls.Add(this.textBox3);
             this.panel2.Controls.Add(this.label15);
@@ -698,6 +675,7 @@
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.Color.Transparent;
             this.panel3.Controls.Add(this.button5);
             this.panel3.Controls.Add(this.button4);
             this.panel3.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -736,26 +714,65 @@
             this.button6.Text = "OK";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
->>>>>>> 12721e4b9c74c5a2af3c608cdc5875c41185d049
+            // 
+            // dgvTaoCay
+            // 
+            this.dgvTaoCay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvTaoCay.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("UVN Bach Tuyet", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTaoCay.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvTaoCay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTaoCay.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvTaoCay.Location = new System.Drawing.Point(357, 69);
+            this.dgvTaoCay.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvTaoCay.Name = "dgvTaoCay";
+            this.dgvTaoCay.RowTemplate.Height = 24;
+            this.dgvTaoCay.Size = new System.Drawing.Size(517, 659);
+            this.dgvTaoCay.TabIndex = 82;
+            // 
+            // treeViewShowTaoCay
+            // 
+            this.treeViewShowTaoCay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.treeViewShowTaoCay.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.treeViewShowTaoCay.Location = new System.Drawing.Point(357, 69);
+            this.treeViewShowTaoCay.Margin = new System.Windows.Forms.Padding(2);
+            this.treeViewShowTaoCay.Name = "treeViewShowTaoCay";
+            this.treeViewShowTaoCay.Size = new System.Drawing.Size(517, 659);
+            this.treeViewShowTaoCay.TabIndex = 83;
             // 
             // FormDisplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-<<<<<<< HEAD
-            this.ClientSize = new System.Drawing.Size(894, 790);
+            this.ClientSize = new System.Drawing.Size(894, 749);
+            this.Controls.Add(this.treeViewShowTaoCay);
+            this.Controls.Add(this.dgvTaoCay);
             this.Controls.Add(this.btXemDS);
             this.Controls.Add(this.btXemCay);
-=======
-            this.ClientSize = new System.Drawing.Size(894, 749);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lbMenu);
             this.Controls.Add(this.comboBox1);
->>>>>>> 12721e4b9c74c5a2af3c608cdc5875c41185d049
             this.Controls.Add(this.treeViewShowDisplay);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtbHoTen);
@@ -803,6 +820,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTaoCay)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -847,10 +865,8 @@
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TreeView treeViewShowDisplay;
-<<<<<<< HEAD
         private System.Windows.Forms.Button btXemCay;
         private System.Windows.Forms.Button btXemDS;
-=======
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label lbMenu;
         public System.Windows.Forms.Panel panel1;  //Cho 3 cái panel này public để dùng trong form 1
@@ -866,6 +882,7 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button6;
->>>>>>> 12721e4b9c74c5a2af3c608cdc5875c41185d049
+        private System.Windows.Forms.DataGridView dgvTaoCay;
+        private System.Windows.Forms.TreeView treeViewShowTaoCay;
     }
 }

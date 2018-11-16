@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Collections;
 using System.Data.SqlClient;
 using System.Configuration;
+//using System.Web.UI;
 //using System.Web.UI.WebControls;
 
 namespace TestingGP
@@ -17,8 +18,8 @@ namespace TestingGP
     public partial class FormDisplay : Form
     {
         //SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-C99VFUB\GIAHAN;Initial Catalog=DL_GIAPHA;Integrated Security=True"); //Hân
-        SqlConnection conn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=GIAPHA;Integrated Security=True"); //Văn
-        //SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-RRRHOP4;Initial Catalog=Genealogy;Integrated Security=True"); //Na
+        //SqlConnection conn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=GIAPHA;Integrated Security=True"); //Văn
+        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-RRRHOP4;Initial Catalog=Genealogy;Integrated Security=True"); //Na
         SqlDataAdapter daGiaPha = null;
         DataTable dtGiaPha = null;
 
@@ -62,6 +63,7 @@ namespace TestingGP
             else tgp = "Có";
             cmd.CommandText = "insert into CayGP values ('" +
                 this.combMaTV.Text + "', '" +
+                this.combMaTV.Text + "', '" +
                 this.combTheHe.Text + "', '" +
                 tgp + "', '" +
                 this.txtbHoTen.Text + "', '" +
@@ -85,7 +87,7 @@ namespace TestingGP
             //Dispose();
         }
 
-        private void Display_Load(object sender, EventArgs e)
+        public void Display_Load(object sender, EventArgs e)
         {
             dgvGiaPha.Visible = true;
             treeViewShowDisplay.Visible = false;
@@ -95,6 +97,7 @@ namespace TestingGP
                 combTheHe.Items.Add(i).ToString();
             }
             KetNoi();
+            ShowTreeView();
         }
 
         private void btXoa_Click(object sender, EventArgs e)
@@ -104,9 +107,9 @@ namespace TestingGP
             cmd.CommandType = CommandType.Text;
 
             int r = dgvGiaPha.CurrentCell.RowIndex;
-            string sID = dgvGiaPha.Rows[r].Cells[0].Value.ToString();
-            string sTH = dgvGiaPha.Rows[r].Cells[1].Value.ToString();
-            cmd.CommandText = "delete from CayGP where ID = " + sID + " and [Thế Hệ] = " + sTH + "";
+            string sID = dgvGiaPha.Rows[r].Cells[1].Value.ToString();
+            string sTH = dgvGiaPha.Rows[r].Cells[2].Value.ToString();
+            cmd.CommandText = "delete from CayGP where ID = " + sID + " and [ThếHệ] = " + sTH + "";
             cmd.ExecuteNonQuery();
             KetNoi();
         }
@@ -129,12 +132,12 @@ namespace TestingGP
             this.txtBGhiChu.Text = "";
             Display_Load(sender, e);
         }
-<<<<<<< HEAD
 
         private void btXemCay_Click(object sender, EventArgs e)
         {
             dgvGiaPha.Visible = false;
             treeViewShowDisplay.Visible = true;
+
         }
         private DataTable LoadParentTable()
         {
@@ -170,6 +173,8 @@ namespace TestingGP
         {
             dgvGiaPha.Visible = true;
             treeViewShowDisplay.Visible = false;
+            treeViewShowTaoCay.Visible = false;
+            dgvTaoCay.Visible = false;
         }
         private void ShowTreeView()
         {
@@ -190,7 +195,7 @@ namespace TestingGP
                 {
                     treeViewShowDisplay.Nodes.Clear();
 
-                    /*foreach (DataRow masterRow in ds.Tables[0].Rows)
+                    foreach (DataRow masterRow in ds.Tables[0].Rows)
                     {
                         TreeNode parentNode = new TreeNode(masterRow["TenQuocGia"].ToString());
                         treeViewShowDisplay.Nodes.Add(parentNode);
@@ -199,9 +204,9 @@ namespace TestingGP
                         {
                             TreeNode childNode = new TreeNode(childRow["TenNhanVien"].ToString(), childRow["MaNhanVien"].ToString());
                             parentNode.ChildNodes.Add(childNode);
-                            childNode.Value = childRow["MaNhanVien"].ToString();
+                            childNode.Text = childRow["MaNhanVien"].ToString();
                         }
-                    }*/
+                    }
                 }
             }
             catch (Exception ex)
@@ -209,10 +214,6 @@ namespace TestingGP
                 throw new Exception("Không kết nối được CSDL" + ex.Message);
             }
         }
-        
-=======
-      
-
         //Tìm kiếm người trong gia phả
         private void Ketnoi()
         {
@@ -236,12 +237,10 @@ namespace TestingGP
                 MessageBox.Show("Không thể kết nối CSDL", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             Ketnoi();
         }
-
         private void btTimKiem_Click(object sender, EventArgs e)
         {
             Ketnoi();
@@ -320,7 +319,6 @@ namespace TestingGP
                 MessageBox.Show("Không thể kết nối CSDL", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             Ketnoicc();
@@ -375,7 +373,6 @@ namespace TestingGP
                 MessageBox.Show("Không thể kết nối CSDL", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void button4_Click(object sender, EventArgs e)
         {
             KetnoiCo();
@@ -402,12 +399,10 @@ namespace TestingGP
                 MessageBox.Show("Không thể kết nối CSDL", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void button5_Click(object sender, EventArgs e)
         {
             KetnoiKhong();
         }
->>>>>>> 12721e4b9c74c5a2af3c608cdc5875c41185d049
     }
     /* private void ShowTreeView()
      {
