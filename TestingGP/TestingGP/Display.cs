@@ -45,12 +45,22 @@ namespace TestingGP
                 MessageBox.Show("Không thể kết nối CSDL", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         public FormDisplay()
         {
             InitializeComponent();
         }
-
+        public void Display_Load(object sender, EventArgs e)
+        {
+            dgvGiaPha.Visible = true;
+            treeViewShowDisplay.Visible = false;
+            for (int i = 1; i <= 1000; i++)
+            {
+                combMaTV.Items.Add(i).ToString();
+                combTheHe.Items.Add(i).ToString();
+            }
+            KetNoi();
+            ShowTreeView();
+        }
         private void btThem_Click(object sender, EventArgs e)
         {
             SqlCommand cmd = new SqlCommand();
@@ -64,18 +74,18 @@ namespace TestingGP
             cmd.CommandText = "insert into CayGP values ('" +
                 this.combMaTV.Text + "', '" +
                 this.combMaTV.Text + "', '" +
-                this.combTheHe.Text + "', '" +
-                tgp + "', '" +
-                this.txtbHoTen.Text + "', '" +
+                this.combTheHe.Text + "', N'" +
+                tgp + "', N'" +
+                this.txtbHoTen.Text + "', N'" +
                 gt + "','" +
                 this.dateTimePicker1.Text + "','" +
-                this.dateTimePicker2.Text + "','" +
-                this.txtBQueQuan.Text + "','" +
-                this.txtBNgheNghiep.Text + "','" +
-                this.txtBHotenCha.Text + "','" +
-                this.txtBHoTenMe.Text + "','" +
-                this.txtBHoTenVC.Text + "','" +
-                this.txtBHoTenCon.Text + "','" +
+                this.dateTimePicker2.Text + "',N'" +
+                this.txtBQueQuan.Text + "',N'" +
+                this.txtBNgheNghiep.Text + "',N'" +
+                this.txtBHotenCha.Text + "',N'" +
+                this.txtBHoTenMe.Text + "',N'" +
+                this.txtBHoTenVC.Text + "',N'" +
+                this.txtBHoTenCon.Text + "',N'" +
                 this.txtBGhiChu.Text + "')";
             cmd.ExecuteNonQuery();
             MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.None);
@@ -86,35 +96,58 @@ namespace TestingGP
             //conn = null;
             //Dispose();
         }
-
-        public void Display_Load(object sender, EventArgs e)
+        private void btSua_Click(object sender, EventArgs e)
         {
-            dgvGiaPha.Visible = true;
-            treeViewShowDisplay.Visible = false;
-            for (int i = 1; i <= 1000; i++)
+            if (MessageBox.Show("Bạn chắc chắn muốn sửa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                combMaTV.Items.Add(i).ToString();
-                combTheHe.Items.Add(i).ToString();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandType = CommandType.Text;
+                string gt, tgp;
+                if (checkBGioiTinh.Checked == false) gt = "Nữ";
+                else gt = "Nam";
+                if (checkBThuocGP.Checked == false) tgp = "Không";
+                else tgp = "Có";
+                cmd.CommandText = "update CayGP set IDGP ='" +
+                    this.combMaTV.Text + "', ID ='" +
+                    this.combMaTV.Text + "', ThếHệ ='" +
+                    this.combTheHe.Text + "', ThuộcGiaPhả =N'" +
+                    tgp + "', Họvàtên =N'" +
+                    this.txtbHoTen.Text + "', Giớitính =N'" +
+                    gt + "', NgàySinh ='" +
+                    this.dateTimePicker1.Text + "', NgàyMất ='" +
+                    this.dateTimePicker2.Text + "', NơiSinh =N'" +
+                    this.txtBQueQuan.Text + "', NghềNghiệp =N'" +
+                    this.txtBNgheNghiep.Text + "', HọtênCha =N'" +
+                    this.txtBHotenCha.Text + "', HọtênMẹ =N'" +
+                    this.txtBHoTenMe.Text + "', TênVợ_Chồng =N'" +
+                    this.txtBHoTenVC.Text + "', HọtênCon =N'" +
+                    this.txtBHoTenCon.Text + "',GhiChú =N'" +
+                    this.txtBGhiChu.Text +
+                    "' where ID ='" + this.combMaTV.Text +
+                    "' and ThếHệ ='" + this.combTheHe.Text + "'";
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Cập nhật thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.None);
+                KetNoi();
             }
-            KetNoi();
-            // ShowTreeView();
-            HienThiTreeView();
         }
-
         private void btXoa_Click(object sender, EventArgs e)
         {
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conn;
-            cmd.CommandType = CommandType.Text;
+            if (MessageBox.Show("Bạn chắc chắn muốn xóa không?", "Đang xóa...", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandType = CommandType.Text;
 
-            int r = dgvGiaPha.CurrentCell.RowIndex;
-            string sID = dgvGiaPha.Rows[r].Cells[1].Value.ToString();
-            string sTH = dgvGiaPha.Rows[r].Cells[2].Value.ToString();
-            cmd.CommandText = "delete from CayGP where ID = " + sID + " and [ThếHệ] = " + sTH + "";
-            cmd.ExecuteNonQuery();
-            KetNoi();
+                int r = dgvGiaPha.CurrentCell.RowIndex;
+                string sID = dgvGiaPha.Rows[r].Cells[1].Value.ToString();
+                string sTH = dgvGiaPha.Rows[r].Cells[2].Value.ToString();
+                cmd.CommandText = "delete from CayGP where ID = " + sID + " and [ThếHệ] = " + sTH + "";
+
+                cmd.ExecuteNonQuery();
+                KetNoi();
+            }
         }
-
         private void btTaoMoi_Click(object sender, EventArgs e)
         {
             this.combMaTV.Items.Clear();
@@ -133,7 +166,6 @@ namespace TestingGP
             this.txtBGhiChu.Text = "";
             Display_Load(sender, e);
         }
-
         private void btXemCay_Click(object sender, EventArgs e)
         {
             dgvGiaPha.Visible = false;
@@ -174,8 +206,6 @@ namespace TestingGP
         {
             dgvGiaPha.Visible = true;
             treeViewShowDisplay.Visible = false;
-            treeViewShowTaoCay.Visible = false;
-            dgvTaoCay.Visible = false;
         }
         //private void ShowTreeView()
         //{
@@ -215,32 +245,28 @@ namespace TestingGP
         //        throw new Exception("Không kết nối được CSDL" + ex.Message);
         //    }
         //}
-        private DataTable truyvan(string sql, SqlConnection con)
+        private DataTable Connect(string sql, SqlConnection con)
         {
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(sql, con);
             da.Fill(dt);
             return dt;
         }
-        void HienThiTreeView()
+        void ShowTreeView()
         {
-           // SqlConnection con = _ConnectData.getcon();
-            //con.Open();
-            dequy(conn, treeViewShowDisplay.Nodes);
-            //conn.Close();
+            AddNode(conn, treeViewShowDisplay.Nodes);
         }
-
-        void dequy(SqlConnection con, TreeNodeCollection nc, String filter = "IDGP=1")
+        void AddNode(SqlConnection con, TreeNodeCollection nc, String filter = "ThếHệ=1")
         {
-            DataTable node = truyvan("SELECT HọvàTên FROM CayGP WHERE " + filter, con);
+            DataTable node = Connect("SELECT HọvàTên FROM CayGP WHERE " + filter, con);
+
             for (int i = 0; i < node.Rows.Count; i++)
             {
                 TreeNode t = nc.Add(node.Rows[i][0].ToString());
                 t.Tag = (t.Level + 1).ToString();
-                dequy(con, t.Nodes, "HọtênCha=N'" + node.Rows[i][0].ToString() + "'");
+                AddNode(con, t.Nodes, "HọtênCha=N'" + node.Rows[i][0].ToString() + "'");
             }
         }
-
         //Tìm kiếm người trong gia phả
         private void Ketnoi()
         {
@@ -429,6 +455,11 @@ namespace TestingGP
         private void button5_Click(object sender, EventArgs e)
         {
             KetnoiKhong();
+        }
+        private void FormDisplay_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            conn.Close();
+            Dispose();
         }
     }
     /* private void ShowTreeView()

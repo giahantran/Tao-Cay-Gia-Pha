@@ -32,8 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDisplay));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btTimKiem = new System.Windows.Forms.Button();
             this.btThem = new System.Windows.Forms.Button();
@@ -88,14 +86,11 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.dgvTaoCay = new System.Windows.Forms.DataGridView();
-            this.treeViewShowTaoCay = new System.Windows.Forms.TreeView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGiaPha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTaoCay)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
@@ -176,6 +171,7 @@
             this.btSua.TabIndex = 4;
             this.btSua.Text = "Sửa";
             this.btSua.UseVisualStyleBackColor = false;
+            this.btSua.Click += new System.EventHandler(this.btSua_Click);
             // 
             // btXoa
             // 
@@ -531,6 +527,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.treeViewShowDisplay.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.treeViewShowDisplay.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeViewShowDisplay.Indent = 30;
+            this.treeViewShowDisplay.ItemHeight = 30;
             this.treeViewShowDisplay.Location = new System.Drawing.Point(357, 69);
             this.treeViewShowDisplay.Margin = new System.Windows.Forms.Padding(2);
             this.treeViewShowDisplay.Name = "treeViewShowDisplay";
@@ -715,56 +714,12 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // dgvTaoCay
-            // 
-            this.dgvTaoCay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvTaoCay.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("UVN Bach Tuyet", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTaoCay.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvTaoCay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTaoCay.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvTaoCay.Location = new System.Drawing.Point(357, 69);
-            this.dgvTaoCay.Margin = new System.Windows.Forms.Padding(2);
-            this.dgvTaoCay.Name = "dgvTaoCay";
-            this.dgvTaoCay.RowTemplate.Height = 24;
-            this.dgvTaoCay.Size = new System.Drawing.Size(517, 659);
-            this.dgvTaoCay.TabIndex = 82;
-            // 
-            // treeViewShowTaoCay
-            // 
-            this.treeViewShowTaoCay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.treeViewShowTaoCay.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.treeViewShowTaoCay.Location = new System.Drawing.Point(357, 69);
-            this.treeViewShowTaoCay.Margin = new System.Windows.Forms.Padding(2);
-            this.treeViewShowTaoCay.Name = "treeViewShowTaoCay";
-            this.treeViewShowTaoCay.Size = new System.Drawing.Size(517, 659);
-            this.treeViewShowTaoCay.TabIndex = 83;
-            // 
             // FormDisplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(894, 749);
-            this.Controls.Add(this.treeViewShowTaoCay);
-            this.Controls.Add(this.dgvTaoCay);
             this.Controls.Add(this.btXemDS);
             this.Controls.Add(this.btXemCay);
             this.Controls.Add(this.button6);
@@ -773,7 +728,6 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lbMenu);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.treeViewShowDisplay);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtbHoTen);
             this.Controls.Add(this.dateTimePicker2);
@@ -802,16 +756,18 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btXoa);
             this.Controls.Add(this.btSua);
-            this.Controls.Add(this.dgvGiaPha);
             this.Controls.Add(this.btThem);
             this.Controls.Add(this.btTimKiem);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.txtBHotenCha);
             this.Controls.Add(this.txtBHoTenMe);
             this.Controls.Add(this.txtBQueQuan);
+            this.Controls.Add(this.dgvGiaPha);
+            this.Controls.Add(this.treeViewShowDisplay);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormDisplay";
             this.Text = "Display";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormDisplay_FormClosing);
             this.Load += new System.EventHandler(this.Display_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGiaPha)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -820,7 +776,6 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTaoCay)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -882,7 +837,5 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.DataGridView dgvTaoCay;
-        private System.Windows.Forms.TreeView treeViewShowTaoCay;
     }
 }
