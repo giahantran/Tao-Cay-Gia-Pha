@@ -207,44 +207,6 @@ namespace TestingGP
             dgvGiaPha.Visible = true;
             treeViewShowDisplay.Visible = false;
         }
-        //private void ShowTreeView()
-        //{
-        //    try
-        //    {
-        //        DataSet ds = new DataSet();
-        //        DataTable tableParent = new DataTable();
-        //        DataTable tableChild = new DataTable();
-        //        tableParent = LoadParentTable();
-        //        tableParent.TableName = "TableParent";
-        //        tableChild = LoadChildTable();
-        //        tableChild.TableName = "TableChild";
-
-        //        ds.Tables.Add(tableParent);
-        //        ds.Tables.Add(tableChild);
-        //        ds.Relations.Add("MyRelation", tableParent.Columns["ID"], tableChild.Columns["IDParent"]);
-        //        if (ds.Tables[0].Rows.Count > 0)
-        //        {
-        //            treeViewShowDisplay.Nodes.Clear();
-
-        //            foreach (DataRow masterRow in ds.Tables[0].Rows)
-        //            {
-        //                TreeNode parentNode = new TreeNode(masterRow["HọvàTên"].ToString());
-        //                treeViewShowDisplay.Nodes.Add(parentNode);
-        //                treeViewShowDisplay.CollapseAll();
-        //                foreach (DataRow childRow in masterRow.GetChildRows("MyRelation"))
-        //                {
-        //                    TreeNode childNode = new TreeNode(childRow["TenNhanVien"].ToString(), childRow["MaNhanVien"].ToString());
-        //                    parentNode.ChildNodes.Add(childNode);
-        //                    childNode.Text = childRow["MaNhanVien"].ToString();
-        //                }
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw new Exception("Không kết nối được CSDL" + ex.Message);
-        //    }
-        //}
         private DataTable Connect(string sql, SqlConnection con)
         {
             DataTable dt = new DataTable();
@@ -462,29 +424,4 @@ namespace TestingGP
             Dispose();
         }
     }
-    /* private void ShowTreeView()
-     {
-         for (int i = 0; i < dt.Rows.Count - 1; i++)
-         {
-             treeViewShowAdd.Nodes.Add(dt.Rows[i].Cells[3].Value.ToString());
-             if (i % 2 == 0)
-             {
-                 //addChildNode(1, dt.Rows[i].Cells[3].Value.ToString());
-             }
-         }
-         treeViewShowAdd.Nodes.Add(dt.Rows[1].Cells[4].Value.ToString());
-         addChildNode(1, dt.Rows[2].Cells[4].Value.ToString());
-         addChildNode(1, dt.Rows[3].Cells[4].Value.ToString());
-
-
-         //  addChildNodeMMore();
-         //treeViewShow.Nodes.Add(dt.Rows[0].Cells[3].Value.ToString());
-         //treeViewShow.Nodes.Add(dt.Rows[1].Cells[3].Value.ToString());
-
-         //TreeNode parentNode = treeViewShow.SelectedNode ?? treeViewShow.Nodes[0];
-         //List<TreeNode> Nodes = new List<TreeNode>();
-         //AddChild(Nodes, parentNode);
-
-     }*/
 }
-//}
