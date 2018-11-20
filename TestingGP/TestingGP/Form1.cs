@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace TestingGP
 {
     public partial class FormHome : Form
@@ -43,6 +42,10 @@ namespace TestingGP
         private void mnuThoat_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        private void FormHome_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            System.GC.Collect();
         }
     }
 }

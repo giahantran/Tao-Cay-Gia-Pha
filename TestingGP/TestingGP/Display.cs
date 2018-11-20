@@ -10,8 +10,6 @@ using System.Windows.Forms;
 using System.Collections;
 using System.Data.SqlClient;
 using System.Configuration;
-//using System.Web.UI;
-//using System.Web.UI.WebControls;
 
 namespace TestingGP
 {
@@ -168,8 +166,10 @@ namespace TestingGP
         }
         private void btXemCay_Click(object sender, EventArgs e)
         {
+            KetNoi();
             dgvGiaPha.Visible = false;
             treeViewShowDisplay.Visible = true;
+            
 
         }
         private DataTable LoadParentTable()
@@ -422,6 +422,7 @@ namespace TestingGP
         {
             conn.Close();
             Dispose();
+            System.GC.Collect();
         }
     }
 }

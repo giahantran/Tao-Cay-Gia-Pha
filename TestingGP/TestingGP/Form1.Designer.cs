@@ -94,7 +94,7 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label1.Font = new System.Drawing.Font("UVN Bach Tuyet", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("UVN Bach Tuyet", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(192, 155);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(452, 107);
@@ -135,7 +135,7 @@
             this.mnuTroGiup});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(921, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(921, 27);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -144,13 +144,13 @@
             this.mnuTapTin.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuThoat});
             this.mnuTapTin.Name = "mnuTapTin";
-            this.mnuTapTin.Size = new System.Drawing.Size(78, 26);
+            this.mnuTapTin.Size = new System.Drawing.Size(63, 23);
             this.mnuTapTin.Text = "Tập tin";
             // 
             // mnuThoat
             // 
             this.mnuThoat.Name = "mnuThoat";
-            this.mnuThoat.Size = new System.Drawing.Size(131, 26);
+            this.mnuThoat.Size = new System.Drawing.Size(113, 24);
             this.mnuThoat.Text = "Thoát";
             this.mnuThoat.Click += new System.EventHandler(this.mnuThoat_Click);
             // 
@@ -159,24 +159,24 @@
             this.mnuDanhMuc.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuHuongDan});
             this.mnuDanhMuc.Name = "mnuDanhMuc";
-            this.mnuDanhMuc.Size = new System.Drawing.Size(100, 26);
+            this.mnuDanhMuc.Size = new System.Drawing.Size(82, 23);
             this.mnuDanhMuc.Text = "Danh mục";
             // 
             // mnuHuongDan
             // 
             this.mnuHuongDan.Name = "mnuHuongDan";
-            this.mnuHuongDan.Size = new System.Drawing.Size(178, 26);
+            this.mnuHuongDan.Size = new System.Drawing.Size(150, 24);
             this.mnuHuongDan.Text = "Hướng dẫn ";
             // 
             // mnuTroGiup
             // 
             this.mnuTroGiup.Name = "mnuTroGiup";
-            this.mnuTroGiup.Size = new System.Drawing.Size(91, 26);
+            this.mnuTroGiup.Size = new System.Drawing.Size(71, 23);
             this.mnuTroGiup.Text = "Trợ giúp";
             // 
             // FormHome
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
@@ -194,6 +194,7 @@
             this.MaximizeBox = false;
             this.Name = "FormHome";
             this.Text = "Chương trình quản lí cây gia phả";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormHome_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
