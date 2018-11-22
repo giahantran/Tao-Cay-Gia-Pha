@@ -31,13 +31,8 @@ namespace TestingGP
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.label1.Location = new Point(170, 80);
-            this.lbGiaPha.Location = new Point(300, 130);
-            this.pictureBox2.Location = new Point(477, 308);
-            this.pictureBox1.Location = new Point(-25, 92);
-            this.label1.Parent = this.pictureBox1;
-            this.lbGiaPha.Parent = this.pictureBox1;
-            this.pictureBox2.Parent = this.pictureBox1;
+            this.pictureBox2.Location = new Point(455, 390);
+          //  this.pictureBox2.Parent = this.ParentForm;
         }
         private void mnuThoat_Click(object sender, EventArgs e)
         {

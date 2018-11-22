@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDisplay));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btTimKiem = new System.Windows.Forms.Button();
@@ -46,7 +46,7 @@
             this.combMaTV = new System.Windows.Forms.ComboBox();
             this.checkBGioiTinh = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lbMat = new System.Windows.Forms.Label();
             this.checkBThuocGP = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -86,6 +86,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.checkNamMat = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGiaPha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -136,23 +137,23 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvGiaPha.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("UVN Bach Tuyet", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvGiaPha.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("UVN Bach Tuyet", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvGiaPha.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvGiaPha.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvGiaPha.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvGiaPha.DefaultCellStyle = dataGridViewCellStyle10;
             this.dgvGiaPha.Location = new System.Drawing.Point(357, 69);
             this.dgvGiaPha.Margin = new System.Windows.Forms.Padding(2);
             this.dgvGiaPha.Name = "dgvGiaPha";
@@ -282,17 +283,17 @@
             this.label4.TabIndex = 13;
             this.label4.Text = "Ngày sinh";
             // 
-            // label5
+            // lbMat
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(104, 154);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(63, 16);
-            this.label5.TabIndex = 16;
-            this.label5.Text = "Ngày mất";
+            this.lbMat.AutoSize = true;
+            this.lbMat.BackColor = System.Drawing.Color.Transparent;
+            this.lbMat.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMat.Location = new System.Drawing.Point(104, 154);
+            this.lbMat.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbMat.Name = "lbMat";
+            this.lbMat.Size = new System.Drawing.Size(63, 16);
+            this.lbMat.TabIndex = 16;
+            this.lbMat.Text = "Ngày mất";
             // 
             // checkBThuocGP
             // 
@@ -495,7 +496,7 @@
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.CustomFormat = "MM/dd/yyyy";
+            this.dateTimePicker2.CustomFormat = "null";
             this.dateTimePicker2.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker2.Location = new System.Drawing.Point(106, 171);
@@ -503,6 +504,7 @@
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(84, 23);
             this.dateTimePicker2.TabIndex = 38;
+            this.dateTimePicker2.Value = new System.DateTime(2018, 11, 22, 21, 22, 28, 0);
             // 
             // imageList1
             // 
@@ -714,12 +716,28 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
+            // checkNamMat
+            // 
+            this.checkNamMat.AutoSize = true;
+            this.checkNamMat.BackColor = System.Drawing.Color.Transparent;
+            this.checkNamMat.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkNamMat.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkNamMat.Location = new System.Drawing.Point(122, 172);
+            this.checkNamMat.Margin = new System.Windows.Forms.Padding(2);
+            this.checkNamMat.Name = "checkNamMat";
+            this.checkNamMat.Size = new System.Drawing.Size(68, 20);
+            this.checkNamMat.TabIndex = 82;
+            this.checkNamMat.Text = "Đã mất";
+            this.checkNamMat.UseVisualStyleBackColor = false;
+            this.checkNamMat.CheckStateChanged += new System.EventHandler(this.checkNamMat_CheckStateChanged);
+            // 
             // FormDisplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(894, 749);
+            this.Controls.Add(this.checkNamMat);
             this.Controls.Add(this.btXemDS);
             this.Controls.Add(this.btXemCay);
             this.Controls.Add(this.button6);
@@ -746,7 +764,7 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.checkBThuocGP);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lbMat);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.checkBGioiTinh);
             this.Controls.Add(this.combMaTV);
@@ -796,7 +814,7 @@
         private System.Windows.Forms.ComboBox combMaTV;
         private System.Windows.Forms.CheckBox checkBGioiTinh;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lbMat;
         private System.Windows.Forms.CheckBox checkBThuocGP;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
@@ -816,7 +834,6 @@
         private System.Windows.Forms.ComboBox combTheHe;
         private System.Windows.Forms.Button btTaoMoi;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TreeView treeViewShowDisplay;
@@ -837,5 +854,7 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.CheckBox checkNamMat;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
     }
 }

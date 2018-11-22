@@ -21,3 +21,4 @@ F:\github\CayGiaPhahannavan\TestingGP\TestingGP\obj\Debug\TestingGP.csproj.Gener
 F:\github\CayGiaPhahannavan\TestingGP\TestingGP\obj\Debug\TestingGP.csproj.CoreCompileInputs.cache
 F:\github\CayGiaPhahannavan\TestingGP\TestingGP\obj\Debug\TestingGP.exe
 F:\github\CayGiaPhahannavan\TestingGP\TestingGP\obj\Debug\TestingGP.pdb
+E:\Project Gia Pha\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.Add.resources

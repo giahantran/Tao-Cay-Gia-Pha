@@ -16,8 +16,8 @@ namespace TestingGP
     public partial class FormDisplay : Form
     {
         //SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-C99VFUB\GIAHAN;Initial Catalog=DL_GIAPHA;Integrated Security=True"); //Hân
-        SqlConnection conn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=GIAPHA;Integrated Security=True"); //Văn
-        //SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-RRRHOP4;Initial Catalog=Genealogy;Integrated Security=True"); //Na
+        //SqlConnection conn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=GIAPHA;Integrated Security=True"); //Văn
+        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-RRRHOP4;Initial Catalog=Genealogy;Integrated Security=True"); //Na
         SqlDataAdapter daGiaPha = null;
         DataTable dtGiaPha = null;
 
@@ -51,11 +51,14 @@ namespace TestingGP
         {
             dgvGiaPha.Visible = true;
             treeViewShowDisplay.Visible = false;
+            lbMat.Visible = false;
+            dateTimePicker2.Visible = false;
             for (int i = 1; i <= 1000; i++)
             {
                 combMaTV.Items.Add(i).ToString();
                 combTheHe.Items.Add(i).ToString();
             }
+            
             KetNoi();
             ShowTreeView();
         }
@@ -64,11 +67,13 @@ namespace TestingGP
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conn;
             cmd.CommandType = CommandType.Text;
-            string gt, tgp;
+            string gt, tgp, nammat;
             if (checkBGioiTinh.Checked == false) gt = "Nữ";
             else gt = "Nam";
             if (checkBThuocGP.Checked == false) tgp = "Không";
             else tgp = "Có";
+            if (checkNamMat.Checked == false) nammat = " ";
+            else nammat = this.dateTimePicker2.Text;
             cmd.CommandText = "insert into CayGP values ('" +
                 this.combMaTV.Text + "', '" +
                 this.combMaTV.Text + "', '" +
@@ -77,7 +82,7 @@ namespace TestingGP
                 this.txtbHoTen.Text + "', N'" +
                 gt + "','" +
                 this.dateTimePicker1.Text + "','" +
-                this.dateTimePicker2.Text + "',N'" +
+                nammat + "',N'" +
                 this.txtBQueQuan.Text + "',N'" +
                 this.txtBNgheNghiep.Text + "',N'" +
                 this.txtBHotenCha.Text + "',N'" +
@@ -423,6 +428,16 @@ namespace TestingGP
             conn.Close();
             Dispose();
             System.GC.Collect();
+        }
+
+        private void checkNamMat_CheckStateChanged(object sender, EventArgs e)
+        {
+            if(checkNamMat.Checked == true)
+            {
+                checkNamMat.Visible = false;
+                lbMat.Visible = true;
+                dateTimePicker2.Visible = true;
+            }
         }
     }
 }
