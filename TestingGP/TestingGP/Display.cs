@@ -51,6 +51,8 @@ namespace TestingGP
         {
             dgvGiaPha.Visible = true;
             treeViewShowDisplay.Visible = false;
+            checkNamMat.Visible = true;
+            checkNamMat.Checked = false;
             lbMat.Visible = false;
             dateTimePicker2.Visible = false;
             for (int i = 1; i <= 1000; i++)
@@ -72,7 +74,7 @@ namespace TestingGP
             else gt = "Nam";
             if (checkBThuocGP.Checked == false) tgp = "Không";
             else tgp = "Có";
-            if (checkNamMat.Checked == false) nammat = " ";
+            if (checkNamMat.Checked == false) nammat = "";
             else nammat = this.dateTimePicker2.Text;
             cmd.CommandText = "insert into CayGP values ('" +
                 this.combMaTV.Text + "', '" +
@@ -106,11 +108,13 @@ namespace TestingGP
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandType = CommandType.Text;
-                string gt, tgp;
+                string gt, tgp, nammat;
                 if (checkBGioiTinh.Checked == false) gt = "Nữ";
                 else gt = "Nam";
                 if (checkBThuocGP.Checked == false) tgp = "Không";
                 else tgp = "Có";
+                if (checkNamMat.Checked == false) nammat = "";
+                else nammat = this.dateTimePicker2.Text;
                 cmd.CommandText = "update CayGP set IDGP ='" +
                     this.combMaTV.Text + "', ID ='" +
                     this.combMaTV.Text + "', ThếHệ ='" +
@@ -119,7 +123,7 @@ namespace TestingGP
                     this.txtbHoTen.Text + "', Giớitính =N'" +
                     gt + "', NgàySinh ='" +
                     this.dateTimePicker1.Text + "', NgàyMất ='" +
-                    this.dateTimePicker2.Text + "', NơiSinh =N'" +
+                    nammat + "', NơiSinh =N'" +
                     this.txtBQueQuan.Text + "', NghềNghiệp =N'" +
                     this.txtBNgheNghiep.Text + "', HọtênCha =N'" +
                     this.txtBHotenCha.Text + "', HọtênMẹ =N'" +
