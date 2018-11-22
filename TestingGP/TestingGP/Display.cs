@@ -60,7 +60,6 @@ namespace TestingGP
                 combMaTV.Items.Add(i).ToString();
                 combTheHe.Items.Add(i).ToString();
             }
-            
             KetNoi();
             ShowTreeView();
         }
@@ -77,7 +76,7 @@ namespace TestingGP
             if (checkNamMat.Checked == false) nammat = "";
             else nammat = this.dateTimePicker2.Text;
             cmd.CommandText = "insert into CayGP values ('" +
-                this.combMaTV.Text + "', '" +
+                '1' + "', '" +
                 this.combMaTV.Text + "', '" +
                 this.combTheHe.Text + "', N'" +
                 tgp + "', N'" +
@@ -116,7 +115,7 @@ namespace TestingGP
                 if (checkNamMat.Checked == false) nammat = "";
                 else nammat = this.dateTimePicker2.Text;
                 cmd.CommandText = "update CayGP set IDGP ='" +
-                    this.combMaTV.Text + "', ID ='" +
+                    '1' + "', ID ='" +
                     this.combMaTV.Text + "', ThếHệ ='" +
                     this.combTheHe.Text + "', ThuộcGiaPhả =N'" +
                     tgp + "', Họvàtên =N'" +

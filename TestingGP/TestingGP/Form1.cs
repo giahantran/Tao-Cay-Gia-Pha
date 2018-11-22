@@ -31,7 +31,7 @@ namespace TestingGP
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.pictureBox2.Location = new Point(455, 390);
+            this.pictureBox1.Location = new Point(475, 441);
           //  this.pictureBox2.Parent = this.ParentForm;
         }
         private void mnuThoat_Click(object sender, EventArgs e)
@@ -41,6 +41,12 @@ namespace TestingGP
         private void FormHome_FormClosing(object sender, FormClosingEventArgs e)
         {
             System.GC.Collect();
+        }
+
+        private void mnuHuongDan_Click(object sender, EventArgs e)
+        {
+            FormHelp help = new FormHelp();
+            help.ShowDialog();
         }
     }
 }

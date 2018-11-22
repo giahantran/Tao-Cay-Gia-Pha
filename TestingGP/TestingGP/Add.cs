@@ -14,8 +14,8 @@ namespace TestingGP
     public partial class Add : Form
     {
         //SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-C99VFUB\GIAHAN;Initial Catalog=DL_GIAPHA;Integrated Security=True"); //Hân
-        SqlConnection conn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=GIAPHA;Integrated Security=True"); //Văn
-        //SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-RRRHOP4;Initial Catalog=Genealogy;Integrated Security=True"); //Na
+        //SqlConnection conn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=GIAPHA;Integrated Security=True"); //Văn
+        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-RRRHOP4;Initial Catalog=Genealogy;Integrated Security=True"); //Na
         SqlDataAdapter daGiaPha = null;
         DataTable dtGiaPha = null;
 
@@ -64,10 +64,11 @@ namespace TestingGP
 
         private void Add_Load(object sender, EventArgs e)
         {
-            this.dgvGiaPha.Location = new Point(360, 71);
-            this.treeViewShowAdd.Location = new Point(360, 71);
+            this.dgvGiaPha.Location = new Point(383, 82);
+            this.treeViewShowAdd.Location = new Point(383, 82);
             dgvGiaPha.Visible = true;
             treeViewShowAdd.Visible = false;
+            this.txtIDGiaPha.Text = "1";
             for (int i = 1; i <= 1000; i++)
             {
                 cbMaTV.Items.Add(i).ToString();
@@ -211,6 +212,103 @@ namespace TestingGP
             cmd.CommandText = "delete from UserGP where ID = " + sID + "";
             cmd.ExecuteNonQuery();
             KetNoi();
+        }
+
+        private void Add_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            conn.Close();
+            Dispose();
+            System.GC.Collect();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chbGioiTinh_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chbThuocGP_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label16_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

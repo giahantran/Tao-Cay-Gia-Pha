@@ -31,15 +31,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHome));
             this.btCreateGiaPha = new System.Windows.Forms.Button();
             this.btMauGiaPha = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mnuTapTin = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuThoat = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuDanhMuc = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHuongDan = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuTroGiup = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btCreateGiaPha
@@ -48,7 +48,7 @@
             this.btCreateGiaPha.BackColor = System.Drawing.Color.DarkCyan;
             this.btCreateGiaPha.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btCreateGiaPha.ForeColor = System.Drawing.SystemColors.Window;
-            this.btCreateGiaPha.Location = new System.Drawing.Point(459, 496);
+            this.btCreateGiaPha.Location = new System.Drawing.Point(480, 546);
             this.btCreateGiaPha.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btCreateGiaPha.Name = "btCreateGiaPha";
             this.btCreateGiaPha.Size = new System.Drawing.Size(174, 71);
@@ -64,7 +64,7 @@
             this.btMauGiaPha.BackColor = System.Drawing.Color.RoyalBlue;
             this.btMauGiaPha.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btMauGiaPha.ForeColor = System.Drawing.SystemColors.Window;
-            this.btMauGiaPha.Location = new System.Drawing.Point(671, 496);
+            this.btMauGiaPha.Location = new System.Drawing.Point(669, 546);
             this.btMauGiaPha.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btMauGiaPha.Name = "btMauGiaPha";
             this.btMauGiaPha.Size = new System.Drawing.Size(184, 71);
@@ -72,17 +72,6 @@
             this.btMauGiaPha.Text = "Mẫu cây gia phả";
             this.btMauGiaPha.UseVisualStyleBackColor = false;
             this.btMauGiaPha.Click += new System.EventHandler(this.btMauGiaPha_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(459, 386);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(475, 244);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 5;
-            this.pictureBox2.TabStop = false;
             // 
             // menuStrip1
             // 
@@ -95,7 +84,7 @@
             this.mnuTroGiup});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(923, 27);
+            this.menuStrip1.Size = new System.Drawing.Size(926, 27);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -127,12 +116,24 @@
             this.mnuHuongDan.Name = "mnuHuongDan";
             this.mnuHuongDan.Size = new System.Drawing.Size(150, 24);
             this.mnuHuongDan.Text = "Hướng dẫn ";
+            this.mnuHuongDan.Click += new System.EventHandler(this.mnuHuongDan_Click);
             // 
             // mnuTroGiup
             // 
             this.mnuTroGiup.Name = "mnuTroGiup";
             this.mnuTroGiup.Size = new System.Drawing.Size(71, 23);
             this.mnuTroGiup.Text = "Trợ giúp";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(473, 425);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(467, 256);
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
             // 
             // FormHome
             // 
@@ -142,11 +143,11 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(923, 628);
+            this.ClientSize = new System.Drawing.Size(926, 681);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.btMauGiaPha);
             this.Controls.Add(this.btCreateGiaPha);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.pictureBox1);
             this.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -155,9 +156,9 @@
             this.Text = "Chương trình quản lí cây gia phả";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormHome_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -167,13 +168,13 @@
 
         private System.Windows.Forms.Button btCreateGiaPha;
         private System.Windows.Forms.Button btMauGiaPha;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem mnuTapTin;
         private System.Windows.Forms.ToolStripMenuItem mnuThoat;
         private System.Windows.Forms.ToolStripMenuItem mnuDanhMuc;
         private System.Windows.Forms.ToolStripMenuItem mnuHuongDan;
         private System.Windows.Forms.ToolStripMenuItem mnuTroGiup;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
