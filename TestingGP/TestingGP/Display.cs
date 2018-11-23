@@ -37,6 +37,7 @@ namespace TestingGP
                 dgvGiaPha.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
                 dgvGiaPha.AllowUserToAddRows = false; //không cho thêm trực tiếp
                 dgvGiaPha.EditMode = DataGridViewEditMode.EditProgrammatically; //không chỉnh sửa trực tiếp
+
             }
             catch (SqlException)
             {
@@ -55,13 +56,9 @@ namespace TestingGP
             checkNamMat.Checked = false;
             lbMat.Visible = false;
             dateTimePicker2.Visible = false;
-            for (int i = 1; i <= 1000; i++)
-            {
-                combMaTV.Items.Add(i).ToString();
-                combTheHe.Items.Add(i).ToString();
-            }
             KetNoi();
             ShowTreeView();
+            //conn.Close();
         }
         private void btThem_Click(object sender, EventArgs e)
         {
@@ -77,8 +74,8 @@ namespace TestingGP
             else nammat = this.dateTimePicker2.Text;
             cmd.CommandText = "insert into CayGP values ('" +
                 '1' + "', '" +
-                this.combMaTV.Text + "', '" +
-                this.combTheHe.Text + "', N'" +
+                this.txtMaTV.Text + "', '" +
+                this.txtTheHe.Text + "', N'" +
                 tgp + "', N'" +
                 this.txtbHoTen.Text + "', N'" +
                 gt + "','" +
@@ -94,11 +91,6 @@ namespace TestingGP
             cmd.ExecuteNonQuery();
             MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.None);
             KetNoi();
-
-            //conn.Close();
-            //conn.Dispose();
-            //conn = null;
-            //Dispose();
         }
         private void btSua_Click(object sender, EventArgs e)
         {
@@ -116,8 +108,8 @@ namespace TestingGP
                 else nammat = this.dateTimePicker2.Text;
                 cmd.CommandText = "update CayGP set IDGP ='" +
                     '1' + "', ID ='" +
-                    this.combMaTV.Text + "', ThếHệ ='" +
-                    this.combTheHe.Text + "', ThuộcGiaPhả =N'" +
+                    this.txtMaTV.Text + "', ThếHệ ='" +
+                    this.txtTheHe.Text + "', ThuộcGiaPhả =N'" +
                     tgp + "', Họvàtên =N'" +
                     this.txtbHoTen.Text + "', Giớitính =N'" +
                     gt + "', NgàySinh ='" +
@@ -130,8 +122,8 @@ namespace TestingGP
                     this.txtBHoTenVC.Text + "', HọtênCon =N'" +
                     this.txtBHoTenCon.Text + "',GhiChú =N'" +
                     this.txtBGhiChu.Text +
-                    "' where ID ='" + this.combMaTV.Text +
-                    "' and ThếHệ ='" + this.combTheHe.Text + "'";
+                    "' where ID ='" + this.txtMaTV.Text +
+                    "' and ThếHệ ='" + this.txtTheHe.Text + "'";
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Cập nhật thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.None);
                 KetNoi();
@@ -156,8 +148,8 @@ namespace TestingGP
         }
         private void btTaoMoi_Click(object sender, EventArgs e)
         {
-            this.combMaTV.Items.Clear();
-            this.combTheHe.Items.Clear();
+            this.txtMaTV.Text = "";
+            this.txtTheHe.Text = "";
             this.checkBThuocGP.Checked = false;
             this.txtbHoTen.Text = "";
             this.checkBGioiTinh.Checked = false;
@@ -170,45 +162,13 @@ namespace TestingGP
             this.txtBHoTenVC.Text = "";
             this.txtBHoTenCon.Text = "";
             this.txtBGhiChu.Text = "";
-            Display_Load(sender, e);
+            KetNoi();
         }
         private void btXemCay_Click(object sender, EventArgs e)
         {
             KetNoi();
             dgvGiaPha.Visible = false;
             treeViewShowDisplay.Visible = true;
-            
-
-        }
-        private DataTable LoadParentTable()
-        {
-            DataTable dataTable = new DataTable();
-            DataTable dataTableNew = new DataTable();
-            conn.Open();
-            string commandText = "SELECT * FROM CayGP";
-            SqlCommand command = new SqlCommand(commandText, conn);
-            SqlDataAdapter adp = new SqlDataAdapter(command);
-            adp.Fill(dataTable);
-            command.ExecuteNonQuery();
-            conn.Close();
-            dataTableNew = dataTable.Copy();
-
-            return dataTableNew;
-        }
-        private DataTable LoadChildTable()
-        {
-            DataTable dataTable = new DataTable();
-            DataTable dataTableNew = new DataTable();
-            conn.Open();
-            string commandText = "SELECT * FROM NodeChild";
-            SqlCommand command = new SqlCommand(commandText, conn);
-            SqlDataAdapter adp = new SqlDataAdapter(command);
-            adp.Fill(dataTable);
-            command.ExecuteNonQuery();
-            conn.Close();
-            dataTableNew = dataTable.Copy();
-
-            return dataTableNew;
         }
         private void btXemDS_Click(object sender, EventArgs e)
         {
@@ -435,11 +395,50 @@ namespace TestingGP
 
         private void checkNamMat_CheckStateChanged(object sender, EventArgs e)
         {
-            if(checkNamMat.Checked == true)
+            if (checkNamMat.Checked == true)
             {
                 checkNamMat.Visible = false;
                 lbMat.Visible = true;
                 dateTimePicker2.Visible = true;
+            }
+        }
+
+        private void treeViewShowDisplay_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            if (e.Node != null)
+            {
+                DataTable node = Connect("select * from CayGP where Họvàtên = N'" + e.Node.Text + "'", conn);
+                txtMaTV.Text = node.Rows[0][1].ToString();
+                txtTheHe.Text = node.Rows[0][2].ToString();
+                if (node.Rows[0][3].ToString() == "Có")
+                    checkBThuocGP.Checked = true;
+                else checkBThuocGP.Checked = false;
+                txtbHoTen.Text = node.Rows[0][4].ToString();
+                if (node.Rows[0][5].ToString() == "Nam")
+                    checkBGioiTinh.Checked = true;
+                else checkBGioiTinh.Checked = false;
+                dateTimePicker1.Text = node.Rows[0][6].ToString();
+                if (node.Rows[0][7].ToString() != "")
+                {
+                    checkNamMat.Visible = false;
+                    lbMat.Visible = true;
+                    dateTimePicker2.Visible = true;
+                    dateTimePicker2.Text = node.Rows[0][7].ToString();
+                }
+                else
+                {
+                    checkNamMat.Visible = true;
+                    lbMat.Visible = false;
+                    dateTimePicker2.Visible = false;
+                    checkNamMat.Checked = false;
+                }
+                txtBQueQuan.Text = node.Rows[0][8].ToString();
+                txtBNgheNghiep.Text = node.Rows[0][9].ToString();
+                txtBHotenCha.Text = node.Rows[0][10].ToString();
+                txtBHoTenMe.Text = node.Rows[0][11].ToString();
+                txtBHoTenVC.Text = node.Rows[0][12].ToString();
+                txtBHoTenCon.Text = node.Rows[0][13].ToString();
+                txtBGhiChu.Text = node.Rows[0][14].ToString();
             }
         }
     }

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDisplay));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btTimKiem = new System.Windows.Forms.Button();
@@ -87,6 +87,8 @@
             this.button6 = new System.Windows.Forms.Button();
             this.checkNamMat = new System.Windows.Forms.CheckBox();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.txtMaTV = new System.Windows.Forms.TextBox();
+            this.txtTheHe = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGiaPha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -137,23 +139,23 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvGiaPha.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("UVN Bach Tuyet", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvGiaPha.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("UVN Bach Tuyet", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvGiaPha.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvGiaPha.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvGiaPha.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvGiaPha.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvGiaPha.Location = new System.Drawing.Point(357, 69);
             this.dgvGiaPha.Margin = new System.Windows.Forms.Padding(2);
             this.dgvGiaPha.Name = "dgvGiaPha";
@@ -213,7 +215,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(134, 51);
+            this.label2.Location = new System.Drawing.Point(124, 51);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 16);
@@ -227,7 +229,7 @@
             this.combTheHe.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.combTheHe.FormattingEnabled = true;
             this.combTheHe.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.combTheHe.Location = new System.Drawing.Point(137, 68);
+            this.combTheHe.Location = new System.Drawing.Point(280, 35);
             this.combTheHe.Margin = new System.Windows.Forms.Padding(2);
             this.combTheHe.Name = "combTheHe";
             this.combTheHe.Size = new System.Drawing.Size(53, 24);
@@ -251,7 +253,7 @@
             this.combMaTV.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combMaTV.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.combMaTV.FormattingEnabled = true;
-            this.combMaTV.Location = new System.Drawing.Point(18, 68);
+            this.combMaTV.Location = new System.Drawing.Point(199, 19);
             this.combMaTV.Margin = new System.Windows.Forms.Padding(2);
             this.combMaTV.Name = "combMaTV";
             this.combMaTV.Size = new System.Drawing.Size(60, 24);
@@ -525,6 +527,7 @@
             this.treeViewShowDisplay.Name = "treeViewShowDisplay";
             this.treeViewShowDisplay.Size = new System.Drawing.Size(517, 659);
             this.treeViewShowDisplay.TabIndex = 76;
+            this.treeViewShowDisplay.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewShowDisplay_AfterSelect);
             // 
             // btXemCay
             // 
@@ -731,12 +734,32 @@
             this.dateTimePicker2.TabIndex = 38;
             this.dateTimePicker2.Value = new System.DateTime(2018, 11, 22, 21, 22, 28, 0);
             // 
+            // txtMaTV
+            // 
+            this.txtMaTV.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaTV.Location = new System.Drawing.Point(18, 68);
+            this.txtMaTV.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMaTV.Name = "txtMaTV";
+            this.txtMaTV.Size = new System.Drawing.Size(63, 23);
+            this.txtMaTV.TabIndex = 83;
+            // 
+            // txtTheHe
+            // 
+            this.txtTheHe.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTheHe.Location = new System.Drawing.Point(127, 68);
+            this.txtTheHe.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTheHe.Name = "txtTheHe";
+            this.txtTheHe.Size = new System.Drawing.Size(63, 23);
+            this.txtTheHe.TabIndex = 84;
+            // 
             // FormDisplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(894, 749);
+            this.Controls.Add(this.txtTheHe);
+            this.Controls.Add(this.txtMaTV);
             this.Controls.Add(this.checkNamMat);
             this.Controls.Add(this.btXemDS);
             this.Controls.Add(this.btXemCay);
@@ -780,8 +803,8 @@
             this.Controls.Add(this.txtBHotenCha);
             this.Controls.Add(this.txtBHoTenMe);
             this.Controls.Add(this.txtBQueQuan);
-            this.Controls.Add(this.dgvGiaPha);
             this.Controls.Add(this.treeViewShowDisplay);
+            this.Controls.Add(this.dgvGiaPha);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormDisplay";
             this.Text = "Display";
@@ -856,5 +879,7 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.CheckBox checkNamMat;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.TextBox txtMaTV;
+        private System.Windows.Forms.TextBox txtTheHe;
     }
 }
