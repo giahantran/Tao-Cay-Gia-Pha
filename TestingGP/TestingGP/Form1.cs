@@ -31,12 +31,12 @@ namespace TestingGP
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.pictureBox1.Location = new Point(475, 441);
+            this.pictureBox1.Location = new Point(447, 383);
           //  this.pictureBox2.Parent = this.ParentForm;
         }
         private void mnuThoat_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
         private void FormHome_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -47,6 +47,11 @@ namespace TestingGP
         {
             FormHelp help = new FormHelp();
             help.ShowDialog();
+        }
+
+        private void mnuTroGiup_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Liên hệ: \n17110094@student.hcmute.edu.vn\n17110252@student.hcmute.edu.vn");
         }
     }
 }

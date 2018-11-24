@@ -61,26 +61,21 @@ namespace TestingGP
         {
             InitializeComponent();
         }
-
         private void Add_Load(object sender, EventArgs e)
         {
-            this.dgvGiaPha.Location = new Point(383, 82);
-            this.treeViewShowAdd.Location = new Point(383, 82);
+            this.dgvGiaPha.Location = new Point(410, 82);
+            this.treeViewShowAdd.Location = new Point(410, 82);
             dgvGiaPha.Visible = true;
             treeViewShowAdd.Visible = false;
             this.txtIDGiaPha.Text = "1";
-            for (int i = 1; i <= 1000; i++)
-            {
-                cbMaTV.Items.Add(i).ToString();
-                cbThehe.Items.Add(i).ToString();
-            }
             KetNoi();
         }
         public void CreateGP(GIAPHA gp)
         {
-            gp.iD = Convert.ToInt32(cbMaTV.Text);
-            gp.theHe = Convert.ToInt32(cbThehe.Text);
-            gp.hoTen = txtHoten.Text;
+            gp.IDGP = Convert.ToInt32(txtIDGiaPha.Text);
+            gp.iD = Convert.ToInt32(txtMaTV.Text);
+            gp.theHe = Convert.ToInt32(txtTheHe.Text);
+            gp.hoTen = txtTimKiem.Text;
             gp.cha = txtHotenCha.Text;
             gp.me = txtHotenMe.Text;
             gp.tenVoChong = txtTenVoChong.Text;
@@ -98,7 +93,6 @@ namespace TestingGP
         public void AddToSQL(GIAPHA gp)
         {
             DataRow row = dtGiaPha.NewRow();
-            row["KeyNode"] = gp.keyNode;
             row["ID"] = gp.iD;
             row["Thếhệ"] = gp.theHe;
             row["ThuộcGiaPhả"] = gp.thuocGP;
@@ -117,13 +111,9 @@ namespace TestingGP
             daGiaPha.Update(dtGiaPha);
             MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-
-
-        //Phần Cấu trúc
         public class GIAPHA
         {
-            public int keyNode;
-            public int iD, theHe;
+            public int iD, theHe, IDGP;
             public string hoTen, cha, me, tenVoChong, tenCon;
             public string gioiTinh, thuocGP; //true = nam, true = có trong gia phả
             public string namSinh, namMat;
@@ -134,10 +124,10 @@ namespace TestingGP
             private GIAPHA info;
             private Node pLeft;
             private Node pRight;
-            public Node(int key, GIAPHA gp)
+            public Node(string key, GIAPHA gp)
             {
                 info = gp;
-                info.keyNode = key;
+                info.hoTen = key;
                 pLeft = pRight = null;
             }
             public Node pleft
@@ -155,14 +145,15 @@ namespace TestingGP
                 get { return info; }
                 set { info = value; }
             }
-            public void AddNode(int key, GIAPHA gp)
+            public void AddNode(string key, GIAPHA gp)
             {
-                if (key == info.keyNode)
+
+                if (string.Compare(key, info.hoTen) == 0)
                 {
                     MessageBox.Show("Thông tin đã có trong gia phả", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                else if (key < info.keyNode)
+                else if (string.Compare(key, info.hoTen) == -1)
                 {
                     if (pLeft == null) pLeft = new Node(key, gp);
                     else pLeft.AddNode(key, gp);
@@ -181,26 +172,23 @@ namespace TestingGP
             {
                 root = null;
             }
-            public void InsertNode(int key, GIAPHA gp)
+            public void InsertNode(string key, GIAPHA gp)
             {
                 if (root == null)
                     root = new Node(key, gp);
                 else root.AddNode(key, gp);
             }
         }
-
         private void btThem_Click(object sender, EventArgs e)
         {
             BTree tree = new BTree();
-            int key;
-            Random random = new Random();
-            key = random.Next(100);
+            string key;
             GIAPHA gp = new GIAPHA();
             CreateGP(gp);
+            key = gp.hoTen.ToString();
             tree.InsertNode(key, gp);
-            AddToSQL(gp);
+            // AddToSQL(gp);
         }
-
         private void btXoa_Click(object sender, EventArgs e)
         {
             SqlCommand cmd = new SqlCommand();
@@ -213,102 +201,18 @@ namespace TestingGP
             cmd.ExecuteNonQuery();
             KetNoi();
         }
-
         private void Add_FormClosing(object sender, FormClosingEventArgs e)
         {
             conn.Close();
             Dispose();
             System.GC.Collect();
         }
-
-        private void label4_Click(object sender, EventArgs e)
+        private void btLuu_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label6_Click(object sender, EventArgs e)
-        {
 
-        }
 
-        private void chbGioiTinh_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void chbThuocGP_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label13_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label14_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label15_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label16_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

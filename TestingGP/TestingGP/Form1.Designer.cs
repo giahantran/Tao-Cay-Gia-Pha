@@ -45,10 +45,10 @@
             // btCreateGiaPha
             // 
             this.btCreateGiaPha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btCreateGiaPha.BackColor = System.Drawing.Color.DarkCyan;
+            this.btCreateGiaPha.BackColor = System.Drawing.Color.DarkGreen;
             this.btCreateGiaPha.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btCreateGiaPha.ForeColor = System.Drawing.SystemColors.Window;
-            this.btCreateGiaPha.Location = new System.Drawing.Point(480, 546);
+            this.btCreateGiaPha.Location = new System.Drawing.Point(447, 497);
             this.btCreateGiaPha.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btCreateGiaPha.Name = "btCreateGiaPha";
             this.btCreateGiaPha.Size = new System.Drawing.Size(174, 71);
@@ -61,10 +61,10 @@
             // 
             this.btMauGiaPha.AllowDrop = true;
             this.btMauGiaPha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btMauGiaPha.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btMauGiaPha.BackColor = System.Drawing.Color.Red;
             this.btMauGiaPha.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btMauGiaPha.ForeColor = System.Drawing.SystemColors.Window;
-            this.btMauGiaPha.Location = new System.Drawing.Point(669, 546);
+            this.btMauGiaPha.Location = new System.Drawing.Point(638, 497);
             this.btMauGiaPha.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btMauGiaPha.Name = "btMauGiaPha";
             this.btMauGiaPha.Size = new System.Drawing.Size(184, 71);
@@ -99,7 +99,7 @@
             // mnuThoat
             // 
             this.mnuThoat.Name = "mnuThoat";
-            this.mnuThoat.Size = new System.Drawing.Size(113, 24);
+            this.mnuThoat.Size = new System.Drawing.Size(180, 24);
             this.mnuThoat.Text = "Thoát";
             this.mnuThoat.Click += new System.EventHandler(this.mnuThoat_Click);
             // 
@@ -114,7 +114,7 @@
             // mnuHuongDan
             // 
             this.mnuHuongDan.Name = "mnuHuongDan";
-            this.mnuHuongDan.Size = new System.Drawing.Size(150, 24);
+            this.mnuHuongDan.Size = new System.Drawing.Size(180, 24);
             this.mnuHuongDan.Text = "Hướng dẫn ";
             this.mnuHuongDan.Click += new System.EventHandler(this.mnuHuongDan_Click);
             // 
@@ -123,15 +123,16 @@
             this.mnuTroGiup.Name = "mnuTroGiup";
             this.mnuTroGiup.Size = new System.Drawing.Size(71, 23);
             this.mnuTroGiup.Text = "Trợ giúp";
+            this.mnuTroGiup.Click += new System.EventHandler(this.mnuTroGiup_Click);
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(473, 425);
+            this.pictureBox1.Location = new System.Drawing.Point(447, 383);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(467, 256);
+            this.pictureBox1.Size = new System.Drawing.Size(467, 251);
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 

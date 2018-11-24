@@ -41,9 +41,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtbHoTen = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.combTheHe = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.combMaTV = new System.Windows.Forms.ComboBox();
             this.checkBGioiTinh = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.lbMat = new System.Windows.Forms.Label();
@@ -87,6 +85,8 @@
             this.button6 = new System.Windows.Forms.Button();
             this.checkNamMat = new System.Windows.Forms.CheckBox();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.txtMaTV = new System.Windows.Forms.TextBox();
+            this.txtTheHe = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGiaPha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -213,25 +213,12 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(134, 51);
+            this.label2.Location = new System.Drawing.Point(124, 51);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 16);
             this.label2.TabIndex = 8;
             this.label2.Text = "Thế hệ";
-            // 
-            // combTheHe
-            // 
-            this.combTheHe.BackColor = System.Drawing.Color.PapayaWhip;
-            this.combTheHe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.combTheHe.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.combTheHe.FormattingEnabled = true;
-            this.combTheHe.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.combTheHe.Location = new System.Drawing.Point(137, 68);
-            this.combTheHe.Margin = new System.Windows.Forms.Padding(2);
-            this.combTheHe.Name = "combTheHe";
-            this.combTheHe.Size = new System.Drawing.Size(53, 24);
-            this.combTheHe.TabIndex = 9;
             // 
             // label3
             // 
@@ -244,18 +231,6 @@
             this.label3.Size = new System.Drawing.Size(48, 16);
             this.label3.TabIndex = 10;
             this.label3.Text = "Mã TV";
-            // 
-            // combMaTV
-            // 
-            this.combMaTV.BackColor = System.Drawing.Color.PapayaWhip;
-            this.combMaTV.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.combMaTV.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.combMaTV.FormattingEnabled = true;
-            this.combMaTV.Location = new System.Drawing.Point(18, 68);
-            this.combMaTV.Margin = new System.Windows.Forms.Padding(2);
-            this.combMaTV.Name = "combMaTV";
-            this.combMaTV.Size = new System.Drawing.Size(60, 24);
-            this.combMaTV.TabIndex = 11;
             // 
             // checkBGioiTinh
             // 
@@ -525,6 +500,7 @@
             this.treeViewShowDisplay.Name = "treeViewShowDisplay";
             this.treeViewShowDisplay.Size = new System.Drawing.Size(517, 659);
             this.treeViewShowDisplay.TabIndex = 76;
+            this.treeViewShowDisplay.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewShowDisplay_AfterSelect);
             // 
             // btXemCay
             // 
@@ -731,12 +707,32 @@
             this.dateTimePicker2.TabIndex = 38;
             this.dateTimePicker2.Value = new System.DateTime(2018, 11, 22, 21, 22, 28, 0);
             // 
+            // txtMaTV
+            // 
+            this.txtMaTV.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaTV.Location = new System.Drawing.Point(18, 68);
+            this.txtMaTV.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMaTV.Name = "txtMaTV";
+            this.txtMaTV.Size = new System.Drawing.Size(63, 23);
+            this.txtMaTV.TabIndex = 83;
+            // 
+            // txtTheHe
+            // 
+            this.txtTheHe.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTheHe.Location = new System.Drawing.Point(127, 68);
+            this.txtTheHe.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTheHe.Name = "txtTheHe";
+            this.txtTheHe.Size = new System.Drawing.Size(63, 23);
+            this.txtTheHe.TabIndex = 84;
+            // 
             // FormDisplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(894, 749);
+            this.Controls.Add(this.txtTheHe);
+            this.Controls.Add(this.txtMaTV);
             this.Controls.Add(this.checkNamMat);
             this.Controls.Add(this.btXemDS);
             this.Controls.Add(this.btXemCay);
@@ -767,9 +763,7 @@
             this.Controls.Add(this.lbMat);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.checkBGioiTinh);
-            this.Controls.Add(this.combMaTV);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.combTheHe);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btXoa);
@@ -780,8 +774,8 @@
             this.Controls.Add(this.txtBHotenCha);
             this.Controls.Add(this.txtBHoTenMe);
             this.Controls.Add(this.txtBQueQuan);
-            this.Controls.Add(this.dgvGiaPha);
             this.Controls.Add(this.treeViewShowDisplay);
+            this.Controls.Add(this.dgvGiaPha);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormDisplay";
             this.Text = "Display";
@@ -811,7 +805,6 @@
         private System.Windows.Forms.TextBox txtbHoTen;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox combMaTV;
         private System.Windows.Forms.CheckBox checkBGioiTinh;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lbMat;
@@ -831,7 +824,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtBHoTenVC;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ComboBox combTheHe;
         private System.Windows.Forms.Button btTaoMoi;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ImageList imageList1;
@@ -856,5 +848,7 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.CheckBox checkNamMat;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.TextBox txtMaTV;
+        private System.Windows.Forms.TextBox txtTheHe;
     }
 }
