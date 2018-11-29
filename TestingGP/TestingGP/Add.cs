@@ -75,7 +75,7 @@ namespace TestingGP
             gp.IDGP = Convert.ToInt32(txtIDGiaPha.Text);
             gp.iD = Convert.ToInt32(txtMaTV.Text);
             gp.theHe = Convert.ToInt32(txtTheHe.Text);
-            gp.hoTen = txtTimKiem.Text;
+            gp.hoTen = txtHoTen.Text;
             gp.cha = txtHotenCha.Text;
             gp.me = txtHotenMe.Text;
             gp.tenVoChong = txtTenVoChong.Text;
@@ -90,32 +90,61 @@ namespace TestingGP
             gp.noiSinh = txtQueQuan.Text;
             gp.ghiChu = txtGhiChu.Text;
         }
-        public void AddToSQL(GIAPHA gp)
+        public void AddToDataGridView(GIAPHA gp)
         {
             DataRow row = dtGiaPha.NewRow();
+            row["IDGP"] = Convert.ToInt32(txtIDGiaPha.Text);
             row["ID"] = gp.iD;
             row["Thếhệ"] = gp.theHe;
             row["ThuộcGiaPhả"] = gp.thuocGP;
             row["Họtên"] = gp.hoTen;
+            row["Giớitính"] = gp.gioiTinh;
+            row["NgàySinh"] = gp.namSinh;
+            row["NgàyMất"] = gp.namMat;
+            row["Nơisinh"] = gp.noiSinh;
+            row["Nghềnghiệp"] = gp.ngheNghiep;
+            row["HọtênCha"] = gp.cha;
+            row["HọtênMẹ"] = gp.me;
+            row["TênVợ_Chồng"] = gp.tenVoChong;
+            row["HọtênCon"] = gp.tenCon;
+            row["Ghichú"] = gp.ghiChu;
             dtGiaPha.Rows.Add(row);
-            SqlCommand cmdAdd = new SqlCommand();
-            cmdAdd.Connection = conn;
-            cmdAdd.CommandType = CommandType.Text;
-            cmdAdd.CommandText = @"Insert into UserGP (KeyNode, ID, Thếhệ, ThuộcGiaPhả, Họtên) Values (@KeyNode, @ID, @Thếhệ, @ThuộcGiaPhả, @Họtên)";
-            cmdAdd.Parameters.Add("@KeyNode", SqlDbType.Int, 5, "KeyNode");
-            cmdAdd.Parameters.Add("@ID", SqlDbType.Int, 5, "ID");
-            cmdAdd.Parameters.Add("@Thếhệ", SqlDbType.Int, 5, "Thếhệ");
-            cmdAdd.Parameters.Add("@ThuộcGiaPhả", SqlDbType.NVarChar, 10, "ThuộcGiaPhả");
-            cmdAdd.Parameters.Add("@Họtên", SqlDbType.NVarChar, 50, "Họtên");
-            daGiaPha.InsertCommand = cmdAdd;
-            daGiaPha.Update(dtGiaPha);
             MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        public void AddToSQL(Node T)
+        {
+            if (T != null)
+            {
+                SqlCommand cmdAdd = new SqlCommand();
+                cmdAdd.Connection = conn;
+                cmdAdd.CommandType = CommandType.Text;
+                cmdAdd.CommandText = @"Insert into UserGP (IDGP, ID, Thếhệ, ThuộcGiaPhả, Họtên, Giớitính, Ngàysinh, Ngàymất, Nơisinh, Nghềnghiệp, HọtênCha, HọtênMẹ, TênVợ_Chồng, HọtênCon, Ghichú) Values (@IDGP, @ID, @Thếhệ, @ThuộcGiaPhả, @Họtên, @Giớitính, @Ngàysinh, @Ngàymất, @Nơisinh, @Nghềnghiệp, @HọtênCha, @HọtênMẹ, @TênVợ_Chồng, @HọtênCon, @Ghichú)";
+                cmdAdd.Parameters.Add("@IDGP", SqlDbType.Int, 5, "IDGP");
+                cmdAdd.Parameters.Add("@ID", SqlDbType.Int, 5, "ID");
+                cmdAdd.Parameters.Add("@Thếhệ", SqlDbType.Int, 5, "Thếhệ");
+                cmdAdd.Parameters.Add("@ThuộcGiaPhả", SqlDbType.NVarChar, 10, "ThuộcGiaPhả");
+                cmdAdd.Parameters.Add("@Họtên", SqlDbType.NVarChar, 50, "Họtên");
+                cmdAdd.Parameters.Add("@Giớitính", SqlDbType.NVarChar, 5, "Giớitính");
+                cmdAdd.Parameters.Add("@Ngàysinh", SqlDbType.NVarChar, 10, "Ngàysinh");
+                cmdAdd.Parameters.Add("@Ngàymất", SqlDbType.Date, 12, "Ngàymất");
+                cmdAdd.Parameters.Add("@Nơisinh", SqlDbType.NVarChar, 50, "Nơisinh");
+                cmdAdd.Parameters.Add("@Nghềnghiệp", SqlDbType.NVarChar, 50, "Nghềnghiệp");
+                cmdAdd.Parameters.Add("@HọtênCha", SqlDbType.NVarChar, 50, "HọtênCha");
+                cmdAdd.Parameters.Add("@HọtênMẹ", SqlDbType.NVarChar, 50, "HọtênMẹ");
+                cmdAdd.Parameters.Add("@TênVợ_Chồng", SqlDbType.NVarChar, 50, "TênVợ_Chồng");
+                cmdAdd.Parameters.Add("@HọtênCon", SqlDbType.NVarChar, 200, "HọtênCon");
+                cmdAdd.Parameters.Add("@Ghichú", SqlDbType.NVarChar, 200, "Ghichú");
+                daGiaPha.InsertCommand = cmdAdd;
+                daGiaPha.Update(dtGiaPha);
+                AddToSQL(T.pleft);
+                AddToSQL(T.pright);
+            }
         }
         public class GIAPHA
         {
             public int iD, theHe, IDGP;
             public string hoTen, cha, me, tenVoChong, tenCon;
-            public string gioiTinh, thuocGP; //true = nam, true = có trong gia phả
+            public string gioiTinh, thuocGP; 
             public string namSinh, namMat;
             public string noiSinh, ngheNghiep, ghiChu;
         }
@@ -179,22 +208,21 @@ namespace TestingGP
                 else root.AddNode(key, gp);
             }
         }
+        public BTree tree = new BTree();
         private void btThem_Click(object sender, EventArgs e)
         {
-            BTree tree = new BTree();
             string key;
             GIAPHA gp = new GIAPHA();
             CreateGP(gp);
             key = gp.hoTen.ToString();
             tree.InsertNode(key, gp);
-            // AddToSQL(gp);
+            AddToDataGridView(gp);
         }
         private void btXoa_Click(object sender, EventArgs e)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conn;
             cmd.CommandType = CommandType.Text;
-
             int r = dgvGiaPha.CurrentCell.RowIndex;
             string sID = dgvGiaPha.Rows[r].Cells[1].Value.ToString();
             cmd.CommandText = "delete from UserGP where ID = " + sID + "";
@@ -209,10 +237,8 @@ namespace TestingGP
         }
         private void btLuu_Click(object sender, EventArgs e)
         {
-
+            AddToSQL(tree.root);
+            MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-
-
-
     }
 }
