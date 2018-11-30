@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Add));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,7 +40,7 @@
             this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.chbGioiTinh = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lbMat = new System.Windows.Forms.Label();
             this.dateNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.dateNgayMat = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
@@ -74,6 +74,7 @@
             this.txtTheHe = new System.Windows.Forms.TextBox();
             this.txtMaTV = new System.Windows.Forms.TextBox();
             this.btLuu = new System.Windows.Forms.Button();
+            this.checkNamMat = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGiaPha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -177,16 +178,16 @@
             this.label7.TabIndex = 13;
             this.label7.Text = "Ngày sinh";
             // 
-            // label8
+            // lbMat
             // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(133, 184);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(68, 19);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "Ngày mất";
+            this.lbMat.AutoSize = true;
+            this.lbMat.BackColor = System.Drawing.Color.Transparent;
+            this.lbMat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMat.Location = new System.Drawing.Point(133, 184);
+            this.lbMat.Name = "lbMat";
+            this.lbMat.Size = new System.Drawing.Size(68, 19);
+            this.lbMat.TabIndex = 14;
+            this.lbMat.Text = "Ngày mất";
             // 
             // dateNgaySinh
             // 
@@ -405,23 +406,23 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvGiaPha.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("UVN Bach Tuyet", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvGiaPha.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("UVN Bach Tuyet", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvGiaPha.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvGiaPha.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvGiaPha.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvGiaPha.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvGiaPha.Location = new System.Drawing.Point(410, 82);
             this.dgvGiaPha.Name = "dgvGiaPha";
             this.dgvGiaPha.Size = new System.Drawing.Size(749, 646);
@@ -457,6 +458,7 @@
             this.treeViewShowAdd.Name = "treeViewShowAdd";
             this.treeViewShowAdd.Size = new System.Drawing.Size(749, 646);
             this.treeViewShowAdd.TabIndex = 40;
+            this.treeViewShowAdd.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewShowAdd_AfterSelect);
             // 
             // pictureBox1
             // 
@@ -503,6 +505,7 @@
             this.btXemCay.TabIndex = 78;
             this.btXemCay.Text = "Xem cây";
             this.btXemCay.UseVisualStyleBackColor = false;
+            this.btXemCay.Click += new System.EventHandler(this.btXemCay_Click);
             // 
             // btXemDS
             // 
@@ -515,6 +518,7 @@
             this.btXemDS.TabIndex = 79;
             this.btXemDS.Text = "Xem danh sách";
             this.btXemDS.UseVisualStyleBackColor = false;
+            this.btXemDS.Click += new System.EventHandler(this.btXemDS_Click);
             // 
             // txtTheHe
             // 
@@ -543,6 +547,21 @@
             this.btLuu.UseVisualStyleBackColor = true;
             this.btLuu.Click += new System.EventHandler(this.btLuu_Click);
             // 
+            // checkNamMat
+            // 
+            this.checkNamMat.AutoSize = true;
+            this.checkNamMat.BackColor = System.Drawing.Color.Transparent;
+            this.checkNamMat.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkNamMat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkNamMat.Location = new System.Drawing.Point(159, 206);
+            this.checkNamMat.Margin = new System.Windows.Forms.Padding(2);
+            this.checkNamMat.Name = "checkNamMat";
+            this.checkNamMat.Size = new System.Drawing.Size(72, 23);
+            this.checkNamMat.TabIndex = 83;
+            this.checkNamMat.Text = "Đã mất";
+            this.checkNamMat.UseVisualStyleBackColor = false;
+            this.checkNamMat.CheckStateChanged += new System.EventHandler(this.checkNamMat_CheckStateChanged);
+            // 
             // Add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -551,6 +570,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1171, 740);
+            this.Controls.Add(this.checkNamMat);
             this.Controls.Add(this.btLuu);
             this.Controls.Add(this.txtMaTV);
             this.Controls.Add(this.txtTheHe);
@@ -582,7 +602,7 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.dateNgayMat);
             this.Controls.Add(this.dateNgaySinh);
-            this.Controls.Add(this.label8);
+            this.Controls.Add(this.lbMat);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtTimKiem);
             this.Controls.Add(this.label6);
@@ -591,9 +611,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dgvGiaPha);
             this.Controls.Add(this.treeViewShowAdd);
             this.Controls.Add(this.chbGioiTinh);
+            this.Controls.Add(this.dgvGiaPha);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "Add";
             this.Text = "Add";
@@ -617,7 +637,7 @@
         private System.Windows.Forms.TextBox txtTimKiem;
         private System.Windows.Forms.CheckBox chbGioiTinh;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lbMat;
         private System.Windows.Forms.DateTimePicker dateNgaySinh;
         private System.Windows.Forms.DateTimePicker dateNgayMat;
         private System.Windows.Forms.Label label9;
@@ -651,5 +671,6 @@
         private System.Windows.Forms.TextBox txtTheHe;
         private System.Windows.Forms.TextBox txtMaTV;
         private System.Windows.Forms.Button btLuu;
+        private System.Windows.Forms.CheckBox checkNamMat;
     }
 }

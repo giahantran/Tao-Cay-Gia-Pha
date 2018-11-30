@@ -84,6 +84,7 @@ namespace TestingGP
             treeViewShowAdd.Visible = false;
             this.txtIDGiaPha.Text = "1";
             KetNoi();
+            ShowTreeView();
         }
         public void CreateGP(GIAPHA gp)
         {
@@ -252,6 +253,102 @@ namespace TestingGP
         {
             AddToSQL(tree.root);
             MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        private DataTable Connect(string sql, SqlConnection con)
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(sql, con);
+            da.Fill(dt);
+            return dt;
+        }
+        void ShowTreeView()
+        {
+            AddNode(conn, treeViewShowAdd.Nodes);
+        }
+        void AddNode(SqlConnection con, TreeNodeCollection nc, String filter = "ThếHệ=1")
+        {
+            DataTable node = Connect("SELECT HọTên FROM UserGP WHERE " + filter, con);
+
+            for (int i = 0; i < node.Rows.Count; i++)
+            {
+                TreeNode t = nc.Add(node.Rows[i][0].ToString());
+                t.Tag = (t.Level + 1).ToString();
+                AddNode(con, t.Nodes, "HọtênCha=N'" + node.Rows[i][0].ToString() + "'");
+            }
+        }
+        private void btXemCay_Click(object sender, EventArgs e)
+        {
+           // KetNoi();
+            dgvGiaPha.Visible = false;
+            treeViewShowAdd.Visible = true;
+        }
+        private void btXemDS_Click(object sender, EventArgs e)
+        {
+            dgvGiaPha.Visible = true;
+            treeViewShowAdd.Visible = false;
+        }
+        private Node ReSearchNode(Node root, string x)
+        {
+            Node p = root;
+            while (p != null)
+            {
+                if (string.Compare(root.inFO.hoTen, x) == 0) return p;
+                else if (string.Compare(root.inFO.hoTen, x) == -1) p = p.pleft;
+                else p = p.pright;
+            }
+            return null;
+        }
+        private void treeViewShowAdd_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            MessageBox.Show(e.Node.ToString());
+            MessageBox.Show(tree.root.inFO.hoTen.ToString());
+            if (e.Node.Name != null)
+            {
+                Node p = ReSearchNode(tree.root, e.Node.ToString());
+                #region
+                /*DataTable node = Connect("select * from UserGP where Họtên = N'" + e.Node.Text + "'", conn);
+                txtMaTV.Text = node.Rows[0][1].ToString();
+                txtTheHe.Text = node.Rows[0][2].ToString();
+                if (node.Rows[0][3].ToString() == "Có")
+                    chbThuocGP.Checked = true;
+                else chbThuocGP.Checked = false;
+                txtHoTen.Text = node.Rows[0][4].ToString();
+                if (node.Rows[0][5].ToString() == "Nam")
+                    chbGioiTinh.Checked = true;
+                else chbGioiTinh.Checked = false;
+                dateNgaySinh.Text = node.Rows[0][6].ToString();
+                if (node.Rows[0][7].ToString() != "")
+                {
+                    checkNamMat.Visible = false;
+                    lbMat.Visible = true;
+                    dateNgayMat.Visible = true;
+                    dateNgayMat.Text = node.Rows[0][7].ToString();
+                }
+                else
+                {
+                    checkNamMat.Visible = true;
+                    lbMat.Visible = false;
+                    dateNgayMat.Visible = false;
+                    checkNamMat.Checked = false;
+                }
+                txtQueQuan.Text = node.Rows[0][8].ToString();
+                txtNgheNghiep.Text = node.Rows[0][9].ToString();
+                txtHotenCha.Text = node.Rows[0][10].ToString();
+                txtHotenMe.Text = node.Rows[0][11].ToString();
+                txtTenVoChong.Text = node.Rows[0][12].ToString();
+                txtHotenCon.Text = node.Rows[0][13].ToString();
+                txtGhiChu.Text = node.Rows[0][14].ToString(); */
+                #endregion
+            }
+        }
+        private void checkNamMat_CheckStateChanged(object sender, EventArgs e)
+        {
+            if (checkNamMat.Checked == true)
+            {
+                checkNamMat.Visible = false;
+                lbMat.Visible = true;
+                dateNgayMat.Visible = true;
+            }
         }
     }
 }
