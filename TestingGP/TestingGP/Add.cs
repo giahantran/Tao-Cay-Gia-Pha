@@ -32,13 +32,38 @@ namespace TestingGP
                 dtGiaPha = new DataTable();
                 daGiaPha.Fill(dtGiaPha);
                 dgvGiaPha.DataSource = dtGiaPha;
+                #region Add to binary tree
+                if (dtGiaPha != null)
+                {
+                    GIAPHA gp = new GIAPHA();
+                    for (int i = 0; i < dtGiaPha.Rows.Count; i++)
+                    {
+                        gp.IDGP = Convert.ToInt32(dtGiaPha.Rows[i][0]);
+                        gp.iD = Convert.ToInt32(dtGiaPha.Rows[i][1]);
+                        gp.theHe = Convert.ToInt32(dtGiaPha.Rows[i][2]);
+                        gp.thuocGP = dtGiaPha.Rows[i][3].ToString();
+                        gp.hoTen = dtGiaPha.Rows[i][4].ToString();
+                        gp.gioiTinh = dtGiaPha.Rows[i][5].ToString();
+                        gp.namSinh = dtGiaPha.Rows[i][6].ToString();
+                        gp.namMat = dtGiaPha.Rows[i][7].ToString();
+                        gp.noiSinh = dtGiaPha.Rows[i][8].ToString();
+                        gp.ngheNghiep = dtGiaPha.Rows[i][9].ToString();
+                        gp.cha = dtGiaPha.Rows[i][10].ToString();
+                        gp.me = dtGiaPha.Rows[i][11].ToString();
+                        gp.tenVoChong = dtGiaPha.Rows[i][12].ToString();
+                        gp.tenCon = dtGiaPha.Rows[i][13].ToString();
+                        gp.ghiChu = dtGiaPha.Rows[i][14].ToString();
+                        tree.InsertNode(gp);
+                    }
+                }
+                #endregion
                 dgvGiaPha.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
                 dgvGiaPha.AllowUserToAddRows = false; //không cho thêm trực tiếp
                 dgvGiaPha.EditMode = DataGridViewEditMode.EditProgrammatically; //không chỉnh sửa trực tiếp
             }
             catch (SqlException)
             {
-                MessageBox.Show("Không thể kết nối CSDL", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Không thể kết nối CSDL", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.None);
             }
         }
         private void Disconnect()
@@ -46,16 +71,6 @@ namespace TestingGP
             conn.Close(); //Đóng kết nối
             conn.Dispose(); //Giải phóng tài nguyên
             conn = null; //Hủy đối tượng
-        }
-        private void GetData()
-        {
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conn;
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "Select * From UserGP";
-            daGiaPha.SelectCommand = cmd;
-            daGiaPha.Fill(dtGiaPha);
-            dgvGiaPha.DataSource = dtGiaPha;
         }
         public Add()
         {
@@ -144,7 +159,7 @@ namespace TestingGP
         {
             public int iD, theHe, IDGP;
             public string hoTen, cha, me, tenVoChong, tenCon;
-            public string gioiTinh, thuocGP; 
+            public string gioiTinh, thuocGP;
             public string namSinh, namMat;
             public string noiSinh, ngheNghiep, ghiChu;
         }
@@ -153,10 +168,11 @@ namespace TestingGP
             private GIAPHA info;
             private Node pLeft;
             private Node pRight;
-            public Node(string key, GIAPHA gp)
+            private string key;
+            public Node(GIAPHA gpha)
             {
-                info = gp;
-                info.hoTen = key;
+                info = gpha;
+                key = info.hoTen;
                 pLeft = pRight = null;
             }
             public Node pleft
@@ -174,23 +190,22 @@ namespace TestingGP
                 get { return info; }
                 set { info = value; }
             }
-            public void AddNode(string key, GIAPHA gp)
+            public void AddNode(GIAPHA gp)
             {
-
-                if (string.Compare(key, info.hoTen) == 0)
+                if (string.Compare(key, gp.hoTen) == 0)
                 {
                     MessageBox.Show("Thông tin đã có trong gia phả", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                else if (string.Compare(key, info.hoTen) == -1)
+                else if (string.Compare(key, gp.hoTen) == -1)
                 {
-                    if (pLeft == null) pLeft = new Node(key, gp);
-                    else pLeft.AddNode(key, gp);
+                    if (pLeft == null) pLeft = new Node(gp);
+                    else pLeft.AddNode(gp);
                 }
                 else
                 {
-                    if (pRight == null) pRight = new Node(key, gp);
-                    else pRight.AddNode(key, gp);
+                    if (pRight == null) pRight = new Node(gp);
+                    else pRight.AddNode(gp);
                 }
             }
         }
@@ -201,21 +216,19 @@ namespace TestingGP
             {
                 root = null;
             }
-            public void InsertNode(string key, GIAPHA gp)
+            public void InsertNode(GIAPHA gp)
             {
                 if (root == null)
-                    root = new Node(key, gp);
-                else root.AddNode(key, gp);
+                    root = new Node(gp);
+                else root.AddNode(gp);
             }
         }
         public BTree tree = new BTree();
         private void btThem_Click(object sender, EventArgs e)
         {
-            string key;
             GIAPHA gp = new GIAPHA();
             CreateGP(gp);
-            key = gp.hoTen.ToString();
-            tree.InsertNode(key, gp);
+            tree.InsertNode(gp);
             AddToDataGridView(gp);
         }
         private void btXoa_Click(object sender, EventArgs e)
