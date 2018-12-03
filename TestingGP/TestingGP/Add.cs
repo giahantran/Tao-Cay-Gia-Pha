@@ -19,6 +19,10 @@ namespace TestingGP
         SqlDataAdapter daGiaPha = null;
         DataTable dtGiaPha = null;
 
+        BTree tree = new BTree();
+        Node node = null;
+        Node root = null;
+
         public void KetNoi()
         {
             if (conn.State == ConnectionState.Open)
@@ -35,9 +39,9 @@ namespace TestingGP
                 #region Add to binary tree
                 if (dtGiaPha != null)
                 {
-                    GIAPHA gp = new GIAPHA();
                     for (int i = 0; i < dtGiaPha.Rows.Count; i++)
                     {
+                        GIAPHA gp = new GIAPHA();
                         gp.IDGP = Convert.ToInt32(dtGiaPha.Rows[i][0]);
                         gp.iD = Convert.ToInt32(dtGiaPha.Rows[i][1]);
                         gp.theHe = Convert.ToInt32(dtGiaPha.Rows[i][2]);
@@ -53,8 +57,9 @@ namespace TestingGP
                         gp.tenVoChong = dtGiaPha.Rows[i][12].ToString();
                         gp.tenCon = dtGiaPha.Rows[i][13].ToString();
                         gp.ghiChu = dtGiaPha.Rows[i][14].ToString();
-                        tree.InsertNode(gp);
+                        node = tree.InsertTree(node, gp);
                     }
+                    root = node;
                 }
                 #endregion
                 dgvGiaPha.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
@@ -131,6 +136,7 @@ namespace TestingGP
         {
             if (T != null)
             {
+                AddToSQL(T.pLeft);
                 SqlCommand cmdAdd = new SqlCommand();
                 cmdAdd.Connection = conn;
                 cmdAdd.CommandType = CommandType.Text;
@@ -152,84 +158,14 @@ namespace TestingGP
                 cmdAdd.Parameters.Add("@Ghichú", SqlDbType.NVarChar, 200, "Ghichú");
                 daGiaPha.InsertCommand = cmdAdd;
                 daGiaPha.Update(dtGiaPha);
-                AddToSQL(T.pleft);
-                AddToSQL(T.pright);
+                AddToSQL(T.pRight);
             }
         }
-        public class GIAPHA
-        {
-            public int iD, theHe, IDGP;
-            public string hoTen, cha, me, tenVoChong, tenCon;
-            public string gioiTinh, thuocGP;
-            public string namSinh, namMat;
-            public string noiSinh, ngheNghiep, ghiChu;
-        }
-        public class Node
-        {
-            private GIAPHA info;
-            private Node pLeft;
-            private Node pRight;
-            private string key;
-            public Node(GIAPHA gpha)
-            {
-                info = gpha;
-                key = info.hoTen;
-                pLeft = pRight = null;
-            }
-            public Node pleft
-            {
-                get { return pLeft; }
-                set { pLeft = value; }
-            }
-            public Node pright
-            {
-                get { return pRight; }
-                set { pRight = value; }
-            }
-            public GIAPHA inFO
-            {
-                get { return info; }
-                set { info = value; }
-            }
-            public void AddNode(GIAPHA gp)
-            {
-                if (string.Compare(key, gp.hoTen) == 0)
-                {
-                    MessageBox.Show("Thông tin đã có trong gia phả", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                else if (string.Compare(key, gp.hoTen) == -1)
-                {
-                    if (pLeft == null) pLeft = new Node(gp);
-                    else pLeft.AddNode(gp);
-                }
-                else
-                {
-                    if (pRight == null) pRight = new Node(gp);
-                    else pRight.AddNode(gp);
-                }
-            }
-        }
-        public class BTree
-        {
-            public Node root;
-            public BTree()
-            {
-                root = null;
-            }
-            public void InsertNode(GIAPHA gp)
-            {
-                if (root == null)
-                    root = new Node(gp);
-                else root.AddNode(gp);
-            }
-        }
-        public BTree tree = new BTree();
         private void btThem_Click(object sender, EventArgs e)
         {
             GIAPHA gp = new GIAPHA();
             CreateGP(gp);
-            tree.InsertNode(gp);
+            tree.InsertTree(root, gp);
             AddToDataGridView(gp);
         }
         private void btXoa_Click(object sender, EventArgs e)
@@ -251,7 +187,7 @@ namespace TestingGP
         }
         private void btLuu_Click(object sender, EventArgs e)
         {
-            AddToSQL(tree.root);
+            AddToSQL(root);
             MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         private DataTable Connect(string sql, SqlConnection con)
@@ -268,7 +204,6 @@ namespace TestingGP
         void AddNode(SqlConnection con, TreeNodeCollection nc, String filter = "ThếHệ=1")
         {
             DataTable node = Connect("SELECT HọTên FROM UserGP WHERE " + filter, con);
-
             for (int i = 0; i < node.Rows.Count; i++)
             {
                 TreeNode t = nc.Add(node.Rows[i][0].ToString());
@@ -278,7 +213,7 @@ namespace TestingGP
         }
         private void btXemCay_Click(object sender, EventArgs e)
         {
-           // KetNoi();
+            // KetNoi();
             dgvGiaPha.Visible = false;
             treeViewShowAdd.Visible = true;
         }
@@ -287,24 +222,16 @@ namespace TestingGP
             dgvGiaPha.Visible = true;
             treeViewShowAdd.Visible = false;
         }
-        private Node ReSearchNode(Node root, string x)
-        {
-            Node p = root;
-            while (p != null)
-            {
-                if (string.Compare(root.inFO.hoTen, x) == 0) return p;
-                else if (string.Compare(root.inFO.hoTen, x) == -1) p = p.pleft;
-                else p = p.pright;
-            }
-            return null;
-        }
         private void treeViewShowAdd_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            MessageBox.Show(e.Node.ToString());
-            MessageBox.Show(tree.root.inFO.hoTen.ToString());
-            if (e.Node.Name != null)
+           /* MessageBox.Show(e.Node.ToString());
+            if (e.Node != null)
             {
-                Node p = ReSearchNode(tree.root, e.Node.ToString());
+                Node p = new Node();
+
+                p = ReSearchNode(tree.root, e.Node.ToString());
+                MessageBox.Show(p.inFO.hoTen);
+
                 #region
                 /*DataTable node = Connect("select * from UserGP where Họtên = N'" + e.Node.Text + "'", conn);
                 txtMaTV.Text = node.Rows[0][1].ToString();
@@ -337,9 +264,11 @@ namespace TestingGP
                 txtHotenMe.Text = node.Rows[0][11].ToString();
                 txtTenVoChong.Text = node.Rows[0][12].ToString();
                 txtHotenCon.Text = node.Rows[0][13].ToString();
-                txtGhiChu.Text = node.Rows[0][14].ToString(); */
+                txtGhiChu.Text = node.Rows[0][14].ToString(); 
                 #endregion
             }
+            MessageBox.Show(tree.root.inFO.hoTen.ToString());
+            */
         }
         private void checkNamMat_CheckStateChanged(object sender, EventArgs e)
         {
