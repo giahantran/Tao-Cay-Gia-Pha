@@ -87,6 +87,8 @@ namespace TestingGP
             this.treeViewShowAdd.Location = new Point(410, 82);
             dgvGiaPha.Visible = true;
             treeViewShowAdd.Visible = false;
+            lbMat.Visible = false;
+            dateNgayMat.Visible = false;
             this.txtIDGiaPha.Text = "1";
             KetNoi();
             ShowTreeView();
@@ -106,7 +108,9 @@ namespace TestingGP
             if (chbThuocGP.Checked == true) gp.thuocGP = "Có";
             else gp.thuocGP = "Không";
             gp.namSinh = DateTime.Parse(dateNgaySinh.Text).ToString();
-            gp.namMat = DateTime.Parse(dateNgayMat.Text).ToString();
+            if (checkNamMat.Checked == true)
+                gp.namMat = DateTime.Parse(dateNgayMat.Text).ToString();
+            else gp.namMat = "";
             gp.ngheNghiep = txtNgheNghiep.Text;
             gp.noiSinh = txtQueQuan.Text;
             gp.ghiChu = txtGhiChu.Text;
@@ -147,8 +151,8 @@ namespace TestingGP
                 cmdAdd.Parameters.Add("@ThuộcGiaPhả", SqlDbType.NVarChar, 10, "ThuộcGiaPhả");
                 cmdAdd.Parameters.Add("@Họtên", SqlDbType.NVarChar, 50, "Họtên");
                 cmdAdd.Parameters.Add("@Giớitính", SqlDbType.NVarChar, 5, "Giớitính");
-                cmdAdd.Parameters.Add("@Ngàysinh", SqlDbType.NVarChar, 10, "Ngàysinh");
-                cmdAdd.Parameters.Add("@Ngàymất", SqlDbType.Date, 12, "Ngàymất");
+                cmdAdd.Parameters.Add("@Ngàysinh", SqlDbType.Date, 12, "Ngàysinh");
+                cmdAdd.Parameters.Add("@Ngàymất", SqlDbType.NVarChar, 12, "Ngàymất");
                 cmdAdd.Parameters.Add("@Nơisinh", SqlDbType.NVarChar, 50, "Nơisinh");
                 cmdAdd.Parameters.Add("@Nghềnghiệp", SqlDbType.NVarChar, 50, "Nghềnghiệp");
                 cmdAdd.Parameters.Add("@HọtênCha", SqlDbType.NVarChar, 50, "HọtênCha");
@@ -161,12 +165,14 @@ namespace TestingGP
                 AddToSQL(T.pRight);
             }
         }
+        bool checkThem = false;
         private void btThem_Click(object sender, EventArgs e)
         {
             GIAPHA gp = new GIAPHA();
             CreateGP(gp);
             tree.InsertTree(root, gp);
             AddToDataGridView(gp);
+            checkThem = true;
         }
         private void btXoa_Click(object sender, EventArgs e)
         {
@@ -187,8 +193,19 @@ namespace TestingGP
         }
         private void btLuu_Click(object sender, EventArgs e)
         {
-            AddToSQL(root);
-            MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (checkThem == true)
+            {
+                AddToSQL(root);
+                MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                GIAPHA gp = new GIAPHA();
+                CreateGP(gp);
+                tree.InsertTree(root, gp);
+                AddToDataGridView(gp);
+                AddToSQL(root);
+            }
         }
         private DataTable Connect(string sql, SqlConnection con)
         {
@@ -224,51 +241,51 @@ namespace TestingGP
         }
         private void treeViewShowAdd_AfterSelect(object sender, TreeViewEventArgs e)
         {
-           /* MessageBox.Show(e.Node.ToString());
-            if (e.Node != null)
-            {
-                Node p = new Node();
+            /* MessageBox.Show(e.Node.ToString());
+             if (e.Node != null)
+             {
+                 Node p = new Node();
 
-                p = ReSearchNode(tree.root, e.Node.ToString());
-                MessageBox.Show(p.inFO.hoTen);
+                 p = ReSearchNode(tree.root, e.Node.ToString());
+                 MessageBox.Show(p.inFO.hoTen);
 
-                #region
-                /*DataTable node = Connect("select * from UserGP where Họtên = N'" + e.Node.Text + "'", conn);
-                txtMaTV.Text = node.Rows[0][1].ToString();
-                txtTheHe.Text = node.Rows[0][2].ToString();
-                if (node.Rows[0][3].ToString() == "Có")
-                    chbThuocGP.Checked = true;
-                else chbThuocGP.Checked = false;
-                txtHoTen.Text = node.Rows[0][4].ToString();
-                if (node.Rows[0][5].ToString() == "Nam")
-                    chbGioiTinh.Checked = true;
-                else chbGioiTinh.Checked = false;
-                dateNgaySinh.Text = node.Rows[0][6].ToString();
-                if (node.Rows[0][7].ToString() != "")
-                {
-                    checkNamMat.Visible = false;
-                    lbMat.Visible = true;
-                    dateNgayMat.Visible = true;
-                    dateNgayMat.Text = node.Rows[0][7].ToString();
-                }
-                else
-                {
-                    checkNamMat.Visible = true;
-                    lbMat.Visible = false;
-                    dateNgayMat.Visible = false;
-                    checkNamMat.Checked = false;
-                }
-                txtQueQuan.Text = node.Rows[0][8].ToString();
-                txtNgheNghiep.Text = node.Rows[0][9].ToString();
-                txtHotenCha.Text = node.Rows[0][10].ToString();
-                txtHotenMe.Text = node.Rows[0][11].ToString();
-                txtTenVoChong.Text = node.Rows[0][12].ToString();
-                txtHotenCon.Text = node.Rows[0][13].ToString();
-                txtGhiChu.Text = node.Rows[0][14].ToString(); 
-                #endregion
-            }
-            MessageBox.Show(tree.root.inFO.hoTen.ToString());
-            */
+                 #region
+                 /*DataTable node = Connect("select * from UserGP where Họtên = N'" + e.Node.Text + "'", conn);
+                 txtMaTV.Text = node.Rows[0][1].ToString();
+                 txtTheHe.Text = node.Rows[0][2].ToString();
+                 if (node.Rows[0][3].ToString() == "Có")
+                     chbThuocGP.Checked = true;
+                 else chbThuocGP.Checked = false;
+                 txtHoTen.Text = node.Rows[0][4].ToString();
+                 if (node.Rows[0][5].ToString() == "Nam")
+                     chbGioiTinh.Checked = true;
+                 else chbGioiTinh.Checked = false;
+                 dateNgaySinh.Text = node.Rows[0][6].ToString();
+                 if (node.Rows[0][7].ToString() != "")
+                 {
+                     checkNamMat.Visible = false;
+                     lbMat.Visible = true;
+                     dateNgayMat.Visible = true;
+                     dateNgayMat.Text = node.Rows[0][7].ToString();
+                 }
+                 else
+                 {
+                     checkNamMat.Visible = true;
+                     lbMat.Visible = false;
+                     dateNgayMat.Visible = false;
+                     checkNamMat.Checked = false;
+                 }
+                 txtQueQuan.Text = node.Rows[0][8].ToString();
+                 txtNgheNghiep.Text = node.Rows[0][9].ToString();
+                 txtHotenCha.Text = node.Rows[0][10].ToString();
+                 txtHotenMe.Text = node.Rows[0][11].ToString();
+                 txtTenVoChong.Text = node.Rows[0][12].ToString();
+                 txtHotenCon.Text = node.Rows[0][13].ToString();
+                 txtGhiChu.Text = node.Rows[0][14].ToString(); 
+                 #endregion
+             }
+             MessageBox.Show(tree.root.inFO.hoTen.ToString());
+             */
         }
         private void checkNamMat_CheckStateChanged(object sender, EventArgs e)
         {
