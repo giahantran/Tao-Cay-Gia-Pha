@@ -154,7 +154,10 @@ namespace TestingGP
             this.txtbHoTen.Text = "";
             this.checkBGioiTinh.Checked = false;
             this.dateTimePicker1.Text = "";
-            this.dateTimePicker2.Text = "";
+            this.lbMat.Visible = false;
+            this.dateTimePicker2.Visible = false;
+            this.checkNamMat.Visible = true;
+            this.checkNamMat.Checked = false;
             this.txtBQueQuan.Text = "";
             this.txtBNgheNghiep.Text = "";
             this.txtBHotenCha.Text = "";
