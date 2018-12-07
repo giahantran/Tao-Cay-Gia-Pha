@@ -67,6 +67,7 @@ namespace TestingGP
                 dgvGiaPha.AllowUserToAddRows = false; //không cho thêm trực tiếp
                 dgvGiaPha.EditMode = DataGridViewEditMode.EditProgrammatically; //không chỉnh sửa trực tiếp
                 ShowTreeView();
+                EventCellClick();
             }
             catch (SqlException)
             {
@@ -202,44 +203,26 @@ namespace TestingGP
         {
             if (MessageBox.Show("Bạn chắc chắn muốn sửa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                GIAPHA search = tree.SearchNode(root, txtHoTen.Text);
+                DataGridViewRow row = new DataGridViewRow();
+                row = dgvGiaPha.CurrentRow;
+                GIAPHA search = tree.SearchNode(root, row.Cells["Họtên"].Value.ToString());
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                int r = dgvGiaPha.CurrentCell.RowIndex;
+                string sID = dgvGiaPha.Rows[r].Cells[1].Value.ToString();
+                cmd.CommandText = "Delete from UserGP where ID = " + sID + "";
+                cmd.ExecuteNonQuery();
                 if (search != null)
                 {
-                    #region
-                    SqlCommand cmd = new SqlCommand();
-                    cmd.Connection = conn;
-                    cmd.CommandType = CommandType.Text;
-                    string gt, tgp, nammat;
-                    if (chbGioiTinh.Checked == false) gt = "Nữ";
-                    else gt = "Nam";
-                    if (chbThuocGP.Checked == false) tgp = "Không";
-                    else tgp = "Có";
-                    if (checkNamMat.Checked == false) nammat = "";
-                    else nammat = this.dateNgayMat.Text;
-                    cmd.CommandText = "update UserGP set IDGP ='" +
-                        this.txtIDGiaPha.Text + "', ID ='" +
-                        this.txtMaTV.Text + "', ThếHệ ='" +
-                        this.txtTheHe.Text + "', ThuộcGiaPhả =N'" +
-                        tgp + "', Họtên =N'" +
-                        this.txtHoTen.Text + "', Giớitính =N'" +
-                        gt + "', NgàySinh ='" +
-                        this.dateNgaySinh.Text + "', NgàyMất ='" +
-                        nammat + "', NơiSinh =N'" +
-                        this.txtQueQuan.Text + "', NghềNghiệp =N'" +
-                        this.txtNgheNghiep.Text + "', HọtênCha =N'" +
-                        this.txtHotenCha.Text + "', HọtênMẹ =N'" +
-                        this.txtHotenMe.Text + "', TênVợ_Chồng =N'" +
-                        this.txtTenVoChong.Text + "', HọtênCon =N'" +
-                        this.txtHotenCon.Text + "',GhiChú =N'" +
-                        this.txtGhiChu.Text +
-                        "' where ID ='" + this.txtMaTV.Text +
-                        "' and HọTên ='" + this.txtTheHe.Text + "'";
-
-                    cmd.ExecuteNonQuery();
+                    search = new GIAPHA();
+                    CreateGP(search);
+                    root = tree.InsertTree(root, search);
+                    AddToDataGridView(search);
+                    AddToSQL(root);
+                    KetNoi();
+                    EventCellClick();
                 }
                 MessageBox.Show("Cập nhật thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.None);
-                KetNoi();
-                #endregion
             }
         }
         private void btXoa_Click(object sender, EventArgs e)
@@ -249,9 +232,10 @@ namespace TestingGP
             cmd.CommandType = CommandType.Text;
             int r = dgvGiaPha.CurrentCell.RowIndex;
             string sID = dgvGiaPha.Rows[r].Cells[1].Value.ToString();
+            tree.Remove(ref root, txtHoTen.Text);
             cmd.CommandText = "Delete from UserGP where ID = " + sID + "";
             cmd.ExecuteNonQuery();
-            tree.Remove(ref root, txtHoTen.Text);
+            
             KetNoi();
         }
         private void Add_FormClosing(object sender, FormClosingEventArgs e)
@@ -318,7 +302,7 @@ namespace TestingGP
                 GIAPHA a = tree.SearchNode(root, e.Node.Text);
                 txtMaTV.Text = a.iD.ToString();
                 txtTheHe.Text = a.theHe.ToString();
-                if (a.theHe.ToString() == "Có")
+                if (a.thuocGP.ToString() == "Có")
                     chbThuocGP.Checked = true;
                 else chbThuocGP.Checked = false;
                 txtHoTen.Text = a.hoTen;
@@ -343,7 +327,7 @@ namespace TestingGP
                 txtQueQuan.Text = a.noiSinh;
                 txtNgheNghiep.Text = a.ngheNghiep;
                 txtHotenCha.Text = a.cha;
-                txtHotenMe.Text = a.me.ToString();
+                txtHotenMe.Text = a.me;
                 txtTenVoChong.Text = a.tenVoChong;
                 txtHotenCon.Text = a.tenCon;
                 txtGhiChu.Text = a.ghiChu;
@@ -363,7 +347,7 @@ namespace TestingGP
             GIAPHA a = tree.SearchNode(root, txtTimKiem.Text.Trim());
             if (a != null)
             {
-                dtGiaPha.Clear();
+                dtGiaPha.Rows.Clear();
                 dgvGiaPha.DataSource = dtGiaPha;
                 AddToDataGridView(a);
             }
@@ -371,23 +355,60 @@ namespace TestingGP
         }
         private void btDelAll_Click(object sender, EventArgs e)
         {
+            tree.RemoveTree(ref root);
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conn;
             for (int i = 0; i < dgvGiaPha.Rows.Count; i++)
             {
                 string sID = dgvGiaPha.Rows[i].Cells[1].Value.ToString();
                 cmd.CommandText = "Delete from UserGP where ID = " + sID + "";
-                //tree.RemoveTree(ref root);
                 cmd.ExecuteNonQuery();
             }
             KetNoi();
         }
-        private void dgvGiaPha_CellClick(object sender, DataGridViewCellEventArgs e)
+        void EventCellClick()
         {
             DataGridViewRow row = new DataGridViewRow();
             row = dgvGiaPha.CurrentRow;
-
-            txtHoTen.Text = row.Cells["Họtên"].Value.ToString();
+            if (row != null)
+            {
+                txtHoTen.Text = row.Cells["Họtên"].Value.ToString();
+                txtMaTV.Text = row.Cells["ID"].Value.ToString();
+                txtTheHe.Text = row.Cells["ThếHệ"].Value.ToString();
+                if (row.Cells["ThuộcGiaPhả"].Value.ToString() == "Có")
+                    chbThuocGP.Checked = true;
+                else chbThuocGP.Checked = false;
+                txtHoTen.Text = row.Cells["Họtên"].Value.ToString();
+                if (row.Cells["GiớiTính"].Value.ToString() == "Nam")
+                    chbGioiTinh.Checked = true;
+                else chbGioiTinh.Checked = false;
+                dateNgaySinh.Text = row.Cells["NgàySinh"].Value.ToString();
+                if (row.Cells["NgàyMất"].Value.ToString() != "")
+                {
+                    checkNamMat.Visible = false;
+                    lbMat.Visible = true;
+                    dateNgayMat.Visible = true;
+                    dateNgayMat.Text = row.Cells["NgàyMất"].Value.ToString();
+                }
+                else
+                {
+                    checkNamMat.Visible = true;
+                    lbMat.Visible = false;
+                    dateNgayMat.Visible = false;
+                    checkNamMat.Checked = false;
+                }
+                txtQueQuan.Text = row.Cells["NơiSinh"].Value.ToString();
+                txtNgheNghiep.Text = row.Cells["NghềNghiệp"].Value.ToString();
+                txtHotenCha.Text = row.Cells["HọtênCha"].Value.ToString();
+                txtHotenMe.Text = row.Cells["HọtênMẹ"].Value.ToString();
+                txtTenVoChong.Text = row.Cells["TênVợ_Chồng"].Value.ToString();
+                txtHotenCon.Text = row.Cells["HọtênCon"].Value.ToString();
+                txtGhiChu.Text = row.Cells["GhiChú"].Value.ToString();
+            }
+        }
+        private void dgvGiaPha_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            EventCellClick();
         }
     }
 }

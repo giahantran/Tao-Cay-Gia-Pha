@@ -543,6 +543,7 @@
             // 
             // btLuu
             // 
+            this.btLuu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btLuu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btLuu.Location = new System.Drawing.Point(1084, 691);
             this.btLuu.Name = "btLuu";
@@ -569,6 +570,7 @@
             // 
             // btDelAll
             // 
+            this.btDelAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btDelAll.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btDelAll.Location = new System.Drawing.Point(964, 691);
             this.btDelAll.Name = "btDelAll";

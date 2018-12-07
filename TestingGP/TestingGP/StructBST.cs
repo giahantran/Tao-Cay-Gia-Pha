@@ -51,43 +51,37 @@ namespace TestingGP
             }
             return null;
         }
-        int n = 0;
-        public void LeftNodeRight(Node root, GIAPHA[] NLR)
+        public void Replace( Node p,  Node t)
+        {
+            if (t.pLeft != null)
+                Replace( p,  t.pLeft);
+            else
+            {
+                p.info = t.info;
+                t = p.pRight;
+                p = t;
+            }
+        }
+        public void Remove(ref Node root, string name)
         {
             if (root != null)
             {
-                LeftNodeRight(root.pLeft, NLR);
-                NLR[n++] = root.info;
-                LeftNodeRight(root.pRight, NLR);
+                if (string.Compare(root.info.hoTen, name) == -1)
+                    Remove(ref root.pRight, name);
+                else
+                {
+                    if (string.Compare(root.info.hoTen, name) == 1)
+                        Remove(ref root.pLeft, name);
+                    else
+                    {
+                        Node p = root;
+                        if (root.pLeft == null) root = root.pRight;
+                        else if (root.pRight == null) root = root.pLeft;
+                        else Replace( p,  root.pRight);
+                        p = null;
+                    }
+                }
             }
-        }
-        public void Replace(Node p, Node q)
-        {
-            if (q.pLeft != null)
-                Replace(p, q.pLeft);
-            else
-            {
-                p.info = q.info;
-                p = q;
-                q = p.pRight;
-            }
-        }
-        public bool Remove(ref Node root, string DelWord)
-        {
-            if (root == null) return false;
-            if (string.Compare(root.info.hoTen, DelWord) == 1)
-                return Remove(ref root.pLeft, DelWord);
-            if (string.Compare(root.info.hoTen, DelWord) == -1)
-                return Remove(ref root.pRight, DelWord);
-            Node p = root;
-            if (root.pLeft == null) root = root.pRight;
-            else
-            {
-                if (root.pRight == null) root = root.pLeft;
-                else Replace(p, root.pRight);
-            }
-            p = null;
-            return true;
         }
         public void RemoveTree(ref Node root)
         {
@@ -95,7 +89,7 @@ namespace TestingGP
             {
                 RemoveTree(ref root.pLeft);
                 RemoveTree(ref root.pRight);
-                root = null;
+                Remove(ref root, root.info.hoTen);
             }
         }
     }
