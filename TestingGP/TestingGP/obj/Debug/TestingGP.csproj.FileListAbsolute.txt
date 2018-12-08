@@ -36,3 +36,16 @@ E:\Project Gia Pha\Tao-Cay-Gia-Pha1\TestingGP\TestingGP\obj\Debug\TestingGP.cspr
 E:\Project Gia Pha\Tao-Cay-Gia-Pha1\TestingGP\TestingGP\obj\Debug\TestingGP.csproj.CoreCompileInputs.cache
 E:\Project Gia Pha\Tao-Cay-Gia-Pha1\TestingGP\TestingGP\obj\Debug\TestingGP.exe
 E:\Project Gia Pha\Tao-Cay-Gia-Pha1\TestingGP\TestingGP\obj\Debug\TestingGP.pdb
+F:\github\Tao-Cay-Gia-Pha\TestingGP\TestingGP\bin\Debug\TestingGP.exe.config
+F:\github\Tao-Cay-Gia-Pha\TestingGP\TestingGP\bin\Debug\TestingGP.exe
+F:\github\Tao-Cay-Gia-Pha\TestingGP\TestingGP\bin\Debug\TestingGP.pdb
+F:\github\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.csprojAssemblyReference.cache
+F:\github\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.Add.resources
+F:\github\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.FormDisplay.resources
+F:\github\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.FormHome.resources
+F:\github\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.FormHelp.resources
+F:\github\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.Properties.Resources.resources
+F:\github\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.csproj.GenerateResource.cache
+F:\github\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.csproj.CoreCompileInputs.cache
+F:\github\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.exe
+F:\github\Tao-Cay-Gia-Pha\TestingGP\TestingGP\obj\Debug\TestingGP.pdb

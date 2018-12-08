@@ -14,8 +14,8 @@ namespace TestingGP
     public partial class Add : Form
     {
         //SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-C99VFUB\GIAHAN;Initial Catalog=DL_GIAPHA;Integrated Security=True"); //Hân
-        //SqlConnection conn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=GIAPHA;Integrated Security=True"); //Văn
-        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-RRRHOP4;Initial Catalog=Genealogy;Integrated Security=True"); //Na
+        SqlConnection conn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=GIAPHA;Integrated Security=True"); //Văn
+        //SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-RRRHOP4;Initial Catalog=Genealogy;Integrated Security=True"); //Na
         SqlDataAdapter daGiaPha = null;
         DataTable dtGiaPha = null;
 
@@ -347,6 +347,38 @@ namespace TestingGP
             GIAPHA a = tree.SearchNode(root, txtTimKiem.Text.Trim());
             if (a != null)
             {
+                txtMaTV.Text = a.iD.ToString();
+                txtTheHe.Text = a.theHe.ToString();
+                if (a.theHe.ToString() == "Có")
+                    chbThuocGP.Checked = true;
+                else chbThuocGP.Checked = false;
+                txtHoTen.Text = a.hoTen;
+                if (a.gioiTinh.ToString() == "Nam")
+                    chbGioiTinh.Checked = true;
+                else chbGioiTinh.Checked = false;
+                dateNgaySinh.Text = a.namSinh.ToString();
+                if (a.namMat.ToString() != "")
+                {
+                    checkNamMat.Visible = false;
+                    lbMat.Visible = true;
+                    dateNgayMat.Visible = true;
+                    dateNgayMat.Text = a.namMat;
+                }
+                else
+                {
+                    checkNamMat.Visible = true;
+                    lbMat.Visible = false;
+                    dateNgayMat.Visible = false;
+                    checkNamMat.Checked = false;
+                }
+                txtQueQuan.Text = a.noiSinh;
+                txtNgheNghiep.Text = a.ngheNghiep;
+                txtHotenCha.Text = a.cha;
+                txtHotenMe.Text = a.me.ToString();
+                txtTenVoChong.Text = a.tenVoChong;
+                txtHotenCon.Text = a.tenCon;
+                txtGhiChu.Text = a.ghiChu;
+                //
                 dtGiaPha.Rows.Clear();
                 dgvGiaPha.DataSource = dtGiaPha;
                 AddToDataGridView(a);
@@ -409,6 +441,121 @@ namespace TestingGP
         private void dgvGiaPha_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             EventCellClick();
+        }
+        //menu
+        //Xem thế hệ
+        public void LeftNodeRightTheHe(Node root)
+        {
+
+            if (root != null)
+            {
+
+                LeftNodeRightTheHe(root.pLeft);
+                //
+                GIAPHA a = tree.SearchNodeTheHe(root, txtNhapThehe.Text);
+                if (a != null)
+                    AddToDataGridView(a);
+                //
+                LeftNodeRightTheHe(root.pRight);
+            }
+        }
+
+        public void LeftNodeRightTheHeTui(Node root)
+        {
+            if (root != null)
+            {
+
+                LeftNodeRightTheHeTui(root.pLeft);
+                //
+                GIAPHA a = tree.SearchNodeTheHe(root, (tree.SearchNodeOngba(root, txtNhapten.Text) - 1).ToString());
+                if (a != null)
+                    AddToDataGridView(a);
+                //
+                LeftNodeRightTheHeTui(root.pRight);
+            }
+        }
+        //Thuộc GP
+        public void LeftNodeRightThuocGP(Node root)
+        {
+
+            if (root != null)
+            {
+
+                LeftNodeRightThuocGP(root.pLeft);
+                //
+                GIAPHA a = tree.SearchNodeThuocGP(root, "Có");
+                if (a != null)
+                    AddToDataGridView(a);
+                //
+                LeftNodeRightThuocGP(root.pRight);
+            }
+        }
+        //Không thuộc GP
+        public void LeftNodeRightKhongThuocGP(Node root)
+        {
+
+            if (root != null)
+            {
+
+                LeftNodeRightKhongThuocGP(root.pLeft);
+                //
+                GIAPHA a = tree.SearchNodeThuocGP(root, "Không");
+                if (a != null)
+                    AddToDataGridView(a);
+                //
+                LeftNodeRightKhongThuocGP(root.pRight);
+            }
+        }
+        private void btOkNhapThehe_Click(object sender, EventArgs e)
+        {
+            dtGiaPha.Clear();
+            LeftNodeRightTheHe(root);
+        }
+
+        private void btThuocGP_Click(object sender, EventArgs e)
+        {
+            dtGiaPha.Clear();
+            LeftNodeRightThuocGP(root);
+        }
+
+        private void btKoThuocGP_Click(object sender, EventArgs e)
+        {
+            dtGiaPha.Clear();
+            LeftNodeRightKhongThuocGP(root);
+        }
+
+        private void btXemOngba_Click(object sender, EventArgs e)   //Còn sai sót
+        {
+            dtGiaPha.Clear();
+            LeftNodeRightTheHeTui(root);
+
+        }
+
+        private void btXemConchau_Click(object sender, EventArgs e) //Sai sót phần ông bà nên con cháu chưa làm ^-^
+        {
+
+        }
+
+        private void btOkMenu_Click(object sender, EventArgs e)
+        {
+            if (cbbMenu.Text == "Xem những người cùng thế hệ")
+            {
+                pnTheHe.Show();
+                PnXemOngbaConchau.Hide();
+                pnThuocGP.Hide();
+            }
+            if (cbbMenu.Text == "Xem thế hệ ông bà con cháu")
+            {
+                pnTheHe.Hide();
+                PnXemOngbaConchau.Show();
+                pnThuocGP.Hide();
+            }
+            if (cbbMenu.Text == "Xem những người thuộc gia phả")
+            {
+                pnTheHe.Hide();
+                PnXemOngbaConchau.Hide();
+                pnThuocGP.Show();
+            }
         }
     }
 }

@@ -21,6 +21,9 @@ namespace TestingGP
         {
             Add formAdd = new Add();
             formAdd.Show();
+            formAdd.pnTheHe.Hide();
+            formAdd.pnThuocGP.Hide();
+            formAdd.PnXemOngbaConchau.Hide();
         }
         private void btMauGiaPha_Click(object sender, EventArgs e)
         {

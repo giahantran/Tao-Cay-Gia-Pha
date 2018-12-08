@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Add));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -76,8 +76,26 @@
             this.btLuu = new System.Windows.Forms.Button();
             this.checkNamMat = new System.Windows.Forms.CheckBox();
             this.btDelAll = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cbbMenu = new System.Windows.Forms.ComboBox();
+            this.btOkMenu = new System.Windows.Forms.Button();
+            this.pnTheHe = new System.Windows.Forms.Panel();
+            this.btOkNhapThehe = new System.Windows.Forms.Button();
+            this.txtNhapThehe = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.pnThuocGP = new System.Windows.Forms.Panel();
+            this.btThuocGP = new System.Windows.Forms.Button();
+            this.btKoThuocGP = new System.Windows.Forms.Button();
+            this.PnXemOngbaConchau = new System.Windows.Forms.Panel();
+            this.btXemOngba = new System.Windows.Forms.Button();
+            this.btXemConchau = new System.Windows.Forms.Button();
+            this.txtNhapten = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGiaPha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pnTheHe.SuspendLayout();
+            this.pnThuocGP.SuspendLayout();
+            this.PnXemOngbaConchau.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -347,7 +365,7 @@
             this.txtHotenCon.Location = new System.Drawing.Point(24, 481);
             this.txtHotenCon.Multiline = true;
             this.txtHotenCon.Name = "txtHotenCon";
-            this.txtHotenCon.Size = new System.Drawing.Size(177, 93);
+            this.txtHotenCon.Size = new System.Drawing.Size(177, 54);
             this.txtHotenCon.TabIndex = 31;
             // 
             // txtGhiChu
@@ -356,15 +374,15 @@
             this.txtGhiChu.Location = new System.Drawing.Point(220, 481);
             this.txtGhiChu.Multiline = true;
             this.txtGhiChu.Name = "txtGhiChu";
-            this.txtGhiChu.Size = new System.Drawing.Size(169, 93);
+            this.txtGhiChu.Size = new System.Drawing.Size(169, 54);
             this.txtGhiChu.TabIndex = 32;
             // 
             // btTaoMoi
             // 
             this.btTaoMoi.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btTaoMoi.Location = new System.Drawing.Point(24, 580);
+            this.btTaoMoi.Location = new System.Drawing.Point(25, 541);
             this.btTaoMoi.Name = "btTaoMoi";
-            this.btTaoMoi.Size = new System.Drawing.Size(81, 37);
+            this.btTaoMoi.Size = new System.Drawing.Size(81, 34);
             this.btTaoMoi.TabIndex = 33;
             this.btTaoMoi.Text = "Tạo mới";
             this.btTaoMoi.UseVisualStyleBackColor = true;
@@ -373,9 +391,9 @@
             // btXoa
             // 
             this.btXoa.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btXoa.Location = new System.Drawing.Point(123, 580);
+            this.btXoa.Location = new System.Drawing.Point(119, 541);
             this.btXoa.Name = "btXoa";
-            this.btXoa.Size = new System.Drawing.Size(78, 37);
+            this.btXoa.Size = new System.Drawing.Size(78, 34);
             this.btXoa.TabIndex = 34;
             this.btXoa.Text = "Xóa";
             this.btXoa.UseVisualStyleBackColor = true;
@@ -384,9 +402,9 @@
             // btSua
             // 
             this.btSua.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSua.Location = new System.Drawing.Point(220, 580);
+            this.btSua.Location = new System.Drawing.Point(208, 541);
             this.btSua.Name = "btSua";
-            this.btSua.Size = new System.Drawing.Size(78, 37);
+            this.btSua.Size = new System.Drawing.Size(78, 34);
             this.btSua.TabIndex = 35;
             this.btSua.Text = "Sửa";
             this.btSua.UseVisualStyleBackColor = true;
@@ -395,9 +413,9 @@
             // btThem
             // 
             this.btThem.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btThem.Location = new System.Drawing.Point(314, 580);
+            this.btThem.Location = new System.Drawing.Point(312, 541);
             this.btThem.Name = "btThem";
-            this.btThem.Size = new System.Drawing.Size(75, 37);
+            this.btThem.Size = new System.Drawing.Size(75, 34);
             this.btThem.TabIndex = 36;
             this.btThem.Text = "Thêm";
             this.btThem.UseVisualStyleBackColor = true;
@@ -409,26 +427,26 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvGiaPha.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("UVN Bach Tuyet", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvGiaPha.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("UVN Bach Tuyet", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvGiaPha.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvGiaPha.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvGiaPha.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvGiaPha.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvGiaPha.Location = new System.Drawing.Point(410, 82);
             this.dgvGiaPha.Name = "dgvGiaPha";
-            this.dgvGiaPha.Size = new System.Drawing.Size(749, 603);
+            this.dgvGiaPha.Size = new System.Drawing.Size(749, 612);
             this.dgvGiaPha.TabIndex = 37;
             this.dgvGiaPha.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGiaPha_CellClick);
             // 
@@ -461,7 +479,7 @@
             this.treeViewShowAdd.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeViewShowAdd.Location = new System.Drawing.Point(410, 82);
             this.treeViewShowAdd.Name = "treeViewShowAdd";
-            this.treeViewShowAdd.Size = new System.Drawing.Size(749, 603);
+            this.treeViewShowAdd.Size = new System.Drawing.Size(749, 612);
             this.treeViewShowAdd.TabIndex = 40;
             this.treeViewShowAdd.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewShowAdd_AfterSelect);
             // 
@@ -545,7 +563,7 @@
             // 
             this.btLuu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btLuu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btLuu.Location = new System.Drawing.Point(1084, 691);
+            this.btLuu.Location = new System.Drawing.Point(1084, 700);
             this.btLuu.Name = "btLuu";
             this.btLuu.Size = new System.Drawing.Size(75, 37);
             this.btLuu.TabIndex = 82;
@@ -572,13 +590,172 @@
             // 
             this.btDelAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btDelAll.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btDelAll.Location = new System.Drawing.Point(964, 691);
+            this.btDelAll.Location = new System.Drawing.Point(964, 700);
             this.btDelAll.Name = "btDelAll";
             this.btDelAll.Size = new System.Drawing.Size(114, 37);
             this.btDelAll.TabIndex = 84;
             this.btDelAll.Text = "Xóa tất cả";
             this.btDelAll.UseVisualStyleBackColor = true;
             this.btDelAll.Click += new System.EventHandler(this.btDelAll_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(30, 578);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(44, 19);
+            this.label5.TabIndex = 85;
+            this.label5.Text = "Menu";
+            // 
+            // cbbMenu
+            // 
+            this.cbbMenu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbMenu.FormattingEnabled = true;
+            this.cbbMenu.Items.AddRange(new object[] {
+            "Xem những người cùng thế hệ",
+            "Xem thế hệ ông bà con cháu",
+            "Xem những người thuộc gia phả"});
+            this.cbbMenu.Location = new System.Drawing.Point(89, 578);
+            this.cbbMenu.Name = "cbbMenu";
+            this.cbbMenu.Size = new System.Drawing.Size(186, 27);
+            this.cbbMenu.TabIndex = 86;
+            // 
+            // btOkMenu
+            // 
+            this.btOkMenu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btOkMenu.Location = new System.Drawing.Point(290, 579);
+            this.btOkMenu.Name = "btOkMenu";
+            this.btOkMenu.Size = new System.Drawing.Size(59, 27);
+            this.btOkMenu.TabIndex = 87;
+            this.btOkMenu.Text = "OK";
+            this.btOkMenu.UseVisualStyleBackColor = true;
+            this.btOkMenu.Click += new System.EventHandler(this.btOkMenu_Click);
+            // 
+            // pnTheHe
+            // 
+            this.pnTheHe.BackColor = System.Drawing.Color.Transparent;
+            this.pnTheHe.Controls.Add(this.btOkNhapThehe);
+            this.pnTheHe.Controls.Add(this.txtNhapThehe);
+            this.pnTheHe.Controls.Add(this.label8);
+            this.pnTheHe.Location = new System.Drawing.Point(68, 608);
+            this.pnTheHe.Name = "pnTheHe";
+            this.pnTheHe.Size = new System.Drawing.Size(267, 26);
+            this.pnTheHe.TabIndex = 88;
+            // 
+            // btOkNhapThehe
+            // 
+            this.btOkNhapThehe.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btOkNhapThehe.Location = new System.Drawing.Point(181, 1);
+            this.btOkNhapThehe.Name = "btOkNhapThehe";
+            this.btOkNhapThehe.Size = new System.Drawing.Size(75, 23);
+            this.btOkNhapThehe.TabIndex = 90;
+            this.btOkNhapThehe.Text = "OK";
+            this.btOkNhapThehe.UseVisualStyleBackColor = true;
+            this.btOkNhapThehe.Click += new System.EventHandler(this.btOkNhapThehe_Click);
+            // 
+            // txtNhapThehe
+            // 
+            this.txtNhapThehe.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNhapThehe.Location = new System.Drawing.Point(105, 3);
+            this.txtNhapThehe.Name = "txtNhapThehe";
+            this.txtNhapThehe.Size = new System.Drawing.Size(35, 26);
+            this.txtNhapThehe.TabIndex = 91;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(10, 3);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(83, 19);
+            this.label8.TabIndex = 90;
+            this.label8.Text = "Nhập thế hệ";
+            // 
+            // pnThuocGP
+            // 
+            this.pnThuocGP.BackColor = System.Drawing.Color.Transparent;
+            this.pnThuocGP.Controls.Add(this.btThuocGP);
+            this.pnThuocGP.Controls.Add(this.btKoThuocGP);
+            this.pnThuocGP.Location = new System.Drawing.Point(3, 636);
+            this.pnThuocGP.Name = "pnThuocGP";
+            this.pnThuocGP.Size = new System.Drawing.Size(401, 34);
+            this.pnThuocGP.TabIndex = 89;
+            // 
+            // btThuocGP
+            // 
+            this.btThuocGP.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btThuocGP.Location = new System.Drawing.Point(3, 8);
+            this.btThuocGP.Name = "btThuocGP";
+            this.btThuocGP.Size = new System.Drawing.Size(179, 23);
+            this.btThuocGP.TabIndex = 92;
+            this.btThuocGP.Text = "Những người thuộc GP";
+            this.btThuocGP.UseVisualStyleBackColor = true;
+            this.btThuocGP.Click += new System.EventHandler(this.btThuocGP_Click);
+            // 
+            // btKoThuocGP
+            // 
+            this.btKoThuocGP.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btKoThuocGP.Location = new System.Drawing.Point(188, 8);
+            this.btKoThuocGP.Name = "btKoThuocGP";
+            this.btKoThuocGP.Size = new System.Drawing.Size(213, 23);
+            this.btKoThuocGP.TabIndex = 93;
+            this.btKoThuocGP.Text = "Những người không thuộc GP";
+            this.btKoThuocGP.UseVisualStyleBackColor = true;
+            this.btKoThuocGP.Click += new System.EventHandler(this.btKoThuocGP_Click);
+            // 
+            // PnXemOngbaConchau
+            // 
+            this.PnXemOngbaConchau.BackColor = System.Drawing.Color.Transparent;
+            this.PnXemOngbaConchau.Controls.Add(this.btXemOngba);
+            this.PnXemOngbaConchau.Controls.Add(this.btXemConchau);
+            this.PnXemOngbaConchau.Controls.Add(this.txtNhapten);
+            this.PnXemOngbaConchau.Controls.Add(this.label17);
+            this.PnXemOngbaConchau.Location = new System.Drawing.Point(34, 612);
+            this.PnXemOngbaConchau.Name = "PnXemOngbaConchau";
+            this.PnXemOngbaConchau.Size = new System.Drawing.Size(365, 60);
+            this.PnXemOngbaConchau.TabIndex = 89;
+            // 
+            // btXemOngba
+            // 
+            this.btXemOngba.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btXemOngba.Location = new System.Drawing.Point(3, 26);
+            this.btXemOngba.Name = "btXemOngba";
+            this.btXemOngba.Size = new System.Drawing.Size(179, 29);
+            this.btXemOngba.TabIndex = 94;
+            this.btXemOngba.Text = "Xem ông bà";
+            this.btXemOngba.UseVisualStyleBackColor = true;
+            this.btXemOngba.Click += new System.EventHandler(this.btXemOngba_Click);
+            // 
+            // btXemConchau
+            // 
+            this.btXemConchau.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btXemConchau.Location = new System.Drawing.Point(183, 26);
+            this.btXemConchau.Name = "btXemConchau";
+            this.btXemConchau.Size = new System.Drawing.Size(179, 29);
+            this.btXemConchau.TabIndex = 95;
+            this.btXemConchau.Text = "Xem con cháu";
+            this.btXemConchau.UseVisualStyleBackColor = true;
+            this.btXemConchau.Click += new System.EventHandler(this.btXemConchau_Click);
+            // 
+            // txtNhapten
+            // 
+            this.txtNhapten.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNhapten.Location = new System.Drawing.Point(116, -1);
+            this.txtNhapten.Name = "txtNhapten";
+            this.txtNhapten.Size = new System.Drawing.Size(150, 26);
+            this.txtNhapten.TabIndex = 92;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(39, 6);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(65, 19);
+            this.label17.TabIndex = 92;
+            this.label17.Text = "Nhập tên";
             // 
             // Add
             // 
@@ -588,7 +765,13 @@
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1171, 740);
+            this.ClientSize = new System.Drawing.Size(1171, 749);
+            this.Controls.Add(this.PnXemOngbaConchau);
+            this.Controls.Add(this.pnThuocGP);
+            this.Controls.Add(this.pnTheHe);
+            this.Controls.Add(this.btOkMenu);
+            this.Controls.Add(this.cbbMenu);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.btDelAll);
             this.Controls.Add(this.checkNamMat);
             this.Controls.Add(this.btLuu);
@@ -641,6 +824,11 @@
             this.Load += new System.EventHandler(this.Add_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGiaPha)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pnTheHe.ResumeLayout(false);
+            this.pnTheHe.PerformLayout();
+            this.pnThuocGP.ResumeLayout(false);
+            this.PnXemOngbaConchau.ResumeLayout(false);
+            this.PnXemOngbaConchau.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -693,5 +881,20 @@
         private System.Windows.Forms.Button btLuu;
         private System.Windows.Forms.CheckBox checkNamMat;
         private System.Windows.Forms.Button btDelAll;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cbbMenu;
+        private System.Windows.Forms.Button btOkMenu;
+        public System.Windows.Forms.Panel pnTheHe; //
+        private System.Windows.Forms.Button btOkNhapThehe;
+        private System.Windows.Forms.TextBox txtNhapThehe;
+        private System.Windows.Forms.Label label8;
+        public System.Windows.Forms.Panel pnThuocGP;   //
+        private System.Windows.Forms.Button btThuocGP;
+        private System.Windows.Forms.Button btKoThuocGP;
+        public System.Windows.Forms.Panel PnXemOngbaConchau;   //
+        private System.Windows.Forms.Button btXemOngba;
+        private System.Windows.Forms.Button btXemConchau;
+        private System.Windows.Forms.TextBox txtNhapten;
+        private System.Windows.Forms.Label label17;
     }
 }

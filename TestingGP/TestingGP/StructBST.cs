@@ -92,5 +92,68 @@ namespace TestingGP
                 Remove(ref root, root.info.hoTen);
             }
         }
+        //
+        //Hàm tìm kiếm thế hệ
+        public GIAPHA SearchNodeTheHe(Node root, string name)
+        {
+            if (root != null)
+            {
+                if (string.Compare(root.info.theHe.ToString(), name) == 0)
+                    return root.info;
+                else if (string.Compare(root.info.theHe.ToString(), name) == 1) //trái lớn hơn phải
+                    return SearchNode(root.pLeft, name);
+                return SearchNode(root.pRight, name);                           //trái nhỏ hơn phải
+            }
+            return null;
+        }
+        //Hàm tìm kiếm ông bà
+        public int SearchNodeOngba(Node root, string name)
+        {
+            if (root != null)
+            {
+
+                if (string.Compare(root.info.hoTen.ToString(), name) == 0)
+                    return root.info.theHe;
+                else if (string.Compare(root.info.hoTen.ToString(), name) == 1) //trái lớn hơn phải
+                    return SearchNodeOngba(root.pLeft, name);
+                else
+                {
+                    return SearchNodeOngba(root.pRight, name);                           //trái nhỏ hơn phải
+                }
+
+            }
+            return 0;
+        }
+
+
+        public Node SearchNodeOngBaTui(Node root, string name)
+        {
+            if (root != null)
+            {
+                if (string.Compare(root.info.theHe.ToString(), name) == 0)
+                    return root;
+                else if (string.Compare(root.info.theHe.ToString(), name) == 1) //trái lớn hơn phải
+                    return SearchNodeOngBaTui(root.pLeft, name);
+                return SearchNodeOngBaTui(root.pRight, name);                           //trái nhỏ hơn phải
+            }
+            return null;
+        }
+        //Hàm xuất những người thuộc gia phả
+        public GIAPHA SearchNodeThuocGP(Node root, string name)
+        {
+            if (root != null)
+            {
+                if (string.Compare(root.info.thuocGP.ToString(), name) == 0)
+                    return root.info;
+                else if (string.Compare(root.info.thuocGP.ToString(), name) == 1) //trái lớn hơn phải
+                    return SearchNode(root.pLeft, name);
+                return SearchNode(root.pRight, name);                           //trái nhỏ hơn phải
+            }
+            return null;
+        }
+
+
+
+
     }
 }
