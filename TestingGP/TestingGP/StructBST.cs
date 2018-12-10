@@ -101,8 +101,8 @@ namespace TestingGP
                 if (string.Compare(root.info.theHe.ToString(), name) == 0)
                     return root.info;
                 else if (string.Compare(root.info.theHe.ToString(), name) == 1) //trái lớn hơn phải
-                    return SearchNode(root.pLeft, name);
-                return SearchNode(root.pRight, name);                           //trái nhỏ hơn phải
+                    return SearchNodeTheHe(root.pLeft, name);
+                return SearchNodeTheHe(root.pRight, name);                           //trái nhỏ hơn phải
             }
             return null;
         }
@@ -146,13 +146,25 @@ namespace TestingGP
                 if (string.Compare(root.info.thuocGP.ToString(), name) == 0)
                     return root.info;
                 else if (string.Compare(root.info.thuocGP.ToString(), name) == 1) //trái lớn hơn phải
-                    return SearchNode(root.pLeft, name);
-                return SearchNode(root.pRight, name);                           //trái nhỏ hơn phải
+                    return SearchNodeThuocGP(root.pLeft, name);
+                return SearchNodeThuocGP(root.pRight, name);                           //trái nhỏ hơn phải
             }
             return null;
         }
+        //Hàm sắp xếp heo ID
+        public GIAPHA SearchNodeID(Node root, string name)
+        {
 
-
+            if (root != null)
+            {
+                if (string.Compare(root.info.iD.ToString(), name) == 0)
+                    return root.info;
+                else if (string.Compare(root.info.thuocGP.ToString(), name) == 1) //trái lớn hơn phải
+                    return SearchNodeID(root.pLeft, name);
+                return SearchNodeID(root.pRight, name);                           //trái nhỏ hơn phải
+            }
+            return null;
+        }
 
 
     }

@@ -18,11 +18,11 @@ namespace TestingGP
         //SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-RRRHOP4;Initial Catalog=Genealogy;Integrated Security=True"); //Na
         SqlDataAdapter daGiaPha = null;
         DataTable dtGiaPha = null;
-
+        DataView dtv = null;
         BTree tree = new BTree();
         Node node = null;
         Node root = null;
-
+        //GIAPHA[] s = new GIAPHA();
         public void KetNoi()
         {
             if (conn.State == ConnectionState.Open)
@@ -235,7 +235,7 @@ namespace TestingGP
             tree.Remove(ref root, txtHoTen.Text);
             cmd.CommandText = "Delete from UserGP where ID = " + sID + "";
             cmd.ExecuteNonQuery();
-            
+
             KetNoi();
         }
         private void Add_FormClosing(object sender, FormClosingEventArgs e)
@@ -459,6 +459,26 @@ namespace TestingGP
                 LeftNodeRightTheHe(root.pRight);
             }
         }
+        int n = 0;
+        public void LNR(Node root, GIAPHA[] gp)
+        {
+            if (root != null)
+            {
+                if (root.pLeft != null)
+                    LNR(root.pLeft, gp);
+
+                //
+                GIAPHA a = tree.SearchNodeTheHe(root, txtNhapThehe.Text);
+                if (a != null)
+                {
+                    gp[n] = a;
+                    MessageBox.Show(gp[n].iD.ToString());
+                    n++;
+                }
+                if (root.pRight != null)
+                    LNR(root.pRight, gp);
+            }
+        }
 
         public void LeftNodeRightTheHeTui(Node root)
         {
@@ -506,10 +526,55 @@ namespace TestingGP
                 LeftNodeRightKhongThuocGP(root.pRight);
             }
         }
+        void Swap(ref GIAPHA a, ref GIAPHA b)
+        {
+            GIAPHA temp = new GIAPHA();
+            temp = a;
+            a = b;
+            b = temp;
+        }
+        void SapXep(GIAPHA[] a)
+        {
+            for (int i = 0; i < a.Length - 1; i++)
+            {
+                for (int j = i + 1; j < a.Length; j++)
+                {
+                    if (string.Compare(a[i].iD.ToString(), a[j].iD.ToString()) == 1)
+                    {
+                        Swap(ref a[i], ref a[j]);
+                    }
+                }
+            }
+        }
         private void btOkNhapThehe_Click(object sender, EventArgs e)
         {
             dtGiaPha.Clear();
-            LeftNodeRightTheHe(root);
+            //LeftNodeRightTheHe(root);
+            GIAPHA[] a = new GIAPHA[100];
+            LNR(root, a);
+            SapXep(a);
+            for (int i = 0; i < a.Length; i++)
+            {
+                AddToDataGridView(a[i]);
+            }
+            //this.dtv.Sort = "[ID] ASC";
+            //this.dgvGiaPha.DataSource = dtv;
+            //System.ComponentModel.ListSortDirection.Ascending;
+            //Xử lý sắp xếp
+            //dtGiaPha.Clear();
+            //for (int i = 0; i < dgvGiaPha.Rows.Count; i++)
+            //{
+            //    if (string.Compare(dgvGiaPha.Rows[i].Cells[1].Value.ToString(), dgvGiaPha.Rows[i + 1].Cells[1].Value.ToString()) == -1)
+            //    {
+            //        DataGridViewRow row = new DataGridViewRow();
+            //        row = dgvGiaPha.Rows[i];
+            //        GIAPHA search = tree.SearchNodeTheHe(root, row.Cells[1].Value.ToString());
+            //        if (search != null)
+            //            AddToDataGridView(search);
+
+            //    }
+
+            //}
         }
 
         private void btThuocGP_Click(object sender, EventArgs e)
