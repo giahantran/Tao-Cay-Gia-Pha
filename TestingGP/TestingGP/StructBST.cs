@@ -92,80 +92,31 @@ namespace TestingGP
                 Remove(ref root, root.info.hoTen);
             }
         }
-        //
-        //Hàm tìm kiếm thế hệ
-        public GIAPHA SearchNodeTheHe(Node root, string name)
+        //Hàm lấy tên cha của thành viên
+        public string SearchNodeTencha(Node root, string name)
         {
             if (root != null)
             {
-                if (string.Compare(root.info.theHe.ToString(), name) == 0)
-                    return root.info;
-                else if (string.Compare(root.info.theHe.ToString(), name) == 1) //trái lớn hơn phải
-                    return SearchNodeTheHe(root.pLeft, name);
-                return SearchNodeTheHe(root.pRight, name);                           //trái nhỏ hơn phải
+                if (string.Compare(root.info.hoTen, name) == 0)
+                    return root.info.cha;
+                else if (string.Compare(root.info.hoTen, name) == 1)
+                    return SearchNodeTencha(root.pLeft, name);
+                return SearchNodeTencha(root.pRight, name);
             }
             return null;
         }
-        //Hàm tìm kiếm ông bà
-        public int SearchNodeOngba(Node root, string name)
+        //Hàm lấy tên mẹ của thành viên
+        public string SearchNodeTenme(Node root, string name)
         {
             if (root != null)
             {
-
-                if (string.Compare(root.info.hoTen.ToString(), name) == 0)
-                    return root.info.theHe;
-                else if (string.Compare(root.info.hoTen.ToString(), name) == 1) //trái lớn hơn phải
-                    return SearchNodeOngba(root.pLeft, name);
-                else
-                {
-                    return SearchNodeOngba(root.pRight, name);                           //trái nhỏ hơn phải
-                }
-
-            }
-            return 0;
-        }
-
-
-        public Node SearchNodeOngBaTui(Node root, string name)
-        {
-            if (root != null)
-            {
-                if (string.Compare(root.info.theHe.ToString(), name) == 0)
-                    return root;
-                else if (string.Compare(root.info.theHe.ToString(), name) == 1) //trái lớn hơn phải
-                    return SearchNodeOngBaTui(root.pLeft, name);
-                return SearchNodeOngBaTui(root.pRight, name);                           //trái nhỏ hơn phải
+                if (string.Compare(root.info.hoTen, name) == 0)
+                    return root.info.me;
+                else if (string.Compare(root.info.hoTen, name) == 1)
+                    return SearchNodeTenme(root.pLeft, name);
+                return SearchNodeTenme(root.pRight, name);
             }
             return null;
         }
-        //Hàm xuất những người thuộc gia phả
-        public GIAPHA SearchNodeThuocGP(Node root, string name)
-        {
-            if (root != null)
-            {
-                if (string.Compare(root.info.thuocGP.ToString(), name) == 0)
-                    return root.info;
-                else if (string.Compare(root.info.thuocGP.ToString(), name) == 1) //trái lớn hơn phải
-                    return SearchNodeThuocGP(root.pLeft, name);
-                return SearchNodeThuocGP(root.pRight, name);                           //trái nhỏ hơn phải
-            }
-            return null;
-        }
-        //Hàm sắp xếp heo ID
-        public GIAPHA SearchNodeID(Node root, string name)
-        {
-
-            if (root != null)
-            {
-                if (string.Compare(root.info.iD.ToString(), name) == 0)
-                    return root.info;
-                else if (string.Compare(root.info.thuocGP.ToString(), name) == 1) //trái lớn hơn phải
-                    return SearchNodeID(root.pLeft, name);
-                return SearchNodeID(root.pRight, name);                           //trái nhỏ hơn phải
-            }
-            return null;
-        }
-
-
     }
 }

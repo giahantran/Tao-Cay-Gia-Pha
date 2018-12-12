@@ -23,7 +23,7 @@ namespace TestingGP
             formAdd.Show();
             formAdd.pnTheHe.Hide();
             formAdd.pnThuocGP.Hide();
-            formAdd.PnXemOngbaConchau.Hide();
+            formAdd.PnXemBaMe.Hide();
         }
         private void btMauGiaPha_Click(object sender, EventArgs e)
         {

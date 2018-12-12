@@ -18,11 +18,9 @@ namespace TestingGP
         //SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-RRRHOP4;Initial Catalog=Genealogy;Integrated Security=True"); //Na
         SqlDataAdapter daGiaPha = null;
         DataTable dtGiaPha = null;
-        DataView dtv = null;
         BTree tree = new BTree();
         Node node = null;
         Node root = null;
-        //GIAPHA[] s = new GIAPHA();
         public void KetNoi()
         {
             if (conn.State == ConnectionState.Open)
@@ -443,184 +441,147 @@ namespace TestingGP
             EventCellClick();
         }
         //menu
-        //Xem thế hệ
-        public void LeftNodeRightTheHe(Node root)
+        //Hàm xuất nhũng người cùng thế hệ
+        private void ketnoiTheHe()
         {
-
-            if (root != null)
+            if (conn.State == ConnectionState.Open)
             {
-
-                LeftNodeRightTheHe(root.pLeft);
-                //
-                GIAPHA a = tree.SearchNodeTheHe(root, txtNhapThehe.Text);
-                if (a != null)
-                    AddToDataGridView(a);
-                //
-                LeftNodeRightTheHe(root.pRight);
+                conn.Close();
+            }
+            conn.Open();
+            try
+            {
+                daGiaPha = new SqlDataAdapter("select * from UserGP where ThếHệ = "+txtNhapThehe.Text, conn);
+                dtGiaPha = new DataTable();
+                daGiaPha.Fill(dtGiaPha);
+                dgvGiaPha.DataSource = dtGiaPha;
+                dgvGiaPha.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                dgvGiaPha.AllowUserToAddRows = false; //không cho thêm trực tiếp
+                dgvGiaPha.EditMode = DataGridViewEditMode.EditProgrammatically; //không chỉnh sửa trực tiếp
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Không thể kết nối CSDL", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        int n = 0;
-        public void LNR(Node root, GIAPHA[] gp)
+        //Hàm xuất những người thuộc gia phả
+        private void KetnoiThuoc()
+        {
+            if (conn.State == ConnectionState.Open)
+            {
+                conn.Close();
+            }
+            conn.Open();
+            try
+            {
+                daGiaPha = new SqlDataAdapter("select * from UserGP where ThuộcGiaPhả=N'Có' ", conn);
+                dtGiaPha = new DataTable();
+                daGiaPha.Fill(dtGiaPha);
+                dgvGiaPha.DataSource = dtGiaPha;
+                dgvGiaPha.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                dgvGiaPha.AllowUserToAddRows = false; //không cho thêm trực tiếp
+                dgvGiaPha.EditMode = DataGridViewEditMode.EditProgrammatically; //không chỉnh sửa trực tiếp
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Không thể kết nối CSDL", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        //Hàm xuất những người không thuộc gia phả
+        private void KetnoiKhongThuoc()
+        {
+            if (conn.State == ConnectionState.Open)
+            {
+                conn.Close();
+            }
+            conn.Open();
+            try
+            {
+                daGiaPha = new SqlDataAdapter("select * from UserGP where ThuộcGiaPhả=N'không' ", conn);
+                dtGiaPha = new DataTable();
+                daGiaPha.Fill(dtGiaPha);
+                dgvGiaPha.DataSource = dtGiaPha;
+                dgvGiaPha.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                dgvGiaPha.AllowUserToAddRows = false; //không cho thêm trực tiếp
+                dgvGiaPha.EditMode = DataGridViewEditMode.EditProgrammatically; //không chỉnh sửa trực tiếp
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Không thể kết nối CSDL", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        //Xuất thông tin cha
+        public void LeftNodeRightTTcha(Node root)
         {
             if (root != null)
             {
-                if (root.pLeft != null)
-                    LNR(root.pLeft, gp);
-
-                //
-                GIAPHA a = tree.SearchNodeTheHe(root, txtNhapThehe.Text);
+                LeftNodeRightTTcha(root.pLeft);
+                string s = tree.SearchNodeTencha(root, txtNhapten.Text);
+                GIAPHA a = tree.SearchNode(root, s);
                 if (a != null)
                 {
-                    gp[n] = a;
-                    MessageBox.Show(gp[n].iD.ToString());
-                    n++;
+                    AddToDataGridView(a);
+                    return;
                 }
-                if (root.pRight != null)
-                    LNR(root.pRight, gp);
+                LeftNodeRightTTcha(root.pRight);
             }
         }
-
-        public void LeftNodeRightTheHeTui(Node root)
+        //Xuất thông tin mẹ
+        public void LeftNodeRightTTme(Node root)
         {
             if (root != null)
             {
-
-                LeftNodeRightTheHeTui(root.pLeft);
-                //
-                GIAPHA a = tree.SearchNodeTheHe(root, (tree.SearchNodeOngba(root, txtNhapten.Text) - 1).ToString());
+                LeftNodeRightTTme(root.pLeft);
+                string s = tree.SearchNodeTenme(root, txtNhapten.Text);
+                GIAPHA a = tree.SearchNode(root, s);
                 if (a != null)
-                    AddToDataGridView(a);
-                //
-                LeftNodeRightTheHeTui(root.pRight);
-            }
-        }
-        //Thuộc GP
-        public void LeftNodeRightThuocGP(Node root)
-        {
-
-            if (root != null)
-            {
-
-                LeftNodeRightThuocGP(root.pLeft);
-                //
-                GIAPHA a = tree.SearchNodeThuocGP(root, "Có");
-                if (a != null)
-                    AddToDataGridView(a);
-                //
-                LeftNodeRightThuocGP(root.pRight);
-            }
-        }
-        //Không thuộc GP
-        public void LeftNodeRightKhongThuocGP(Node root)
-        {
-
-            if (root != null)
-            {
-
-                LeftNodeRightKhongThuocGP(root.pLeft);
-                //
-                GIAPHA a = tree.SearchNodeThuocGP(root, "Không");
-                if (a != null)
-                    AddToDataGridView(a);
-                //
-                LeftNodeRightKhongThuocGP(root.pRight);
-            }
-        }
-        void Swap(ref GIAPHA a, ref GIAPHA b)
-        {
-            GIAPHA temp = new GIAPHA();
-            temp = a;
-            a = b;
-            b = temp;
-        }
-        void SapXep(GIAPHA[] a)
-        {
-            for (int i = 0; i < a.Length - 1; i++)
-            {
-                for (int j = i + 1; j < a.Length; j++)
                 {
-                    if (string.Compare(a[i].iD.ToString(), a[j].iD.ToString()) == 1)
-                    {
-                        Swap(ref a[i], ref a[j]);
-                    }
+                    AddToDataGridView(a);
+                    return;
                 }
+                LeftNodeRightTTme(root.pRight);
             }
         }
+        //Xử lý các button
         private void btOkNhapThehe_Click(object sender, EventArgs e)
         {
-            dtGiaPha.Clear();
-            //LeftNodeRightTheHe(root);
-            GIAPHA[] a = new GIAPHA[100];
-            LNR(root, a);
-            SapXep(a);
-            for (int i = 0; i < a.Length; i++)
-            {
-                AddToDataGridView(a[i]);
-            }
-            //this.dtv.Sort = "[ID] ASC";
-            //this.dgvGiaPha.DataSource = dtv;
-            //System.ComponentModel.ListSortDirection.Ascending;
-            //Xử lý sắp xếp
-            //dtGiaPha.Clear();
-            //for (int i = 0; i < dgvGiaPha.Rows.Count; i++)
-            //{
-            //    if (string.Compare(dgvGiaPha.Rows[i].Cells[1].Value.ToString(), dgvGiaPha.Rows[i + 1].Cells[1].Value.ToString()) == -1)
-            //    {
-            //        DataGridViewRow row = new DataGridViewRow();
-            //        row = dgvGiaPha.Rows[i];
-            //        GIAPHA search = tree.SearchNodeTheHe(root, row.Cells[1].Value.ToString());
-            //        if (search != null)
-            //            AddToDataGridView(search);
-
-            //    }
-
-            //}
+            ketnoiTheHe();
         }
-
         private void btThuocGP_Click(object sender, EventArgs e)
         {
-            dtGiaPha.Clear();
-            LeftNodeRightThuocGP(root);
+            KetnoiThuoc();
         }
 
         private void btKoThuocGP_Click(object sender, EventArgs e)
         {
-            dtGiaPha.Clear();
-            LeftNodeRightKhongThuocGP(root);
+            KetnoiKhongThuoc();
         }
-
-        private void btXemOngba_Click(object sender, EventArgs e)   //Còn sai sót
-        {
-            dtGiaPha.Clear();
-            LeftNodeRightTheHeTui(root);
-
-        }
-
-        private void btXemConchau_Click(object sender, EventArgs e) //Sai sót phần ông bà nên con cháu chưa làm ^-^
-        {
-
-        }
-
         private void btOkMenu_Click(object sender, EventArgs e)
         {
             if (cbbMenu.Text == "Xem những người cùng thế hệ")
             {
                 pnTheHe.Show();
-                PnXemOngbaConchau.Hide();
+                PnXemBaMe.Hide();
                 pnThuocGP.Hide();
             }
-            if (cbbMenu.Text == "Xem thế hệ ông bà con cháu")
+            if (cbbMenu.Text == "Xem thông tin ba mẹ")
             {
                 pnTheHe.Hide();
-                PnXemOngbaConchau.Show();
+                PnXemBaMe.Show();
                 pnThuocGP.Hide();
             }
             if (cbbMenu.Text == "Xem những người thuộc gia phả")
             {
                 pnTheHe.Hide();
-                PnXemOngbaConchau.Hide();
+                PnXemBaMe.Hide();
                 pnThuocGP.Show();
             }
+        }
+        private void btXemBaMe_Click(object sender, EventArgs e)
+        {
+            dtGiaPha.Clear();
+            LeftNodeRightTTcha(root);
+            LeftNodeRightTTme(root);
         }
     }
 }

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Add));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -86,16 +86,15 @@
             this.pnThuocGP = new System.Windows.Forms.Panel();
             this.btThuocGP = new System.Windows.Forms.Button();
             this.btKoThuocGP = new System.Windows.Forms.Button();
-            this.PnXemOngbaConchau = new System.Windows.Forms.Panel();
-            this.btXemOngba = new System.Windows.Forms.Button();
-            this.btXemConchau = new System.Windows.Forms.Button();
+            this.PnXemBaMe = new System.Windows.Forms.Panel();
+            this.btXemBaMe = new System.Windows.Forms.Button();
             this.txtNhapten = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGiaPha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnTheHe.SuspendLayout();
             this.pnThuocGP.SuspendLayout();
-            this.PnXemOngbaConchau.SuspendLayout();
+            this.PnXemBaMe.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -427,23 +426,23 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvGiaPha.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("UVN Bach Tuyet", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvGiaPha.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("UVN Bach Tuyet", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvGiaPha.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvGiaPha.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvGiaPha.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvGiaPha.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvGiaPha.Location = new System.Drawing.Point(410, 82);
             this.dgvGiaPha.Name = "dgvGiaPha";
             this.dgvGiaPha.Size = new System.Drawing.Size(749, 612);
@@ -615,7 +614,7 @@
             this.cbbMenu.FormattingEnabled = true;
             this.cbbMenu.Items.AddRange(new object[] {
             "Xem những người cùng thế hệ",
-            "Xem thế hệ ông bà con cháu",
+            "Xem thông tin ba mẹ",
             "Xem những người thuộc gia phả"});
             this.cbbMenu.Location = new System.Drawing.Point(89, 578);
             this.cbbMenu.Name = "cbbMenu";
@@ -676,6 +675,7 @@
             // pnThuocGP
             // 
             this.pnThuocGP.BackColor = System.Drawing.Color.Transparent;
+            this.pnThuocGP.Controls.Add(this.PnXemBaMe);
             this.pnThuocGP.Controls.Add(this.btThuocGP);
             this.pnThuocGP.Controls.Add(this.btKoThuocGP);
             this.pnThuocGP.Location = new System.Drawing.Point(3, 636);
@@ -705,44 +705,32 @@
             this.btKoThuocGP.UseVisualStyleBackColor = true;
             this.btKoThuocGP.Click += new System.EventHandler(this.btKoThuocGP_Click);
             // 
-            // PnXemOngbaConchau
+            // PnXemBaMe
             // 
-            this.PnXemOngbaConchau.BackColor = System.Drawing.Color.Transparent;
-            this.PnXemOngbaConchau.Controls.Add(this.btXemOngba);
-            this.PnXemOngbaConchau.Controls.Add(this.btXemConchau);
-            this.PnXemOngbaConchau.Controls.Add(this.txtNhapten);
-            this.PnXemOngbaConchau.Controls.Add(this.label17);
-            this.PnXemOngbaConchau.Location = new System.Drawing.Point(34, 612);
-            this.PnXemOngbaConchau.Name = "PnXemOngbaConchau";
-            this.PnXemOngbaConchau.Size = new System.Drawing.Size(365, 60);
-            this.PnXemOngbaConchau.TabIndex = 89;
+            this.PnXemBaMe.BackColor = System.Drawing.Color.Transparent;
+            this.PnXemBaMe.Controls.Add(this.btXemBaMe);
+            this.PnXemBaMe.Controls.Add(this.txtNhapten);
+            this.PnXemBaMe.Controls.Add(this.label17);
+            this.PnXemBaMe.Location = new System.Drawing.Point(48, 21);
+            this.PnXemBaMe.Name = "PnXemBaMe";
+            this.PnXemBaMe.Size = new System.Drawing.Size(365, 37);
+            this.PnXemBaMe.TabIndex = 89;
             // 
-            // btXemOngba
+            // btXemBaMe
             // 
-            this.btXemOngba.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btXemOngba.Location = new System.Drawing.Point(3, 26);
-            this.btXemOngba.Name = "btXemOngba";
-            this.btXemOngba.Size = new System.Drawing.Size(179, 29);
-            this.btXemOngba.TabIndex = 94;
-            this.btXemOngba.Text = "Xem ông bà";
-            this.btXemOngba.UseVisualStyleBackColor = true;
-            this.btXemOngba.Click += new System.EventHandler(this.btXemOngba_Click);
-            // 
-            // btXemConchau
-            // 
-            this.btXemConchau.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btXemConchau.Location = new System.Drawing.Point(183, 26);
-            this.btXemConchau.Name = "btXemConchau";
-            this.btXemConchau.Size = new System.Drawing.Size(179, 29);
-            this.btXemConchau.TabIndex = 95;
-            this.btXemConchau.Text = "Xem con cháu";
-            this.btXemConchau.UseVisualStyleBackColor = true;
-            this.btXemConchau.Click += new System.EventHandler(this.btXemConchau_Click);
+            this.btXemBaMe.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btXemBaMe.Location = new System.Drawing.Point(234, 3);
+            this.btXemBaMe.Name = "btXemBaMe";
+            this.btXemBaMe.Size = new System.Drawing.Size(124, 29);
+            this.btXemBaMe.TabIndex = 94;
+            this.btXemBaMe.Text = "Xem ba mẹ";
+            this.btXemBaMe.UseVisualStyleBackColor = true;
+            this.btXemBaMe.Click += new System.EventHandler(this.btXemBaMe_Click);
             // 
             // txtNhapten
             // 
             this.txtNhapten.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNhapten.Location = new System.Drawing.Point(116, -1);
+            this.txtNhapten.Location = new System.Drawing.Point(78, 5);
             this.txtNhapten.Name = "txtNhapten";
             this.txtNhapten.Size = new System.Drawing.Size(150, 26);
             this.txtNhapten.TabIndex = 92;
@@ -751,7 +739,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(39, 6);
+            this.label17.Location = new System.Drawing.Point(6, 10);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(65, 19);
             this.label17.TabIndex = 92;
@@ -766,7 +754,6 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1171, 749);
-            this.Controls.Add(this.PnXemOngbaConchau);
             this.Controls.Add(this.pnThuocGP);
             this.Controls.Add(this.pnTheHe);
             this.Controls.Add(this.btOkMenu);
@@ -827,8 +814,8 @@
             this.pnTheHe.ResumeLayout(false);
             this.pnTheHe.PerformLayout();
             this.pnThuocGP.ResumeLayout(false);
-            this.PnXemOngbaConchau.ResumeLayout(false);
-            this.PnXemOngbaConchau.PerformLayout();
+            this.PnXemBaMe.ResumeLayout(false);
+            this.PnXemBaMe.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -891,9 +878,8 @@
         public System.Windows.Forms.Panel pnThuocGP;   //
         private System.Windows.Forms.Button btThuocGP;
         private System.Windows.Forms.Button btKoThuocGP;
-        public System.Windows.Forms.Panel PnXemOngbaConchau;   //
-        private System.Windows.Forms.Button btXemOngba;
-        private System.Windows.Forms.Button btXemConchau;
+        public System.Windows.Forms.Panel PnXemBaMe;   //
+        private System.Windows.Forms.Button btXemBaMe;
         private System.Windows.Forms.TextBox txtNhapten;
         private System.Windows.Forms.Label label17;
     }
