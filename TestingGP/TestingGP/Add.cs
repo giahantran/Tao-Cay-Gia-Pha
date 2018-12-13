@@ -14,8 +14,8 @@ namespace TestingGP
     public partial class Add : Form
     {
         //SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-C99VFUB\GIAHAN;Initial Catalog=DL_GIAPHA;Integrated Security=True"); //Hân
-        SqlConnection conn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=GIAPHA;Integrated Security=True"); //Văn
-        //SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-RRRHOP4;Initial Catalog=Genealogy;Integrated Security=True"); //Na
+        //SqlConnection conn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=GIAPHA;Integrated Security=True"); //Văn
+        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-RRRHOP4;Initial Catalog=Genealogy;Integrated Security=True"); //Na
         SqlDataAdapter daGiaPha = null;
         DataTable dtGiaPha = null;
         BTree tree = new BTree();
@@ -65,7 +65,6 @@ namespace TestingGP
                 dgvGiaPha.AllowUserToAddRows = false; //không cho thêm trực tiếp
                 dgvGiaPha.EditMode = DataGridViewEditMode.EditProgrammatically; //không chỉnh sửa trực tiếp
                 ShowTreeView();
-                EventCellClick();
             }
             catch (SqlException)
             {
@@ -91,6 +90,7 @@ namespace TestingGP
             lbMat.Visible = false;
             dateNgayMat.Visible = false;
             this.txtIDGiaPha.Text = "1";
+            this.txtTenGp.Text = "admin";
             KetNoi();
         }
         public void CreateGP(GIAPHA gp)
@@ -171,10 +171,19 @@ namespace TestingGP
         {
             GIAPHA gp = new GIAPHA();
             CreateGP(gp);
-            root = tree.InsertTree(root, gp);
-            AddToDataGridView(gp);
-            MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.None);
-            checkThem = true;
+            GIAPHA x = tree.SearchNode(root, gp.hoTen);
+            if (x != null)
+            {
+                MessageBox.Show("Tên này đã có trong gia phả", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                root = tree.InsertTree(root, gp);
+                AddToDataGridView(gp);
+                MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.None);
+                checkThem = true;
+            }
+            x = null;
         }
         private void btTaoMoi_Click(object sender, EventArgs e)
         {
@@ -214,11 +223,20 @@ namespace TestingGP
                 {
                     search = new GIAPHA();
                     CreateGP(search);
-                    root = tree.InsertTree(root, search);
-                    AddToDataGridView(search);
-                    AddToSQL(root);
-                    KetNoi();
-                    EventCellClick();
+                    GIAPHA x = tree.SearchNode(root, search.hoTen);
+                    if (x != null)
+                    {
+                        MessageBox.Show("Tên này đã có trong gia phả", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    else
+                    {
+                        root = tree.InsertTree(root, search);
+                        AddToDataGridView(search);
+                        AddToSQL(root);
+                        KetNoi();
+                        EventCellClick();
+                    }
                 }
                 MessageBox.Show("Cập nhật thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.None);
             }
@@ -233,7 +251,6 @@ namespace TestingGP
             tree.Remove(ref root, txtHoTen.Text);
             cmd.CommandText = "Delete from UserGP where ID = " + sID + "";
             cmd.ExecuteNonQuery();
-
             KetNoi();
         }
         private void Add_FormClosing(object sender, FormClosingEventArgs e)
@@ -253,9 +270,18 @@ namespace TestingGP
             {
                 GIAPHA gp = new GIAPHA();
                 CreateGP(gp);
-                root = tree.InsertTree(root, gp);
-                AddToDataGridView(gp);
-                AddToSQL(root);
+                GIAPHA x = tree.SearchNode(root, gp.hoTen);
+                if (x != null)
+                {
+                    MessageBox.Show("Tên này đã có trong gia phả", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else
+                {
+                    root = tree.InsertTree(root, gp);
+                    AddToDataGridView(gp);
+                    AddToSQL(root);
+                }
             }
             KetNoi();
             checkThem = false;
@@ -286,12 +312,14 @@ namespace TestingGP
             KetNoi();
             dgvGiaPha.Visible = false;
             treeViewShowAdd.Visible = true;
+            btXoa.Enabled = false;
         }
         private void btXemDS_Click(object sender, EventArgs e)
         {
             KetNoi();
             dgvGiaPha.Visible = true;
             treeViewShowAdd.Visible = false;
+            btXoa.Enabled = true;
         }
         private void treeViewShowAdd_AfterSelect(object sender, TreeViewEventArgs e)
         {
@@ -376,7 +404,6 @@ namespace TestingGP
                 txtTenVoChong.Text = a.tenVoChong;
                 txtHotenCon.Text = a.tenCon;
                 txtGhiChu.Text = a.ghiChu;
-                //
                 dtGiaPha.Rows.Clear();
                 dgvGiaPha.DataSource = dtGiaPha;
                 AddToDataGridView(a);
@@ -402,7 +429,6 @@ namespace TestingGP
             row = dgvGiaPha.CurrentRow;
             if (row != null)
             {
-                txtHoTen.Text = row.Cells["Họtên"].Value.ToString();
                 txtMaTV.Text = row.Cells["ID"].Value.ToString();
                 txtTheHe.Text = row.Cells["ThếHệ"].Value.ToString();
                 if (row.Cells["ThuộcGiaPhả"].Value.ToString() == "Có")
@@ -440,6 +466,10 @@ namespace TestingGP
         {
             EventCellClick();
         }
+        public string LayTenGP()
+        {
+            return txtTenGp.Text;
+        }
         //menu
         //Hàm xuất nhũng người cùng thế hệ
         private void ketnoiTheHe()
@@ -451,7 +481,7 @@ namespace TestingGP
             conn.Open();
             try
             {
-                daGiaPha = new SqlDataAdapter("select * from UserGP where ThếHệ = "+txtNhapThehe.Text, conn);
+                daGiaPha = new SqlDataAdapter("select * from UserGP where ThếHệ = " + txtNhapThehe.Text, conn);
                 dtGiaPha = new DataTable();
                 daGiaPha.Fill(dtGiaPha);
                 dgvGiaPha.DataSource = dtGiaPha;
@@ -551,7 +581,6 @@ namespace TestingGP
         {
             KetnoiThuoc();
         }
-
         private void btKoThuocGP_Click(object sender, EventArgs e)
         {
             KetnoiKhongThuoc();
@@ -560,21 +589,30 @@ namespace TestingGP
         {
             if (cbbMenu.Text == "Xem những người cùng thế hệ")
             {
-                pnTheHe.Show();
-                PnXemBaMe.Hide();
-                pnThuocGP.Hide();
+                pnTheHe.Visible = true;
+                pnThuocGP.Visible = false;
+                PnXemBaMe.Visible = false;
+                //pnTheHe.Show();
+                //PnXemBaMe.Hide();
+                //pnThuocGP.Hide();
             }
             if (cbbMenu.Text == "Xem thông tin ba mẹ")
             {
-                pnTheHe.Hide();
-                PnXemBaMe.Show();
-                pnThuocGP.Hide();
+                pnTheHe.Visible = false;
+                pnThuocGP.Visible = false;
+                PnXemBaMe.Visible = true;
+                //pnTheHe.Hide();
+                //PnXemBaMe.Show();
+                //pnThuocGP.Hide();
             }
             if (cbbMenu.Text == "Xem những người thuộc gia phả")
             {
-                pnTheHe.Hide();
-                PnXemBaMe.Hide();
-                pnThuocGP.Show();
+                pnTheHe.Visible = false;
+                pnThuocGP.Visible = true;
+                PnXemBaMe.Visible = false;
+                //pnTheHe.Hide();
+                //PnXemBaMe.Hide();
+                //pnThuocGP.Show();
             }
         }
         private void btXemBaMe_Click(object sender, EventArgs e)

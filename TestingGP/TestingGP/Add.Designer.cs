@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Add));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -68,7 +68,7 @@
             this.treeViewShowAdd = new System.Windows.Forms.TreeView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtTenGp = new System.Windows.Forms.TextBox();
             this.btXemCay = new System.Windows.Forms.Button();
             this.btXemDS = new System.Windows.Forms.Button();
             this.txtTheHe = new System.Windows.Forms.TextBox();
@@ -84,12 +84,12 @@
             this.txtNhapThehe = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.pnThuocGP = new System.Windows.Forms.Panel();
-            this.btThuocGP = new System.Windows.Forms.Button();
-            this.btKoThuocGP = new System.Windows.Forms.Button();
             this.PnXemBaMe = new System.Windows.Forms.Panel();
             this.btXemBaMe = new System.Windows.Forms.Button();
             this.txtNhapten = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
+            this.btThuocGP = new System.Windows.Forms.Button();
+            this.btKoThuocGP = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGiaPha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnTheHe.SuspendLayout();
@@ -426,23 +426,23 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvGiaPha.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("UVN Bach Tuyet", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvGiaPha.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("UVN Bach Tuyet", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvGiaPha.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvGiaPha.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvGiaPha.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvGiaPha.DefaultCellStyle = dataGridViewCellStyle10;
             this.dgvGiaPha.Location = new System.Drawing.Point(410, 82);
             this.dgvGiaPha.Name = "dgvGiaPha";
             this.dgvGiaPha.Size = new System.Drawing.Size(749, 612);
@@ -506,15 +506,16 @@
             this.label16.TabIndex = 41;
             this.label16.Text = "Tên Gia Phả";
             // 
-            // textBox1
+            // txtTenGp
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(925, 50);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(153, 26);
-            this.textBox1.TabIndex = 42;
+            this.txtTenGp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTenGp.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTenGp.Location = new System.Drawing.Point(925, 50);
+            this.txtTenGp.Multiline = true;
+            this.txtTenGp.Name = "txtTenGp";
+            this.txtTenGp.ReadOnly = true;
+            this.txtTenGp.Size = new System.Drawing.Size(153, 26);
+            this.txtTenGp.TabIndex = 42;
             // 
             // btXemCay
             // 
@@ -638,15 +639,15 @@
             this.pnTheHe.Controls.Add(this.btOkNhapThehe);
             this.pnTheHe.Controls.Add(this.txtNhapThehe);
             this.pnTheHe.Controls.Add(this.label8);
-            this.pnTheHe.Location = new System.Drawing.Point(68, 608);
+            this.pnTheHe.Location = new System.Drawing.Point(67, 608);
             this.pnTheHe.Name = "pnTheHe";
-            this.pnTheHe.Size = new System.Drawing.Size(267, 26);
+            this.pnTheHe.Size = new System.Drawing.Size(268, 34);
             this.pnTheHe.TabIndex = 88;
             // 
             // btOkNhapThehe
             // 
             this.btOkNhapThehe.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btOkNhapThehe.Location = new System.Drawing.Point(181, 1);
+            this.btOkNhapThehe.Location = new System.Drawing.Point(149, 4);
             this.btOkNhapThehe.Name = "btOkNhapThehe";
             this.btOkNhapThehe.Size = new System.Drawing.Size(75, 23);
             this.btOkNhapThehe.TabIndex = 90;
@@ -675,35 +676,12 @@
             // pnThuocGP
             // 
             this.pnThuocGP.BackColor = System.Drawing.Color.Transparent;
-            this.pnThuocGP.Controls.Add(this.PnXemBaMe);
             this.pnThuocGP.Controls.Add(this.btThuocGP);
             this.pnThuocGP.Controls.Add(this.btKoThuocGP);
-            this.pnThuocGP.Location = new System.Drawing.Point(3, 636);
+            this.pnThuocGP.Location = new System.Drawing.Point(3, 608);
             this.pnThuocGP.Name = "pnThuocGP";
-            this.pnThuocGP.Size = new System.Drawing.Size(401, 34);
+            this.pnThuocGP.Size = new System.Drawing.Size(401, 47);
             this.pnThuocGP.TabIndex = 89;
-            // 
-            // btThuocGP
-            // 
-            this.btThuocGP.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btThuocGP.Location = new System.Drawing.Point(3, 8);
-            this.btThuocGP.Name = "btThuocGP";
-            this.btThuocGP.Size = new System.Drawing.Size(179, 23);
-            this.btThuocGP.TabIndex = 92;
-            this.btThuocGP.Text = "Những người thuộc GP";
-            this.btThuocGP.UseVisualStyleBackColor = true;
-            this.btThuocGP.Click += new System.EventHandler(this.btThuocGP_Click);
-            // 
-            // btKoThuocGP
-            // 
-            this.btKoThuocGP.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btKoThuocGP.Location = new System.Drawing.Point(188, 8);
-            this.btKoThuocGP.Name = "btKoThuocGP";
-            this.btKoThuocGP.Size = new System.Drawing.Size(213, 23);
-            this.btKoThuocGP.TabIndex = 93;
-            this.btKoThuocGP.Text = "Những người không thuộc GP";
-            this.btKoThuocGP.UseVisualStyleBackColor = true;
-            this.btKoThuocGP.Click += new System.EventHandler(this.btKoThuocGP_Click);
             // 
             // PnXemBaMe
             // 
@@ -711,7 +689,7 @@
             this.PnXemBaMe.Controls.Add(this.btXemBaMe);
             this.PnXemBaMe.Controls.Add(this.txtNhapten);
             this.PnXemBaMe.Controls.Add(this.label17);
-            this.PnXemBaMe.Location = new System.Drawing.Point(48, 21);
+            this.PnXemBaMe.Location = new System.Drawing.Point(24, 657);
             this.PnXemBaMe.Name = "PnXemBaMe";
             this.PnXemBaMe.Size = new System.Drawing.Size(365, 37);
             this.PnXemBaMe.TabIndex = 89;
@@ -745,6 +723,28 @@
             this.label17.TabIndex = 92;
             this.label17.Text = "Nhập tên";
             // 
+            // btThuocGP
+            // 
+            this.btThuocGP.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btThuocGP.Location = new System.Drawing.Point(3, 8);
+            this.btThuocGP.Name = "btThuocGP";
+            this.btThuocGP.Size = new System.Drawing.Size(179, 36);
+            this.btThuocGP.TabIndex = 92;
+            this.btThuocGP.Text = "Những người thuộc GP";
+            this.btThuocGP.UseVisualStyleBackColor = true;
+            this.btThuocGP.Click += new System.EventHandler(this.btThuocGP_Click);
+            // 
+            // btKoThuocGP
+            // 
+            this.btKoThuocGP.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btKoThuocGP.Location = new System.Drawing.Point(188, 8);
+            this.btKoThuocGP.Name = "btKoThuocGP";
+            this.btKoThuocGP.Size = new System.Drawing.Size(213, 36);
+            this.btKoThuocGP.TabIndex = 93;
+            this.btKoThuocGP.Text = "Những người không thuộc GP";
+            this.btKoThuocGP.UseVisualStyleBackColor = true;
+            this.btKoThuocGP.Click += new System.EventHandler(this.btKoThuocGP_Click);
+            // 
             // Add
             // 
             this.AcceptButton = this.btTimKiem;
@@ -754,6 +754,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1171, 749);
+            this.Controls.Add(this.PnXemBaMe);
             this.Controls.Add(this.pnThuocGP);
             this.Controls.Add(this.pnTheHe);
             this.Controls.Add(this.btOkMenu);
@@ -766,7 +767,7 @@
             this.Controls.Add(this.txtTheHe);
             this.Controls.Add(this.btXemDS);
             this.Controls.Add(this.btXemCay);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtTenGp);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.btTimKiem);
             this.Controls.Add(this.txtHoTen);
@@ -860,7 +861,7 @@
         private System.Windows.Forms.Button btTimKiem;
         private System.Windows.Forms.TreeView treeViewShowAdd;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtTenGp;
         private System.Windows.Forms.Button btXemCay;
         private System.Windows.Forms.Button btXemDS;
         private System.Windows.Forms.TextBox txtTheHe;

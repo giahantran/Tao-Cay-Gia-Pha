@@ -19,11 +19,11 @@ namespace TestingGP
         }
         private void btCreateGiaPha_Click(object sender, EventArgs e)
         {
-            Add formAdd = new Add();
-            formAdd.Show();
-            formAdd.pnTheHe.Hide();
-            formAdd.pnThuocGP.Hide();
-            formAdd.PnXemBaMe.Hide();
+            Add log = new Add();
+            log.pnTheHe.Visible = false;
+            log.pnThuocGP.Visible = false;
+            log.PnXemBaMe.Visible = false;
+            log.ShowDialog();
         }
         private void btMauGiaPha_Click(object sender, EventArgs e)
         {
@@ -36,7 +36,6 @@ namespace TestingGP
         private void Form1_Load(object sender, EventArgs e)
         {
             this.pictureBox1.Location = new Point(447, 383);
-          //  this.pictureBox2.Parent = this.ParentForm;
         }
         private void mnuThoat_Click(object sender, EventArgs e)
         {

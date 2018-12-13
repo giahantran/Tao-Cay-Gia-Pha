@@ -16,8 +16,8 @@ namespace TestingGP
     public partial class FormDisplay : Form
     {
         //SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-C99VFUB\GIAHAN;Initial Catalog=DL_GIAPHA;Integrated Security=True"); //Hân
-        SqlConnection conn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=GIAPHA;Integrated Security=True"); //Văn
-        //SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-RRRHOP4;Initial Catalog=Genealogy;Integrated Security=True"); //Na
+        //SqlConnection conn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=GIAPHA;Integrated Security=True"); //Văn
+        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-RRRHOP4;Initial Catalog=Genealogy;Integrated Security=True"); //Na
         SqlDataAdapter daGiaPha = null;
         DataTable dtGiaPha = null;
 
@@ -441,6 +441,49 @@ namespace TestingGP
                 txtBHoTenCon.Text = node.Rows[0][13].ToString();
                 txtBGhiChu.Text = node.Rows[0][14].ToString();
             }
+        }
+        void EventCellClick()
+        {
+            DataGridViewRow row = new DataGridViewRow();
+            row = dgvGiaPha.CurrentRow;
+            if (row != null)
+            {
+                txtMaTV.Text = row.Cells["ID"].Value.ToString();
+                txtTheHe.Text = row.Cells["ThếHệ"].Value.ToString();
+                if (row.Cells["ThuộcGiaPhả"].Value.ToString() == "Có")
+                    checkBThuocGP.Checked = true;
+                else checkBThuocGP.Checked = false;
+                txtbHoTen.Text = row.Cells["Họvàtên"].Value.ToString();
+                if (row.Cells["GiớiTính"].Value.ToString() == "Nam")
+                    checkBGioiTinh.Checked = true;
+                else checkBGioiTinh.Checked = false;
+                dateTimePicker1.Text = row.Cells["NgàySinh"].Value.ToString();
+                if (row.Cells["NgàyMất"].Value.ToString() != "")
+                {
+                    checkNamMat.Visible = false;
+                    lbMat.Visible = true;
+                    dateTimePicker2.Visible = true;
+                    dateTimePicker2.Text = row.Cells["NgàyMất"].Value.ToString();
+                }
+                else
+                {
+                    checkNamMat.Visible = true;
+                    lbMat.Visible = false;
+                    dateTimePicker2.Visible = false;
+                    checkNamMat.Checked = false;
+                }
+                txtBQueQuan.Text = row.Cells["NơiSinh"].Value.ToString();
+                txtBNgheNghiep.Text = row.Cells["NghềNghiệp"].Value.ToString();
+                txtBHotenCha.Text = row.Cells["HọtênCha"].Value.ToString();
+                txtBHoTenMe.Text = row.Cells["HọtênMẹ"].Value.ToString();
+                txtBHoTenVC.Text = row.Cells["TênVợ_Chồng"].Value.ToString();
+                txtBHoTenCon.Text = row.Cells["HọtênCon"].Value.ToString();
+                txtBGhiChu.Text = row.Cells["GhiChú"].Value.ToString();
+            }
+        }
+        private void dgvGiaPha_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            EventCellClick();
         }
     }
 }
