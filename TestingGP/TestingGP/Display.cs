@@ -17,7 +17,7 @@ namespace TestingGP
     {
         //SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-C99VFUB\GIAHAN;Initial Catalog=GIAPHA;Integrated Security=True"); //Hân
         //SqlConnection conn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=GIAPHA;Integrated Security=True"); //Văn
-        //SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-RRRHOP4;Initial Catalog=Genealogy;Integrated Security=True"); //Na
+        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-RRRHOP4;Initial Catalog=Genealogy;Integrated Security=True"); //Na
         SqlDataAdapter daGiaPha = null;
         DataTable dtGiaPha = null;
 
@@ -58,7 +58,6 @@ namespace TestingGP
             dateTimePicker2.Visible = false;
             KetNoi();
             ShowTreeView();
-            //conn.Close();
         }
         private void btThem_Click(object sender, EventArgs e)
         {

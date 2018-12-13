@@ -35,7 +35,7 @@ namespace TestingGP
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.pictureBox1.Location = new Point(447, 383);
+            this.pictureBox1.Location = new Point(445, 390);
         }
         private void mnuThoat_Click(object sender, EventArgs e)
         {

@@ -15,7 +15,7 @@ namespace TestingGP
     {
         //SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-C99VFUB\GIAHAN;Initial Catalog=GIAPHA;Integrated Security=True"); //Hân
         //SqlConnection conn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=GIAPHA;Integrated Security=True"); //Văn
-        //SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-RRRHOP4;Initial Catalog=Genealogy;Integrated Security=True"); //Na
+        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-RRRHOP4;Initial Catalog=Genealogy;Integrated Security=True"); //Na
         SqlDataAdapter daGiaPha = null;
         DataTable dtGiaPha = null;
         BTree tree = new BTree();
@@ -592,27 +592,18 @@ namespace TestingGP
                 pnTheHe.Visible = true;
                 pnThuocGP.Visible = false;
                 PnXemBaMe.Visible = false;
-                //pnTheHe.Show();
-                //PnXemBaMe.Hide();
-                //pnThuocGP.Hide();
             }
             if (cbbMenu.Text == "Xem thông tin ba mẹ")
             {
                 pnTheHe.Visible = false;
                 pnThuocGP.Visible = false;
                 PnXemBaMe.Visible = true;
-                //pnTheHe.Hide();
-                //PnXemBaMe.Show();
-                //pnThuocGP.Hide();
             }
             if (cbbMenu.Text == "Xem những người thuộc gia phả")
             {
                 pnTheHe.Visible = false;
                 pnThuocGP.Visible = true;
                 PnXemBaMe.Visible = false;
-                //pnTheHe.Hide();
-                //PnXemBaMe.Hide();
-                //pnThuocGP.Show();
             }
         }
         private void btXemBaMe_Click(object sender, EventArgs e)
