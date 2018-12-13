@@ -84,7 +84,7 @@
             this.mnuTroGiup});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(926, 27);
+            this.menuStrip1.Size = new System.Drawing.Size(926, 30);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -93,13 +93,13 @@
             this.mnuTapTin.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuThoat});
             this.mnuTapTin.Name = "mnuTapTin";
-            this.mnuTapTin.Size = new System.Drawing.Size(63, 23);
+            this.mnuTapTin.Size = new System.Drawing.Size(78, 26);
             this.mnuTapTin.Text = "Tập tin";
             // 
             // mnuThoat
             // 
             this.mnuThoat.Name = "mnuThoat";
-            this.mnuThoat.Size = new System.Drawing.Size(180, 24);
+            this.mnuThoat.Size = new System.Drawing.Size(131, 26);
             this.mnuThoat.Text = "Thoát";
             this.mnuThoat.Click += new System.EventHandler(this.mnuThoat_Click);
             // 
@@ -108,20 +108,20 @@
             this.mnuDanhMuc.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuHuongDan});
             this.mnuDanhMuc.Name = "mnuDanhMuc";
-            this.mnuDanhMuc.Size = new System.Drawing.Size(82, 23);
+            this.mnuDanhMuc.Size = new System.Drawing.Size(100, 26);
             this.mnuDanhMuc.Text = "Danh mục";
             // 
             // mnuHuongDan
             // 
             this.mnuHuongDan.Name = "mnuHuongDan";
-            this.mnuHuongDan.Size = new System.Drawing.Size(180, 24);
+            this.mnuHuongDan.Size = new System.Drawing.Size(178, 26);
             this.mnuHuongDan.Text = "Hướng dẫn ";
             this.mnuHuongDan.Click += new System.EventHandler(this.mnuHuongDan_Click);
             // 
             // mnuTroGiup
             // 
             this.mnuTroGiup.Name = "mnuTroGiup";
-            this.mnuTroGiup.Size = new System.Drawing.Size(71, 23);
+            this.mnuTroGiup.Size = new System.Drawing.Size(91, 26);
             this.mnuTroGiup.Text = "Trợ giúp";
             this.mnuTroGiup.Click += new System.EventHandler(this.mnuTroGiup_Click);
             // 
@@ -138,7 +138,7 @@
             // 
             // FormHome
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;

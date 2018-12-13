@@ -62,3 +62,16 @@ F:\TestingGP\TestingGP\obj\Debug\TestingGP.csproj.GenerateResource.cache
 F:\TestingGP\TestingGP\obj\Debug\TestingGP.csproj.CoreCompileInputs.cache
 F:\TestingGP\TestingGP\obj\Debug\TestingGP.exe
 F:\TestingGP\TestingGP\obj\Debug\TestingGP.pdb
+D:\Studying\CTDL-GT\Lưu Trữ\TestingGP\TestingGP\bin\Debug\TestingGP.exe.config
+D:\Studying\CTDL-GT\Lưu Trữ\TestingGP\TestingGP\bin\Debug\TestingGP.exe
+D:\Studying\CTDL-GT\Lưu Trữ\TestingGP\TestingGP\bin\Debug\TestingGP.pdb
+D:\Studying\CTDL-GT\Lưu Trữ\TestingGP\TestingGP\obj\Debug\TestingGP.csprojAssemblyReference.cache
+D:\Studying\CTDL-GT\Lưu Trữ\TestingGP\TestingGP\obj\Debug\TestingGP.Add.resources
+D:\Studying\CTDL-GT\Lưu Trữ\TestingGP\TestingGP\obj\Debug\TestingGP.FormDisplay.resources
+D:\Studying\CTDL-GT\Lưu Trữ\TestingGP\TestingGP\obj\Debug\TestingGP.FormHome.resources
+D:\Studying\CTDL-GT\Lưu Trữ\TestingGP\TestingGP\obj\Debug\TestingGP.FormHelp.resources
+D:\Studying\CTDL-GT\Lưu Trữ\TestingGP\TestingGP\obj\Debug\TestingGP.Properties.Resources.resources
+D:\Studying\CTDL-GT\Lưu Trữ\TestingGP\TestingGP\obj\Debug\TestingGP.csproj.GenerateResource.cache
+D:\Studying\CTDL-GT\Lưu Trữ\TestingGP\TestingGP\obj\Debug\TestingGP.csproj.CoreCompileInputs.cache
+D:\Studying\CTDL-GT\Lưu Trữ\TestingGP\TestingGP\obj\Debug\TestingGP.exe
+D:\Studying\CTDL-GT\Lưu Trữ\TestingGP\TestingGP\obj\Debug\TestingGP.pdb

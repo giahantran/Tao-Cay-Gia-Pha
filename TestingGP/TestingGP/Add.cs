@@ -13,9 +13,9 @@ namespace TestingGP
 {
     public partial class Add : Form
     {
-        //SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-C99VFUB\GIAHAN;Initial Catalog=DL_GIAPHA;Integrated Security=True"); //Hân
+        //SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-C99VFUB\GIAHAN;Initial Catalog=GIAPHA;Integrated Security=True"); //Hân
         //SqlConnection conn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=GIAPHA;Integrated Security=True"); //Văn
-        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-RRRHOP4;Initial Catalog=Genealogy;Integrated Security=True"); //Na
+        //SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-RRRHOP4;Initial Catalog=Genealogy;Integrated Security=True"); //Na
         SqlDataAdapter daGiaPha = null;
         DataTable dtGiaPha = null;
         BTree tree = new BTree();
@@ -68,7 +68,7 @@ namespace TestingGP
             }
             catch (SqlException)
             {
-                MessageBox.Show("Không thể kết nối CSDL", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.None);
+                MessageBox.Show("Không thể kết nối CSDL", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void Disconnect()
@@ -408,7 +408,7 @@ namespace TestingGP
                 dgvGiaPha.DataSource = dtGiaPha;
                 AddToDataGridView(a);
             }
-            else MessageBox.Show("Không có người này trong gia phả", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.None);
+            else MessageBox.Show("Không có người này trong gia phả", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         private void btDelAll_Click(object sender, EventArgs e)
         {
