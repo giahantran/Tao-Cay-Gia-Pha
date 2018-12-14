@@ -313,6 +313,7 @@ namespace TestingGP
             dgvGiaPha.Visible = false;
             treeViewShowAdd.Visible = true;
             btXoa.Enabled = false;
+            btSua.Enabled = false;
         }
         private void btXemDS_Click(object sender, EventArgs e)
         {
@@ -320,6 +321,7 @@ namespace TestingGP
             dgvGiaPha.Visible = true;
             treeViewShowAdd.Visible = false;
             btXoa.Enabled = true;
+            btSua.Enabled = true;
         }
         private void treeViewShowAdd_AfterSelect(object sender, TreeViewEventArgs e)
         {
@@ -412,16 +414,19 @@ namespace TestingGP
         }
         private void btDelAll_Click(object sender, EventArgs e)
         {
-            tree.RemoveTree(ref root);
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conn;
-            for (int i = 0; i < dgvGiaPha.Rows.Count; i++)
+            if (MessageBox.Show("Bạn chắc chắn muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                string sID = dgvGiaPha.Rows[i].Cells[1].Value.ToString();
-                cmd.CommandText = "Delete from UserGP where ID = " + sID + "";
-                cmd.ExecuteNonQuery();
+                tree.RemoveTree(ref root);
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                for (int i = 0; i < dgvGiaPha.Rows.Count; i++)
+                {
+                    string sID = dgvGiaPha.Rows[i].Cells[1].Value.ToString();
+                    cmd.CommandText = "Delete from UserGP where ID = " + sID + "";
+                    cmd.ExecuteNonQuery();
+                }
+                KetNoi();
             }
-            KetNoi();
         }
         void EventCellClick()
         {

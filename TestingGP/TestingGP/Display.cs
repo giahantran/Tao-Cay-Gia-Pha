@@ -171,11 +171,16 @@ namespace TestingGP
             KetNoi();
             dgvGiaPha.Visible = false;
             treeViewShowDisplay.Visible = true;
+            btSua.Enabled = false;
+            btXoa.Enabled = false;
         }
         private void btXemDS_Click(object sender, EventArgs e)
         {
+            KetNoi();
             dgvGiaPha.Visible = true;
             treeViewShowDisplay.Visible = false;
+            btXoa.Enabled = true;
+            btSua.Enabled = true;
         }
         private DataTable Connect(string sql, SqlConnection con)
         {
